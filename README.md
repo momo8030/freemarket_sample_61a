@@ -4,14 +4,14 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: flase|
-|email|string|null: flase,unique: ture|
-|password|string|null:flase|
-|first_name|string|null: flase|
-|last_name|string|null: flase|
-|birthday|integer|null: flase|
+|nickname|string|null: false|
+|email|string|null: false,unique: true|
+|password|string|null:false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|birthday|integer|null: false|
 |comment|string||
-|phone_number|integer|null: flase,unique: ture|
+|phone_number|integer|null: false,unique: true|
 
 ### アソシエーション
 - has_one :addresses
@@ -24,16 +24,16 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: flase|
-|name|string|null: flase|
-|price|integer|null: flase|
+|image|string|null: false|
+|name|string|null: false|
+|price|integer|null: false|
 |comment|string||
-|state|string|null: flase|
-|category|string|null: flase|
+|state|string|null: false|
+|category|string|null: false|
 |size|integer||
-|postage|string|null: flase|
-|region|string|null: flase|
-|shopping_date|integer|null: flase|
+|postage|string|null: false|
+|region|string|null: false|
+|shopping_date|integer|null: false|
 |buyer_id|integer|Class_name:"User"|
 |seller_id|integer|Class_name:"User"|
 |brand_id|integer|foreign_kry: true|
@@ -50,10 +50,10 @@
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:flase,unique: ture|
-|post_number|integer(7)|null: flase|
-|prefectures|string|null: flase|
-|city|integer|null: flase|
+|user_id|integer|null:false,unique: true|
+|post_number|integer(7)|null: false|
+|prefectrues|string|null: false|
+|city|integer|null: false|
 
 ### アソシエーション
 - has_one :user
@@ -61,9 +61,9 @@
 ## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:flase,unique: ture|
-|card_id|integer|null: flase|
-|customer_id|integer|null: flase|
+|user_id|integer|null:false,unique: true|
+|card_id|integer|null: false|
+|customer_id|integer|null: false|
 
 ### アソシエーション
 - has_one :user
@@ -71,8 +71,8 @@
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:flase,foreign_key: true|
-|item_id|integer|null:flase,foreign_key: true|
+|user_id|integer|null:false,foreign_key: true|
+|item_id|integer|null:false,foreign_key: true|
 |text|text||
 
 ### アソシエーション
@@ -82,8 +82,8 @@
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:flase,foreign_key: true|
-|item_id|integer|null:flase,foreign_key: true|
+|user_id|integer|null:false,foreign_key: true|
+|item_id|integer|null:false,foreign_key: true|
 
 ### アソシエーション
 - belongs_to :user
@@ -92,8 +92,8 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|url|text|null:flase|
-|item_id|integer|null:flase,foreign_key: true|
+|url|text|null:false|
+|item_id|integer|null:false,foreign_key: true|
 
 ### アソシエーション
 - belongs_to :items
@@ -101,8 +101,8 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null:flase|
-|accetry|string|null:flase|
+|name|string|null:false|
+|accetry|string|null:false|
 
 ### アソシエーション
 - belongs_to :items
@@ -111,7 +111,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|text||
-|item_id|integer|null:flase,foreigin_key: ture|
+|item_id|integer|null:false,foreigin_key: true|
 
 ### アソシエーション
 - has_many :items
