@@ -36,7 +36,7 @@
 |shopping_date|integer|null: false|
 |buyer_id|integer|Class_name:"User"|
 |seller_id|integer|Class_name:"User"|
-|brand_id|integer|foreign_kry: true|
+|brand_id|integer|foreign_key: true|
 
 ### アソシエーション
 - has_many :comments
