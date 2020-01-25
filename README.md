@@ -14,12 +14,12 @@
 |phone_number|integer|null: false,unique: true|
 
 ### アソシエーション
-- has_one :addresses
-- has_one :creditcards
+- has_one :address
+- has_one :creditcard
 - has_many :comments
 - has_many :likes
 - has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
-- has_many :saling_items, foreign_key: "seller_id", class_name: "Item"
+- has_many :seling_items, foreign_key: "seller_id", class_name: "Item"
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -34,7 +34,7 @@
 |postage|string|null: false|
 |region|string|null: false|
 |shopping_date|integer|null: false|
-|buyer_id|integer|Class_name:"User"|
+|buyer_id|integer|Class_name:"User",foreign_key: true|
 |seller_id|integer|Class_name:"User"|
 |brand_id|integer|foreign_key: true|
 
@@ -43,8 +43,8 @@
 - has_many :likes
 - has_many :images
 - has_many :category
-- belongs_to :brands
-- belongs_to :saller, class_name: "User"
+- belongs_to :brand
+- belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
 
 ## addressesテーブル
@@ -77,7 +77,7 @@
 
 ### アソシエーション
 - belongs_to :user
-- belongs_to :items
+- belongs_to :item
 
 ## likesテーブル
 |Column|Type|Options|
@@ -87,7 +87,7 @@
 
 ### アソシエーション
 - belongs_to :user
-- belongs_to :items
+- belongs_to :item
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -96,7 +96,7 @@
 |item_id|integer|null:false,foreign_key: true|
 
 ### アソシエーション
-- belongs_to :items
+- belongs_to :item
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -105,12 +105,12 @@
 |accetry|string|null:false|
 
 ### アソシエーション
-- belongs_to :items
+- belongs_to :item
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text||
+|name|string|null: false|
 |item_id|integer|null:false,foreigin_key: true|
 
 ### アソシエーション
