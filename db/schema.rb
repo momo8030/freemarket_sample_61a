@@ -12,16 +12,4 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
-    t.string "email", null: false
-    t.string "password", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.integer "birthday", null: false
-    t.string "comment"
-    t.integer "phone_number", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-  end
-
 end
