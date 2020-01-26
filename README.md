@@ -35,7 +35,7 @@
 |region|string|null: false|
 |shopping_date|integer|null: false|
 |buyer_id|integer|Class_name:"User",foreign_key: true|
-|seller_id|integer|Class_name:"User"|
+|seller_id|integer|Class_name:"User",null: false, foreign_key: true|
 |brand_id|integer|foreign_key: true|
 
 ### アソシエーション
@@ -50,13 +50,16 @@
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false,unique: true|
+|user_id|integer|null:false,foreign_key: true|
 |post_number|integer(7)|null: false|
-|prefectrues|string|null: false|
-|city|integer|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|town|string|null: false|
+|building_name|string||
+
 
 ### アソシエーション
-- has_one :user
+- belongs_to :user
 
 ## creditcardsテーブル
 |Column|Type|Options|
@@ -66,7 +69,7 @@
 |customer_id|integer|null: false|
 
 ### アソシエーション
-- has_one :user
+- belongs_to :user
 
 ## commentsテーブル
 |Column|Type|Options|
