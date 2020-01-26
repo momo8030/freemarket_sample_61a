@@ -84,3 +84,4 @@ gem "binding_of_caller"
 gem 'pry-rails'
 gem 'devise'
 gem 'fog-aws'
+gem 'gretel'
