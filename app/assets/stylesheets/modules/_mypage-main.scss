@@ -1,0 +1,49 @@
+.wrapper {
+  margin: 40px auto 0;
+  width: 1020px;
+  padding-bottom: 40px;
+  display: flex;
+}
+
+.contents {
+  width: 700px;
+  .mypage__user {
+    height: 200px;
+    position: relative;
+    background-image: url('user-bg.jpg');
+    &-icon {
+      position: absolute;
+      top: 40px;
+      text-align: center;
+      .nickname {
+        margin: 8px 0 0 0;
+      }
+      .mypage-status {
+        margin-top: 8px;
+        span {
+          font-weight: bold;
+          font-size: 16px;
+          margin-left: 8px;
+        }
+        .status {
+          display: inline-block;
+        }
+        .exhibition {
+          margin-left: 8px;
+        }
+      }
+    }
+    &-icon:hover {
+      opacity: 0.8;
+      .nickname {
+        text-decoration: underline;
+      }
+    }
+    .user-img {
+      margin: 0 320px;
+      border-radius: 100px;
+      transform: rotate( 90deg );
+    }
+   }
+  }
+
