@@ -24,7 +24,6 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
 |name|string|null: false|
 |price|integer|null: false|
 |comment|string||
@@ -114,7 +113,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|item_id|integer|null:false,foreigin_key: true|
 
 ### アソシエーション
 - has_many :items
