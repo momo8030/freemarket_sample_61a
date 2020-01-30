@@ -22,6 +22,7 @@
 - has_one :creditcard
 - has_many :comments
 - has_many :likes
+- has_many :todos
 - has_many :bought_items, foreign_key: "buyer_id", class_name: "Item"
 - has_many :seling_items, foreign_key: "seller_id", class_name: "Item"
 
@@ -121,6 +122,17 @@
 
 ### アソシエーション
 - has_many :items
+
+## todosテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false,foreign_key: true|
+|text|text||
+
+### アソシエーション
+- belongs_to :user
+
+
 
 
 
