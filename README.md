@@ -32,7 +32,7 @@
 |name|string|null: false|
 |price|integer|null: false|
 |comment|string||
-|state|string|null: false|
+|state|integer|null: false|
 |category|string|null: false|
 |size|integer||
 |postage|string|null: false|
@@ -80,7 +80,7 @@
 |------|----|-------|
 |user_id|integer|null:false,foreign_key: true|
 |item_id|integer|null:false,foreign_key: true|
-|text|text||
+|text|text|null:false|
 
 ### アソシエーション
 - belongs_to :user
