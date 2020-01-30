@@ -45,8 +45,7 @@
 - has_many :comments
 - has_many :likes
 - has_many :images
-- has_many :items-categories
-- has_many :categories,through:items-categories
+- belongs_to :category
 - belongs_to :brand
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
@@ -112,10 +111,8 @@
 |accetry|string|null:false|
 
 ### アソシエーション
-- has_many :items-categories
-- has_many :brands-categories
-- has_many :items,through:items-categories
-- has_many :brands,through:brands-categories
+- has_many :items
+- has_ancestry
 
 ## brandsテーブル
 |Column|Type|Options|
@@ -124,34 +121,6 @@
 
 ### アソシエーション
 - has_many :items
-- has_many :brands-categories
-- has_many :categories,through:brands-categories
-
-## brand-categoryテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|integer|null:false,foreign_key: true|
-|category_id|integer|null:false,foreign_key: true|
-
-### アソシエーション
-- belongs_to :brand
-- belonfs_to :category
-
-## item-categoryテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|integer|null:false,foreign_key: true|
-|category_id|integer|null:false,foreign_key: true|
-
-### アソシエーション
-- belongs_to :brand
-- belonfs_to :category
-
-
-
-
-
-
 
 
 
