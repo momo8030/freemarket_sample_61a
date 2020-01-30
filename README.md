@@ -9,7 +9,11 @@
 |password|string|null:false|
 |first_name|string|null: false|
 |last_name|string|null: false|
-|birthday|integer|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
+|birth_year|data|null: false|
+|birth_month|data|null: false|
+|birth_day|data|null: false|
 |comment|string||
 |phone_number|integer|null: false,unique: true|
 
@@ -18,7 +22,7 @@
 - has_one :creditcard
 - has_many :comments
 - has_many :likes
-- has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
+- has_many :bought_items, foreign_key: "buyer_id", class_name: "Item"
 - has_many :seling_items, foreign_key: "seller_id", class_name: "Item"
 
 ## itemsテーブル
@@ -41,7 +45,8 @@
 - has_many :comments
 - has_many :likes
 - has_many :images
-- has_many :category
+- has_many :items-categories
+- has_many :categories,through:items-categories
 - belongs_to :brand
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
@@ -107,7 +112,10 @@
 |accetry|string|null:false|
 
 ### アソシエーション
-- belongs_to :item
+- has_many :items-categories
+- has_many :brands-categories
+- has_many :items,through:items-categories
+- has_many :brands,through:brands-categories
 
 ## brandsテーブル
 |Column|Type|Options|
@@ -116,6 +124,34 @@
 
 ### アソシエーション
 - has_many :items
+- has_many :brands-categories
+- has_many :categories,through:brands-categories
+
+## brand-categoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null:false,foreign_key: true|
+|category_id|integer|null:false,foreign_key: true|
+
+### アソシエーション
+- belongs_to :brand
+- belonfs_to :category
+
+## item-categoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null:false,foreign_key: true|
+|category_id|integer|null:false,foreign_key: true|
+
+### アソシエーション
+- belongs_to :brand
+- belonfs_to :category
+
+
+
+
+
+
 
 
 
