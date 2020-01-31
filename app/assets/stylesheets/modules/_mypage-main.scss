@@ -5,6 +5,11 @@
   display: flex;
 }
 
+a {
+  text-decoration: none;
+  color: #333;
+}
+
 .contents {
   width: 700px;
   .mypage__user {
