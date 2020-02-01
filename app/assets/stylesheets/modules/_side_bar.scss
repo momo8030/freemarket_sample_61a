@@ -15,7 +15,7 @@ ul {
   background-color: #f5f5f5;
 }
 
-.mypage-list {
+.mypage__list {
   padding: 13.5px 16px;
   border-bottom: 0.05px solid #EEE;
   color: #333;
@@ -41,3 +41,13 @@ ul {
   margin-top: 8px;
 }
 
+// ul#list_active li {
+//   background-color: transparent; /* default value */
+// }
+// ul#list_active li.selected {
+//   background-color: #EEE;
+// }
+#nav a .list__mypage-active.active    {
+  font-weight: bold;
+  background:#EEE;
+}
