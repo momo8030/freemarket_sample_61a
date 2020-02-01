@@ -1,0 +1,24 @@
+.contents
+  .mypage__user
+    .mypage__user-icon
+      = link_to "#" do
+        .icon
+          = image_tag 'haru.jpeg', class: 'user-img', size: '60x60'
+        %h2.nickname
+          current-user.nickname
+        .mypage-status
+          %div.status
+            評価
+          %span
+            14
+          %div.status.exhibition
+            出品数
+          %span
+            0 
+    //お知らせ・やることリスト
+  .notification__todo
+    = render "tab_notification_todo"
+    //取引履歴
+  .bought__goods
+    = render "bought-goods"
+  
