@@ -1,10 +1,17 @@
+/*!
+ * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
+ * http://cssreset.com
+ * Copyright 2012 Yahoo! Inc. All rights reserved.
+ * http://yuilibrary.com/license/
+ */
 /*
     TODO will need to remove settings on HTML since we can't namespace it.
     TODO with the prefix, should I group by selector or property for weight savings?
 */
 html{
   color:#000;
-  background:#FFF;
+  background-color: #f5f5f5;
+  font-size: 14px;
 }
 /*
   TODO remove settings on BODY since we can't namespace it.
@@ -105,7 +112,12 @@ select {
   font-family:inherit;
   font-size:inherit;
   font-weight:inherit;
-  *font-size:100%; /*to enable resizing for IE*/
+}
+/*to enable resizing for IE*/
+input,
+textarea,
+select {
+  *font-size:100%;
 }
 /*because legend doesn't inherit in IE */
 legend {
@@ -113,3 +125,7 @@ legend {
 }
 /* YUI CSS Detection Stamp */
 #yui3-css-stamp.cssreset { display: none; }
+
+body {
+  font-family: 'Arial','YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+  }

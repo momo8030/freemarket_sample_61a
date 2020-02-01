@@ -1,0 +1,70 @@
+.mypage__tab
+  %ul
+    = link_to "#", class: "notification" do
+      %li.tab.notice
+        お知らせ
+    = link_to "#" do
+      %li.tab.acction-list
+        やることリスト
+    //お知らせ５件
+  .mypage__link-contents
+    = link_to "#" do
+      %ul.mypage__item-link
+        %li.mypage__item-link-img
+          = image_tag 'mercari_profile.png', size: '48x48'
+        %li.mypage__item-link-text
+          事務局から個別メッセージ「ログイン通知」
+          .create-time
+            = icon 'far', 'clock'
+            5 日前
+        %li.mypage__item
+          .to-do-allow
+            = icon 'fas', 'chevron-right'
+    = link_to "#" do
+      %ul.mypage__item-link
+        %li.mypage__item-link-img
+          = image_tag 'mercari_profile.png', size: '48x48'
+        %li.mypage__item-link-text
+          《もう参加した？》今なら2,020名様に1万円が当たるチャンス！詳しくはこちらから♪
+          .create-time
+            = icon 'far', 'clock'
+            6 日前
+        %li.to-do-allow
+          = icon 'fas', 'chevron-right'
+    = link_to "#" do
+      %ul.mypage__item-link
+        %li.mypage__item-link-img
+          = image_tag 'mercari_profile.png', size: '48x48'
+        %li.mypage__item-link-text
+          《2,020名様に1万円が当たる！》パシャシュッピーンキャンペーン開催中♪
+          .create-time
+            = icon 'far', 'clock'
+            14 日前
+        %li.to-do-allow
+          = icon 'fas', 'chevron-right'
+    = link_to "#" do
+      %ul.mypage__item-link
+        %li.mypage__item-link-img
+          = image_tag 'mercari_profile.png', size: '48x48'
+        %li.mypage__item-link-text
+          《まもなく終了！》休暇中に出品して売上金を2倍にしよう！今すぐチェック♪
+          .create-time
+            = icon 'far', 'clock'
+            20 日前
+        %li.to-do-allow
+          = icon 'fas', 'chevron-right'
+    = link_to "#" do
+      %ul.mypage__item-link
+        %li.mypage__item-link-img
+          = image_tag 'mercari_profile.png', size: '48x48'
+        %li.mypage__item-link-text
+          《1/9まで》「あけおめ」でメルペイをはじめるとP1,000必ずもらえる！さらに抽選で全額ポイント還元のチャンスも！？
+          .create-time
+            = icon 'far', 'clock'
+            21 日前
+        %li.to-do-allow
+          = icon 'fas', 'chevron-right'
+  
+  .other        
+    = link_to "#",class: 'other__list' do
+      一覧を見る

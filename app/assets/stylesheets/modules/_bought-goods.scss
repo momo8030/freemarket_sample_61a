@@ -1,0 +1,80 @@
+.bought__contents {
+  margin-top: 40px;
+  .buy-goods {
+    height: 72px;
+    padding: 0 16px;
+    line-height: 72px;
+    background-color: #fafafa;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .tab {
+    display: inline-block;
+    background-color: #fff;
+    height: 74px;
+    line-height: 74px;
+    float: left;
+    border: none;
+    width: 350px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  //取引中
+  .trading {
+    background-color: #EEE;
+  }
+  //過去の取引
+  .past-transactions {
+    border-top: 2px solid red;
+  }
+
+  //過去の取引リスト
+  .mypage__transactions-item-link {
+    display: flex;
+    padding: 16px;
+    background-color: #fff;
+    position: relative;
+    border-bottom: 1px solid #f5f5f5;
+    cursor: pointer;
+    &:hover {
+      background-color: #f9f9f9;
+    }
+    &-text {
+      width: 595px;
+      margin : 0 25px 0 20px;
+      .far {
+        font-size: 16px;
+      }
+    }
+    .item-allow {
+      line-height: 48px;
+      color: #333;
+      float: right;
+      font-size: 16px;
+    }
+  }
+  //取引完了
+  .span {
+    display: inline-block;
+    font-weight: bold;
+    background-color: #888;
+    font-size: 12px;
+    margin-top: 8px;
+    padding: 2px 6px;
+    color: #fff;
+    border-radius: 2px;
+  }
+
+  //過去の取引リスト５件以上ある場合表示のリンク
+  .other {
+    text-align: center;
+    line-height: 56px;
+    border: 16px solid #fff;
+    background-color: #eee;
+    &:hover {
+      cursor: pointer;
+      background-color: #f9f9f9;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+.bought__contents
+  .buy-goods
+    購入した商品
+  %ul
+    = link_to "#", class: "trading" do
+      %li.tab.trading
+        取引中
+    = link_to "#", class: "past-transactions" do
+      %li.tab.past-transactions
+        過去の取引
+  //過去の取引リスト
+  .mypage__transactions-contents
+    = link_to "#" do
+      %ul.mypage__transactions-item-link
+        %li.mypage__transactions-item-link-img
+          = image_tag 'past-tradition-_1.jpg', size: '48x48'
+        %li.mypage__transactions-item-link-text
+          「デッサンのための美術解剖図」 を購入しました。取引が完了しました。
+          %br
+          .span
+            取引完了
+        %li.mypage__item
+          .item-allow
+            = icon 'fas', 'chevron-right'
+      %ul.mypage__transactions-item-link
+        %li.mypage__transactions-item-link-img
+          = image_tag 'past-tradition-_2.jpg', size: '48x48'
+        %li.mypage__transactions-item-link-text
+          「メモの魔力」 を購入しました。取引が完了しました。
+          %br
+          .span
+            取引完了
+        %li.mypage__item
+          .item-allow
+            = icon 'fas', 'chevron-right'
+      %ul.mypage__transactions-item-link
+        %li.mypage__transactions-item-link-img
+          = image_tag 'past-tradition-_3.jpg', size: '48x48'
+        %li.mypage__transactions-item-link-text
+          「apple magic mouse2」 を購入しました。取引が完了しました。
+          %br
+          .span
+            取引完了
+        %li.mypage__item
+          .item-allow
+            = icon 'fas', 'chevron-right'
+      %ul.mypage__transactions-item-link
+        %li.mypage__transactions-item-link-img
+          = image_tag 'past-tradition-_4.jpg', size: '48x48'
+        %li.mypage__transactions-item-link-text
+          「MacBook Pro 2018 13インチ」 を購入しました。取引が完了しました。
+          %br
+          .span
+            取引完了
+        %li.mypage__item
+          .item-allow
+            = icon 'fas', 'chevron-right'
+      %ul.mypage__transactions-item-link
+        %li.mypage__transactions-item-link-img
+          = image_tag 'past-tradition-_5.jpg', size: '48x48'
+        %li.mypage__transactions-item-link-text
+          「ミキハウス離乳食食器セット」 を購入しました。取引が完了しました。
+          %br
+          .span
+            取引完了
+        %li.mypage__item
+          .item-allow
+            = icon 'fas', 'chevron-right'
+  .other        
+    = link_to "#",class: 'other__list' do
+      一覧を見る
