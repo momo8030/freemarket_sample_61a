@@ -1,13 +1,14 @@
 header {
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-  .header-top{
+  .header-top {
     width: 1020px;
+    height:100px ;
     margin: 0 auto;
-    padding: 8px;
+    padding-top: 8px;
     .logo-search-contents {
       display: flex;
-      justify-content: space-between;   
-      .logo {
+      justify-content: space-between;  
+      .logo{
         width: 134px;
         margin-right:45px;
         height: 40px;
@@ -15,7 +16,7 @@ header {
       form {
         position: relative;
         width: 100%;
-        .search-form{
+        .search-form {
           height: 40px; 
           padding: 0px 50px 0px 10px;
           background-color: $background_rgb;
@@ -27,7 +28,7 @@ header {
           border-color: $border_rgb;
           outline: none;
         }
-        .search-btn{
+        .search-btn {
           position: absolute;
           top:0;
           right:0;
@@ -49,34 +50,30 @@ header {
       }   
     }
    .header-bottom {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 8px; 
-    font-size: 14px;
-    padding-bottom: 1px;
-    &__lists{
-      .search-navs{
+     display: flex;
+     justify-content: space-between;
+     margin-top: 8px;
+     font-size: 14px;
+    &__lists {
+     .search-navs {
         display: flex;
         justify-content: space-between;   
         a {
           color: inherit;
           text-decoration: none;        
         }
-      &__category{
+      &__category {
         margin-left: 0;
         &__icon {
           text-decoration: none;
           cursor: pointer;
-          .nav-icon{
+          .nav-icon {
             color: $red;
             padding-right: 8px;
           }
-          span{
-            font-weight: bold;
-            vertical-align: middle;
-            line-height: 32px;
-            color: $text_black;
-            &:hover{
+          span {
+            @include nav_text;
+            &:hover {
               color: $light_blue;
             }
           }
@@ -87,15 +84,12 @@ header {
         &__icon {
           text-decoration: none;
           cursor: pointer;
-          .nav-icon{
+          .nav-icon {
             color: $red;
             padding-right: 8px;
           }
-          span{
-            font-weight: bold;
-            vertical-align: middle;
-            line-height: 32px;
-            color: $text_black;
+          span {
+            @include nav_text;
             &:hover{
               color: $light_blue;
             }
@@ -104,37 +98,27 @@ header {
       }
      }
     }
-   &__right{
+   &__right {
      display: flex;
      justify-content: space-between;
-    .signup-btn{
-      background-color: $red;
-      display: block;
-      font-size: 14px;
-      border-width: 1px;
-      border-style: solid;
+    .signup-btn {
+      background-color: $red; 
       border-color: $red;
-      border-radius: 4px;
-      padding: 8px 10px;
-    .signin-text{
+      @include btn_default;    
+    .signin-text {
       color: $background_rgb;
     }
    }
-   .login-btn{
-    background-color: $white;
-    color: $light_blue;
-    display: block;
-    font-size: 14px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: $light_blue; 
-    border-radius: 4px;
-    padding: 8px 10px;
-    margin-left:8px;
-    &:hover{
-      background-color: $light_blue;
-      color: $white;
-    }
+   .login-btn {
+     background-color: $white;
+     color: $light_blue;
+     border-color: $light_blue; 
+     margin-left:8px;
+     @include btn_default;
+     &:hover {
+       background-color: $light_blue;
+       color: $white;
+     }
    }
    a {
     color: inherit;
