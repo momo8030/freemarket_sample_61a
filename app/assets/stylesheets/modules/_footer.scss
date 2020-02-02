@@ -19,7 +19,7 @@ footer {
     text-decoration: none;
     &:hover {
       text-decoration: underline;
-    }  
+   }  
   }
   a {
     color: $white;
@@ -35,22 +35,22 @@ footer {
     }
    .nav-about {
     width: 20%;
-   .nav-link {
-    display: flex;
+    .nav-link {
+      display: flex;
+    }
+    .nav-icon {
+      font-size: 30px; 
+      margin-top: 10px;
+      margin-right: 20px;  
+    }
    }
-   .nav-icon {
-    font-size: 30px; 
-    margin-top: 10px;
-    margin-right: 20px;  
+   .nav-trems {  
+     padding-right: 10px;
+     width: 200px;
    }
-  }
-  .nav-trems {  
-   padding-right: 10px;
-   width: 200px;
-  }
    .nav-trems-right {
-   padding-top: 25px;
-   width: 200px;
+     padding-top: 25px;
+     width: 200px;
   }
  }
   .bottom {
@@ -60,18 +60,18 @@ footer {
     display: flex;
     align-items: center;
     opacity: 0.9;
-   .white-icon {
-    width: 124px;
-    &:hover {
-      opacity: 0.7; 
+    .white-icon {
+      width: 124px;
+      &:hover {
+        opacity: 0.7; 
+      }
     }
-   }
-   .copy-right {
-    text-align: center;
-    color: $white;
-    margin: 0 auto;
-    font-size: 12px;
-   }
- }
+    .copy-right {
+      text-align: center;
+      color: $white;
+      margin: 0 auto;
+      font-size: 12px;
+    }
+  }
 }
    
