@@ -1,0 +1,57 @@
+.banner {
+  background-image: image-url("main/download_app_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.banner__contents {
+  overflow: hidden;
+  width: 750px;
+  height: 260px;
+  margin: 0 auto;
+  position: relative;
+}
+.banner__contents-text {
+  position: absolute;
+  left: 0;
+  top: 16%;
+}
+.banner__contents-text h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+.banner__contents-text p {
+  font-size: 35px;
+  margin-top: 5px;
+}
+.banner__contents-text-icon {
+  display: flex;
+  margin-top: 10px;
+}
+.banner__contents-text-icon ul {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  background-color: transparent;
+}
+.banner__contents-text-icon ul li {
+  margin-top: 15px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+.banner__contents-text-icon ul li:hover {
+  opacity: 0.7;
+}
+.banner__contents .mercari-logo {
+  width: 68px;
+}
+.banner__contents-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.banner__contents-img .app-right {
+  width: 300px;
+  height: 100%;
+}
