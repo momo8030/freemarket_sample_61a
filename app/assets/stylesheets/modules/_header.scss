@@ -20,10 +20,9 @@ header {
         width: 100%;
         .search-form {
           padding: 0px 50px 0px 10px;
-          background-color: $background_rgb;
           font-size: 16px;
-          width: 100%; 
-          @include search;
+          width: 100%;    
+          @include search;    
         }
         .search-btn {
           position: absolute;
@@ -31,8 +30,8 @@ header {
           right:0;
           width: 40px;
           padding: 0px;
-          border-left: 0;
           @include search;
+          border-left: 0;
           .search-icon {
             width: 14px;
             cursor: pointer;  
