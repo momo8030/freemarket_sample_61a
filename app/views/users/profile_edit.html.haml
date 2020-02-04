@@ -1,0 +1,15 @@
+.wrapper
+  = render 'side_bar' #サイドの部分テンプレート
+  .profile
+    .profile__container
+      %h2.head プロフィール
+      =form_with url: '#', class: 'profile__flame' do |f|
+        .profile__flame__icon_and_name 
+          %figure
+            = image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png") #アバターのアイコン
+          = f.text_field :nickname, placeholder: "例)AYA☆セール中", class: "input_box" #ニックネームの入力フォーム
+        .profile__introduction
+          = f.text_area :introduction, placeholder: "例) こんにちは☆ご覧いただきありがとうございます!かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に９号です。気持ちよくお取引できるよう心がけていますので、商品の発送方法などご質問がありましたらお気軽にどうぞ♪" #自己紹介の入力フォーム
+          
+          .profile__change
+            = f.submit "変更する", class: 'btn'
