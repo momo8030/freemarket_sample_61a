@@ -1,6 +1,7 @@
 header {
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   background-color: $background_white;
+  position:relative;
   .header-top {
     width: 1020px;
     height:100px ;
@@ -37,86 +38,84 @@ header {
             cursor: pointer;  
           } 
         }
-      }   
+      }
     }
-   .header-bottom {
-     display: flex;
-     justify-content: space-between;
-     margin-top: 8px;
-     font-size: 14px;
-    &__lists {
-     .search-navs {
+    .header-bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 14px;  
+      .search-navs {
         display: flex;
         justify-content: space-between;   
         a {
           color: inherit;
           text-decoration: none;        
         }
-      &__category {
-        margin-left: 0;
-        &__icon {
-          text-decoration: none;
-          cursor: pointer;
-          .nav-icon {
-            color: $red;
-            padding-right: 8px;
-          }
-          span {
-            @include nav_text;
-            &:hover {
-              color: $light_blue;
+        &__category {
+          margin-left: 0;
+          &__icon {
+            text-decoration: none;
+            cursor: pointer;
+            .nav-icon {
+              color: $red;
+              padding-right: 8px;
+            }
+            span {
+              @include nav_text;
+              &:hover {
+                color: $light_blue;
+              }
             }
           }
         }
-      }
-      &__brand{
-        margin-left: 22px;
-        &__icon {
-          text-decoration: none;
-          cursor: pointer;
-          .nav-icon {
-            color: $red;
-            padding-right: 8px;
-          }
-          span {
-            @include nav_text;
-            &:hover{
-              color: $light_blue;
+        &__brand{
+          margin-left: 22px;
+          &__icon {
+            text-decoration: none;
+            cursor: pointer;
+            .nav-icon {
+              color: $red;
+              padding-right: 8px;
             }
-          }       
-        }  
+            span {
+              @include nav_text;
+              &:hover{
+                color: $light_blue;
+              }
+            } 
+          }  
+        }
       }
-     }
+      &__right {
+        display: flex;
+        justify-content: space-between;
+        .signup-btn {
+          background-color: $red; 
+          border-color: $red;
+          @include btn_default;    
+          .signin-text {
+            color: $background_rgb;
+          }
+        }
+        .login-btn {
+          background-color: $white;
+          color: $light_blue;
+          border-color: $light_blue; 
+          margin-left:8px;
+          @include btn_default;
+          &:hover {
+            background-color: $light_blue;
+            color: $white;
+          } 
+          a {
+            color: inherit;
+            text-decoration: none;
+          }
+        } 
+      }
     }
-   &__right {
-     display: flex;
-     justify-content: space-between;
-    .signup-btn {
-      background-color: $red; 
-      border-color: $red;
-      @include btn_default;    
-    .signin-text {
-      color: $background_rgb;
-    }
-   }
-   .login-btn {
-     background-color: $white;
-     color: $light_blue;
-     border-color: $light_blue; 
-     margin-left:8px;
-     @include btn_default;
-     &:hover {
-       background-color: $light_blue;
-       color: $white;
-     }
-   }
-   a {
-    color: inherit;
-    text-decoration: none;
-   }
   }
- }
- }
 }
  
    
