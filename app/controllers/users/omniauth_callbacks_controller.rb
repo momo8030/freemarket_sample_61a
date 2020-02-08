@@ -14,13 +14,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     redirect_to root_path
   end
 
+  private
+
   def authorization
     sns_info = User.from_omniauth(request.env["omniauth.auth"])
     @user = sns_info[:user]
   
-    if @user.persisted?
+    if @user.persisted? #登録済みの場合、新規登録ではなくログイン処理する
       sign_in_and_redirect @user, event: :authentication
-    else
+    else #ユーザー情報が未登録なので、新規登録へ遷移する
       @sns_id = sns_info[:sns].id
       render template:  'devise/registrations/new'
     end
