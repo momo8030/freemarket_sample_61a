@@ -1,6 +1,14 @@
+@import "./reset";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
-@import "users"
+@import "config/colors";
+@import "mixin/mixin";
+@import "modules/header";
+@import "modules/items";
+@import "modules/bottom-banner-ad";
+@import "modules/footer";
+@import "users";
+
 
 
 
