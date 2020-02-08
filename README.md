@@ -71,6 +71,8 @@
 |user_id|integer|null:false,unique: true|
 |card_id|integer|null: false|
 |customer_id|integer|null: false|
+|created_at|integer|null: false|
+|updated_at|integer|null: false|
 
 ### アソシエーション
 - belongs_to :user
