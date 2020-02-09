@@ -1,7 +1,11 @@
-.wrapper
-  = render "side_bar"
-  = render "mypage-main"
-  = render "exhibition-btn"
-  
+.mypage__header
+  - breadcrumb :mypage
+  = render "layouts/breadcrumbs"
+.mypage-contents
+  .mypage__wrapper
+    = render "side_bar"
+    = render "mypage-main"
+    = render "exhibition-btn"
   
 
+  
