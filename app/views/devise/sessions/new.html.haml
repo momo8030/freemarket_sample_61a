@@ -1,0 +1,33 @@
+
+%script{:src => "https://www.google.com/recaptcha/api.js"}
+%script{:src => "https://code.jquery.com/jquery-2.1.4.min.js", :type => "text/javascript"}
+.signup
+  .signup-header
+    .logo-signup
+      .signup_head-logo
+        =link_to root_path, class: 'signup-header__logo'do
+          %img.header-img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?238737266"} 
+  .signup-main
+  = form_for(resource, as: resource_name, url: root_path,method: :get) do |f|
+    .login-contents
+      .login-contents__title
+        %p アカウントをお持ちでない方はこちら
+        =link_to new_user_path, class: "login-btn__email" do
+          新規会員登録
+      .login-contents__form
+        .login-btn
+          =link_to root_path, class: "login-btn__facebook" do
+            .fab.fa-facebook-square
+            Facebookで登録する
+          =link_to root_path, class: "login-btn__google" do
+            .fab.fa-google
+            Googleで登録する
+        .login-btn
+        = form_with model: @user, url: new_user_session_path,  local: true do |f|
+          = f.text_field :email, placeholder: 'メールアドレス', class:'form-input'
+          = f.text_field :password, placeholder: 'パスワード', class:'form-input'
+        .login-btn   
+          .g-recaptcha{"data-callback" => "clearcall", "data-sitekey" => "6Lcer9UUAAAAAODTBE72Vg1asRfEfDuAfV14Uzqx"}
+        .login-btn_star
+          = f.submit "ログイン",class:"login-btn_start"
+  = render 'signups/signup_footer'
