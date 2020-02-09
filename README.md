@@ -1,24 +1,147 @@
-# README
+## README
+## freemarket_sample_61a DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false,unique: true|
+|password|string|null:false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
+|birth_year|data|null: false|
+|birth_month|data|null: false|
+|birth_day|data|null: false|
+|comment|string||
+|phone_number|integer|null: false,unique: true|
 
-Things you may want to cover:
+### アソシエーション
+- has_one :address
+- has_one :creditcard
+- has_many :comments
+- has_many :likes
+- has_many :todos
+- has_many :bought_items, foreign_key: "buyer_id", class_name: "Item"
+- has_many :seling_items, foreign_key: "seller_id", class_name: "Item"
 
-* Ruby version
+## itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|price|integer|null: false|
+|comment|string||
+|state|integer|null: false|
+|category|string|null: false|
+|size|integer||
+|postage|string|null: false|
+|region|string|null: false|
+|shopping_date|integer|null: false|
+|buyer_id|integer|Class_name:"User",foreign_key: true|
+|seller_id|integer|Class_name:"User",null: false, foreign_key: true|
+|brand_id|integer|foreign_key: true|
 
-* System dependencies
+### アソシエーション
+- has_many :comments
+- has_many :likes
+- has_many :images
+- belongs_to :category
+- belongs_to :brand
+- belongs_to :seller, class_name: "User"
+- belongs_to :buyer, class_name: "User"
 
-* Configuration
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false,foreign_key: true|
+|post_number|integer(7)|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|town|string|null: false|
+|building_name|string||
 
-* Database creation
 
-* Database initialization
+### アソシエーション
+- belongs_to :user
 
-* How to run the test suite
+## creditcardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false,unique: true|
+|card_id|integer|null: false|
+|customer_id|integer|null: false|
+|created_at|integer|null: false|
+|updated_at|integer|null: false|
 
-* Services (job queues, cache servers, search engines, etc.)
+### アソシエーション
+- belongs_to :user
 
-* Deployment instructions
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false,foreign_key: true|
+|item_id|integer|null:false,foreign_key: true|
+|text|text|null:false|
 
-* ...
+### アソシエーション
+- belongs_to :user
+- belongs_to :item
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false,foreign_key: true|
+|item_id|integer|null:false,foreign_key: true|
+
+### アソシエーション
+- belongs_to :user
+- belongs_to :item
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|url|text|null:false|
+|item_id|integer|null:false,foreign_key: true|
+
+### アソシエーション
+- belongs_to :item
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null:false|
+|accetry|string|null:false|
+
+### アソシエーション
+- has_many :items
+- has_ancestry
+
+## brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### アソシエーション
+- has_many :items
+
+## todosテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false,foreign_key: true|
+|text|text||
+
+### アソシエーション
+- belongs_to :user
+
+
+
+
+
+
+
+
+
+
+
+
