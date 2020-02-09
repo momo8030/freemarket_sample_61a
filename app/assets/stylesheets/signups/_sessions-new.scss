@@ -1,0 +1,71 @@
+.login-contents{
+  display: block;
+  max-width: 456px;
+  margin: auto;
+
+      &__title{
+      font-size: 14px;
+      padding: 32px;
+      text-align: center;
+      line-height: 1.5;
+      background-color: #fff;
+      padding: 40px 64px;
+      }
+
+      &__form{
+        background: #FFF;
+        margin: 1px auto;
+        padding: 20px 20px;
+       
+      }
+  
+  
+
+    .login-btn{
+      @include login-btn;
+
+      &__email{
+        display: block;
+        margin: 8px 0 0;
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        line-height: 40px;
+        color: #fff;
+      }
+  
+      &__facebook{
+        background: #385185;
+        display: block;
+        margin: 8px 0 0;
+        padding: 15px 40px;
+        color: #fff;
+      }
+  
+      &__google{
+        color: #333;
+        display: block;
+        border: #979797 solid 1px;
+        margin: 8px 0 0;
+        padding: 15px 40px;
+      }
+      &_start{
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        padding: 15px 40px;
+        width: 328px;
+        }
+
+  
+      }
+  
+}
+
+   
+
+  
+
+
+  
+
+

@@ -1,0 +1,183 @@
+// パンくずリスト
+.signup-bar{
+  font-size: 14px;
+  padding: 40px 0 0 44px;
+  vertical-align: top;
+  position: absolute;
+  right: 30%;
+
+
+  .signup-lists{
+    list-style: none;
+
+    .signup-list{
+      float: left;
+      position: relative;
+      font-weight: 600;
+      margin-right: 40px;
+      color: #888;
+      font-size: 12px;
+
+        &.active-title{
+          font-weight: 600;
+          color: #ea352d;
+        }
+    }
+
+    .list-round{
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      background: #ccc;
+      border-radius: 50%;
+
+        &-left_through{
+        background: #ea352d;
+        }
+        
+        &-right{
+          background: #ccc;
+        }
+    }
+
+    .list-round_bar{
+      bottom: 5px;
+      height: 2px;
+      background: #ccc;
+      position: relative;
+      
+      &_fast{
+        top: -7px;
+        left: 30px;
+      }
+
+      &_auto{
+        top: -7px;
+        right: 40px;
+      }
+
+      &_last1{
+        top: -7px;
+        right: 70px;
+        }
+      
+      &_last2{
+        bottom: 9px;
+        right: 30px;
+        width: 50px;
+      }
+
+      &_ok1{
+        background: #ea352d;
+        top: -7px;
+        left: 30px;
+      }
+
+      &_ok2{
+        background: #ea352d;
+        top: -7px;
+        right: 42px;
+      }
+
+      &_ok3{
+        width: 70px;
+        background:#ea352d;
+        top: -7px;
+        right: 70px;
+      }
+
+      &_ok4{
+        background: #ea352d;
+        bottom: 9px;
+        right: 30px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+ .form-input{
+  width: 328px;
+  font-size: 16px; 
+  letter-spacing: 1px;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  margin: 8px 0 0;
+  }
+
+  
+
+      .label{
+        font-size: 13px;
+        display:inline-block;
+      }
+
+  .essential {
+    background: #ea352d;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+
+
+  
+  .form-half{
+    width: 30%; 
+    height: 48px;
+    margin-top: 5px;
+    padding: 10px 16px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; 
+    letter-spacing: 1px; 
+  }
+  
+  .form-flex{
+    display: flex;
+    justify-content: space-between;
+  }
+  #form-flex{
+    position: relative;
+  }
+
+  #user_birthday_year,#user_birthday_month,#user_birthday_day{
+    background-color: white;
+    display: block;
+    width: 25%; 
+    height: 48px;
+    margin-top: 5px;
+    padding: 10px 16px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; 
+    letter-spacing: 1px; 
+  }
+
+
+  .next-button{
+    background: #ea352d;
+    color: #fff;
+    display: block;
+    border: #ea352d solid 1px;
+    padding: 15px 40px;
+    margin: auto;
+    width: 343px;
+   }
+  
+
+  
+  
+  
