@@ -257,14 +257,12 @@
     }
 
   .next-button{
-    background: #ea352d;
-    color: #fff;
-    display: block;
-    border: #ea352d solid 1px;
-    padding: 15px 40px;
-    margin: auto;
-    width: 343px;
+    @include next-button;
    }
+   .next-button2{
+    @include next-button;
+    margin: 50px 0 0;
+  }
   
 
   

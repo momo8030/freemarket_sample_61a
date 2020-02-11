@@ -43,7 +43,16 @@
   border-radius: 4px;
   padding: 10px 40px;
   margin: 16px 0 0;
-  
+}
+
+@mixin next-button{
+  background: #ea352d;
+  color: #fff;
+  display: block;
+  border: #ea352d solid 1px;
+  padding: 15px 40px;
+  margin: 50px 150px;
+  width: 343px;
 }
 
 @mixin signup-form {
