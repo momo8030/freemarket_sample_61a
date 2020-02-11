@@ -6,13 +6,12 @@
     .signup-contents__form
       .signup-btn
         %a.signup-btn__email.btn-mail{:href => "/users/sign_up"}
-          .far.fa-envelope
+          %i.far.fa-envelope.fa-lg
           メールアドレスで登録する
         =link_to root_path, class: "signup-btn__facebook" do
-          .fab.fa-facebook-square
+          %i.fab.fa-facebook-square.fa-2x
           Facebookで登録する
         =link_to root_path, class: "signup-btn__google" do
-          .fab.fa-google
+          %i.fab.fa-google.fa-1x
           Googleで登録する 
   = render 'signups/signup_footer'
--# = render "devise/shared/links"

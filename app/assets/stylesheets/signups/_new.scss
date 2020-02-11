@@ -1,7 +1,6 @@
 .signup-main{
   margin: 0;
   padding: 0;
- 
 
   .signup-contents{
     font-size: 22px;
@@ -14,65 +13,50 @@
     width: 700px;
     margin: 0 auto;
 
-    &__title{
-    position: relative;
-    top: 30px;
-    }
-
     &__form{
       width: 700px;
       height: auto;
       background: #FFF;
       margin: 1px auto;
       padding: 24px 16px 40px;
-    }
   
+
+      .signup-btn{
+        max-width: 343px;
+        margin: auto;
+        font-size: 14px;
+      
+        &__email{
+          @include login-btn-new;
+          background: #ea352d;
+
+          .fa-lg{
+            position: relative;
+            right: 50px;
+          }
+        }
+
+        &__facebook{
+          @include login-btn-new;
+          background: #385185;
+        
+          .fa-2x{
+            position: relative;
+            right: 70px;
+          }
+        }
+
+        &__google{
+          @include login-btn-new;
+          color: #333;
+          border: #979797 solid 1px;
+
+          .fa-1x{
+            position: relative;
+            right: 80px;
+          }
+        }
+      }
+    }
   }
-.signup-btn{
-  max-width: 343px;
-  margin: auto;
-  font-size: 14px;
-}
-.signup-btn__email{
-  background: #ea352d;
-  color: #fff;
-  display: block;
-  border-radius: 4px;
-  padding: 15px 40px;
-}
-
-.btn__email{
-  display: block;
-  margin: 8px 0 0;
-  border: 1px solid #0099e8;
-  background: #0099e8;
-  color: #fff;
-  line-height: 40px;
-
-}
-
-.signup-btn__facebook{
-  background: #385185;
-  color: #fff;
-  display: block;
-  border-radius: 4px;
-  margin: 16px 0 0;
-  padding: 15px 40px;
-}
-
-.signup-btn__google{
-  color: #333;
-  display: block;
-  border: #979797 solid 1px;
-  margin: 16px 0 0;
-  border-radius: 4px;
-  padding: 15px 40px;
-}
-
-.signup__start{
-  color: #FFF;
-}
-a { 
-  text-decoration: none;
- }
 }

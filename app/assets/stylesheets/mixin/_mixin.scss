@@ -30,6 +30,23 @@
   width: 408px;
   }
 
+@mixin login-btn-fa{
+  background: #385185;
+  display: block;
+  margin: 8px 0 0;
+  padding: 10px;
+  color: #fff;
+}
+
+@mixin login-btn-new {
+  color: #fff;
+  display: block;
+  border-radius: 4px;
+  padding: 10px 40px;
+  margin: 16px 0 0;
+  
+}
+
 @mixin signup-form {
   width: 700px;
   height: auto;
