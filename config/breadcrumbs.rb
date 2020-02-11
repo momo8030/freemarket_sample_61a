@@ -1,15 +1,32 @@
+#メインページ
 crumb :root do
   link "メルカリ", root_path
 end
-#マイページ
-crumb :root do
-  link "マイページ", mypage_users_path
+
+crumb :mypage do
+  link "マイページ", user_path
+  parent :root
 end
 
+crumb :info do
+  link "本人情報の登録"
+  parent :users
+end
 
-# crumb :projects do
-#   link "Projects", projects_path
-# end
+crumb :profile do
+  link "プロフィール"
+  parent :users
+end
+
+crumb :logout do
+  link "ログアウト"
+  parent :users
+end
+
+crumb :credit do
+  link "支払い方法"
+  parent :users
+end
 
 # crumb :project do |project|
 #   link project.name, project_path(project)

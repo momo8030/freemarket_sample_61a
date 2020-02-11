@@ -1,0 +1,32 @@
+.breadcrumbs {
+  width: 100vw;
+  height: 48px;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.16);
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.16);
+  -moz-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.16);
+  .breadcrumbs-list {
+    font-size: 18px;
+    color: #888;
+  }
+  a {
+    font-size: 14px;
+    margin-right: 5px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .contents {
+    width: calc(100vw - 420px);
+    margin: 0 210px;
+    padding: 15px 0;
+    font-size: 14px;
+  }
+  .current {
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+}
