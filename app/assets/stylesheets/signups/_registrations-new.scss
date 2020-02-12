@@ -138,7 +138,6 @@
         right: 10px;
       }
 
-
       &_h3{
         font-size: 16px;
         font-weight:  bold;
@@ -262,9 +261,4 @@
    .next-button2{
     @include next-button;
     margin: 50px 0 0;
-  }
-  
-
-  
-  
-  
+  } 

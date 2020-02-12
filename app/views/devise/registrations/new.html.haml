@@ -28,7 +28,7 @@
       = form_with model: @user, url: user1_signups_path, method: :get,  local: true do |f|
         .signup-content_text
           .form-group.form-group_text
-            = f.label :image, "ニックネーム", class: "form-group_label"
+            = f.label :nickname, "ニックネーム", class: "form-group_label"
             %span.essential 必須
           = f.text_field :nickname, placeholder: '例) メルカリ太郎', class:'form-input'
           .form-group.form-group_text
