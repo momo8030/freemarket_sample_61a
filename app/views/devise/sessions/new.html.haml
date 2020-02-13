@@ -1,6 +1,6 @@
 
-%script{:src => "https://www.google.com/recaptcha/api.js"}
-%script{:src => "https://code.jquery.com/jquery-2.1.4.min.js", :type => "text/javascript"}
+%script{src: "https://www.google.com/recaptcha/api.js"}
+%script{src: "https://code.jquery.com/jquery-2.1.4.min.js", type: "text/javascript"}
 .signup
   = render 'signups/signup_header'
   .signup-main
@@ -23,8 +23,8 @@
         = form_with model: @user, url: new_user_session_path,  local: true do |f|
           = f.text_field :email, placeholder: 'メールアドレス', class:'form-input'
           = f.text_field :password, placeholder: 'パスワード', class:'form-input'   
-          .g-recaptcha{"data-callback" => "clearcall", "data-sitekey" => "6Lcer9UUAAAAAODTBE72Vg1asRfEfDuAfV14Uzqx"}
+          .g-recaptcha{"data-callback": "clearcall", "data-sitekey": "6Lcer9UUAAAAAODTBE72Vg1asRfEfDuAfV14Uzqx"}
         .login-btn
           = f.submit "ログイン",class:"login-btn_start"
-          %a.login-a{:href => "/"}パスワードをお忘れの方
+          %a.login-a{href: "/"}パスワードをお忘れの方
   = render 'signups/signup_footer'

@@ -81,18 +81,18 @@
             %p 修正するにはお時間を頂く場合があります。
           .form-group_p2
             「次へ進む」のボタンを押すことにより、
-            %a{:href => "/"}> 利用規約
+            %a{href: "/"}> 利用規約
             %p に同意したものとみなします
           .form-group
           = f.submit "次へ進む", class: 'next-button'
           .form-group_p2
             %p
-            %a.login-b{:href => "/"}本人情報の登録について＞
+            %a.login-b{href: "/"}本人情報の登録について＞
           .form-group_p2.form-group_p3
             %p
               This site is protected by reCAPTCHA and the Google
-              %a{:href => "/"} Privacy Policy
+              %a{href: "/"} Privacy Policy
               and
-              %a{:href => "/"} Terms of Service
+              %a{href: "/"} Terms of Service
               apply.
 = render 'signups/signup_footer'
