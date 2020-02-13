@@ -1,0 +1,36 @@
+.signup {
+  width: 100%;
+  background-color: hsl(0, 0%, 96%);
+  text-align: center;
+
+  &-header{
+    @include signup-header;
+  
+      &_new{
+        @include signup-header;
+        margin: 0;
+        padding: 0;
+      }
+
+      &-img{
+        width: 185px;
+        margin: 40px;
+      }
+      &-logo{
+        display: inline-block;
+        height: 100px;
+        &_new{
+          position: absolute;
+          left: 30%;
+          margin: auto;
+        }
+        &__logo{
+          margin: 40px 0 0;
+        }
+      }
+  }
+  
+  .header-img{
+    width: 185px;
+  }
+}

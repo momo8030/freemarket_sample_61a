@@ -11,5 +11,11 @@ Rails.application.routes.draw do
     get :profile_edit
   end
   
+  resources :signups, only: [:new, :create] do
+    collection do
+      get 'phone_number'
+      post 'done'
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

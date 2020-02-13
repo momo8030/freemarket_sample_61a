@@ -22,3 +22,52 @@
   background-color: $background_rgb;
   outline: none;
 }
+
+@mixin login-btn { 
+  font-size: 14px;
+  margin: auto;
+  padding: 15px 40px;
+  width: 408px;
+  }
+
+@mixin login-btn-fa{
+  display: block;
+  margin: 8px 0 0;
+  padding: 10px;
+  color: #fff;
+}
+
+@mixin login-btn-new {
+  color: #fff;
+  display: block;
+  border-radius: 4px;
+  padding: 10px 40px;
+  margin: 16px 0 0;
+}
+
+@mixin next-button{
+  background: #ea352d;
+  color: #fff;
+  display: block;
+  border: #ea352d solid 1px;
+  padding: 15px 40px;
+  margin: 50px 150px;
+  width: 343px;
+}
+
+@mixin signup-form {
+  width: 700px;
+  height: auto;
+  background: #FFF;
+  margin: 1px auto;
+  padding: 35px 16px 45px;
+}
+
+@mixin signup-header {
+  width: 100%;
+  height: 128px;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 40px; 
+  
+}
