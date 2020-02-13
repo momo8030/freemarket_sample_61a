@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   
   resources :signups, only: [:new, :create] do
     collection do
-      get 'user1'
-      post 'user2'
+      get 'phone_number'
+      post 'done'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
