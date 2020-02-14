@@ -3,10 +3,10 @@
   .profile
     .profile__container
       %h2.head プロフィール
-    =form_with url: '#', class: 'profile__flame' do |f|
+    = form_with url: '#', class: 'profile__flame' do |f|
       .profile__flame__icon_and_name 
         %figure
-          = image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png") #アバターのアイコン
+          = image_tag("https://it-nikki.com/wp-content/uploads/MC900433953.png") #アバターのアイコン
         = f.text_field :nickname, placeholder: "例)AYA☆セール中", class: "input_box" #ニックネームの入力フォーム
       
       .profile__introduction
