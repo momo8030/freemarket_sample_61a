@@ -31,7 +31,7 @@
         %label 都道府県
         %span.identification__flame__input-form__arbitrary 任意
         .identification__flame__input-form__select
-          = f.select :prefecture, [["--", ""], ["北海道", "北海道"],["青森県","青森県"]], {}, {class: "identification__flame__input-form__input-default"}
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
           %i.fas.fa-chevron-down
       .identification__flame__input-form
         %label 市区町村
