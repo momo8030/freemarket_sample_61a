@@ -1,3 +1,6 @@
+- breadcrumb :profile
+= render 'items/toppage/header'
+= render "layouts/breadcrumbs"
 .wrapper
   = render "side_bar" #サイドの部分テンプレート
   .profile
@@ -14,3 +17,7 @@
         
         .profile__change
           = f.submit "変更する", class: 'btn'
+
+        = render 'users/exhibition-btn'
+= render 'items/toppage/bottom-banner-ad'
+= render 'items/toppage/footer'

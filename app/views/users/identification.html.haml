@@ -1,3 +1,7 @@
+- breadcrumb :info
+= render 'items/toppage/header'
+= render "layouts/breadcrumbs"
+
 .wrapper
   = render 'side_bar'
   .identification
@@ -53,3 +57,7 @@
         = link_to '#' do
           本人情報の登録について
           %i.fas.fa-chevron-right
+
+          = render 'users/exhibition-btn'
+= render 'items/toppage/bottom-banner-ad'
+= render 'items/toppage/footer'
