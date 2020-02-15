@@ -1,89 +1,95 @@
-.profile {
-  float: right;
-  width: 700px;
-  &__container {
-    background-color: white;
-    h2{
-      font-size: 24px;
-      padding: 8px 24px;
-      border-bottom: 1px solid #f5f5f5;
-      text-align: center;
-    }
-  }
-  &__flame__icon_and_name {
-    padding: 72px 16px 24px;
-    background: url(https://www.pakutaso.com/shared/img/thumb/HIRO95_yuubaenokage_TP_V.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-size: 0;
-    text-align: center;
-    figure{
-      display: inline-block;
-      overflow: hidden;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      vertical-align: middle;
-      margin: 0;
-      border-radius: 50%;
-      img{
-        width: 60px;
-        height: 60px;
-        vertical-align: middle;
+.wrapper{
+  margin: 40px auto 0;
+  width: 1020px;
+  padding-bottom: 40px;
+  display: flex;
+  .profile {
+    float: right;
+    width: 700px;
+    &__container {
+      background-color: white;
+      h2{
+        font-size: 24px;
+        padding: 8px 24px;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
       }
     }
-    .input_box{
-      width: 220px;
-      margin: 0 0 0 8px;
-      vertical-align: middle;
-      height: 48px;
-      padding: 10px 16px 8px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      background: #fff;
-      line-height: 1.5;
-      font-size: 16px;
-      box-sizing: border-box;
+    &__flame__icon_and_name {
+      padding: 72px 16px 24px;
+      background: url(https://www.pakutaso.com/shared/img/thumb/HIRO95_yuubaenokage_TP_V.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-size: 0;
+      text-align: center;
+      figure{
+        display: inline-block;
+        overflow: hidden;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        vertical-align: middle;
+        margin: 0;
+        border-radius: 50%;
+        img{
+          width: 60px;
+          height: 60px;
+          vertical-align: middle;
+        }
+      }
+      .input_box{
+        width: 220px;
+        margin: 0 0 0 8px;
+        vertical-align: middle;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
     }
-  }
-  &__introduction{
-    padding: 40px 16px;
-    background: #fff;
-    textarea{
-      min-height: 216px;
+    &__introduction{
+      padding: 40px 16px;
+      background: #fff;
+      textarea{
+        min-height: 216px;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+        border-radius: 0;
+        outline: 0;
+        -webkit-appearance: none;
+        box-sizing: border-box;
+      }
+    }
+    &__change{
       display: block;
       width: 100%;
-      max-width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      background: #fff;
-      font-size: 16px;
-      line-height: 1.5;
-      border-radius: 0;
-      outline: 0;
-      -webkit-appearance: none;
-      box-sizing: border-box;
-    }
-  }
-  &__change{
-    display: block;
-    width: 100%;
-    line-height: 48px;
-    font-size: 14px;
-    background: #ea352d;
-    border: 1px solid #ea352d;
-    color: #fff;
-    text-align: center;
-    margin: 16px 0 0;
-
-    .btn{
-      width: 100%;
       line-height: 48px;
-      cursor: pointer;
+      font-size: 14px;
       background: #ea352d;
       border: 1px solid #ea352d;
       color: #fff;
-      
+      text-align: center;
+      margin: 16px 0 0;
+
+      .btn{
+        width: 100%;
+        line-height: 48px;
+        cursor: pointer;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        
+      }
     }
   }
 }
