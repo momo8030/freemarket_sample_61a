@@ -1,12 +1,15 @@
+- breadcrumb :profile
+= render 'items/toppage/header2'
+= render "layouts/breadcrumbs"
 .wrapper
-  = render 'side_bar' #サイドの部分テンプレート
+  = render "side_bar" #サイドの部分テンプレート
   .profile
     .profile__container
       %h2.head プロフィール
-    =form_with url: '#', class: 'profile__flame' do |f|
+    = form_with url: '#', class: 'profile__flame' do |f|
       .profile__flame__icon_and_name 
         %figure
-          = image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png") #アバターのアイコン
+          = image_tag("https://it-nikki.com/wp-content/uploads/MC900433953.png") #アバターのアイコン
         = f.text_field :nickname, placeholder: "例)AYA☆セール中", class: "input_box" #ニックネームの入力フォーム
       
       .profile__introduction
@@ -14,3 +17,7 @@
         
         .profile__change
           = f.submit "変更する", class: 'btn'
+
+        = render 'users/exhibition-btn'
+= render 'items/toppage/bottom-banner-ad'
+= render 'items/toppage/footer'

@@ -1,0 +1,585 @@
+.top-banner
+  .top-banner__img
+    =link_to '' do
+      =image_tag('main/top-banner-main.png',class:'main-banner') 
+    .top-banner__img__box
+      .text
+        スマホで かんたん 
+        %br
+        フリマアプリ
+      .message
+        メルカリはスマホカメラからすぐに出品できる
+        %br
+        購入時も安心な独自のシステムのアプリです
+      %ul.list
+        %li.list__bage
+          =link_to''do
+            =image_tag('main/app-store.svg',class:'logo') 
+        %li.list__bage
+          =link_to''do
+            =image_tag('main/google-play.svg', class: 'logo') 
+.main
+  .category
+    人気のカテゴリー
+    %ul.category__list
+      %li.category__list__tag
+        =link_to 'レディース',root_path, class: 'list-tag'    
+      %li.category__list__tag
+        =link_to 'メンズ',root_path, class: 'list-tag'  
+      %li.category__list__tag
+        =link_to '家電・スマホ・カメラ',root_path, class: 'list-tag'  
+      %li.category__list__tag
+        =link_to 'おもちゃ・ホビー・グッズ',root_path, class: 'list-tag'          
+  .new-arrivals
+    .new-arrivals__box
+      %h2 
+        レディース新着アイテム
+        .see-more
+          =link_to'もっと見る 〉','#',class:'item-link'   
+      .items
+        .items__contents
+          /- @items.each do |item|
+          .items__contents__box
+            /- item_path
+            =link_to root_path('#'), class:'item'do
+              .item-img
+                %span ¥3,000
+                =image_tag 'main/onepiece.jpg', size: '187x187'  
+              .item-name ワンピース
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span ¥200
+                =image_tag 'main/t-1.jpg', size: '187x187'
+              .item-name Tシャツ
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+              .main__items__name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+    .main__category-bottom__box
+      %h2 
+        メンズ新着アイテム
+        .see-more
+          =link_to'もっと見る 〉','#',class:'item-link'   
+      .items
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name         
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+              .main__items__name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+    .main__category-bottom__box
+      %h2 
+        家電・スマホ・カメラ新着アイテム
+        .see-more
+          =link_to'もっと見る 〉','#',class:'item-link'   
+      .items
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name         
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+              .main__items__name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+    .main__category-bottom__box
+      %h2 
+        おもちゃ・ホビー・グッズ新着アイテム
+        .see-more
+          =link_to'もっと見る 〉','#',class:'item-link'   
+      .items
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name         
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+              .main__items__name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+  .category
+    人気のブランド
+    %ul.category__list
+      %li.category__list__tag
+        =link_to 'シャネル',root_path, class: 'list-tag'    
+      %li.category__list__tag
+        =link_to 'ルイヴィトン',root_path, class: 'list-tag'  
+      %li.category__list__tag
+        =link_to 'シュプリーム',root_path, class: 'list-tag'  
+      %li.category__list__tag
+        =link_to 'ナイキ',root_path, class: 'list-tag'          
+  .new-arrivals
+    .new-arrivals__box
+      %h2 
+        シャネル新着アイテム
+        .see-more
+          =link_to'もっと見る 〉','#',class:'item-link'   
+      .items
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name   
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+              .main__items__name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+    .main__category-bottom__box
+      %h2 
+        ルイヴィトン新着アイテム
+        .see-more
+          =link_to'もっと見る 〉','#',class:'item-link'   
+      .items
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name         
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+              .main__items__name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+    .main__category-bottom__box
+      %h2 
+        シュプリーム新着アイテム
+        .see-more
+          =link_to'もっと見る 〉','#',class:'item-link'   
+      .items
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name         
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+              .main__items__name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+    .main__category-bottom__box
+      %h2 
+        ナイキ新着アイテム
+        .see-more
+          =link_to'もっと見る 〉','#',class:'item-link'   
+      .items
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name         
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+              .main__items__name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 
+        .items__contents
+          .items__contents__box
+            =link_to root_path('#'),class:'item'do
+              .item-img
+                %span 
+              .item-name 

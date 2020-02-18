@@ -1,0 +1,31 @@
+.signup
+  .signup-header_new
+    .signup-header-logo_new
+      .signup-header__logo
+        =link_to root_path do
+          = image_tag('fmarket_logo_red.svg', class:  "signup-header-img")
+    .signup-bar
+      %ol.signup-lists
+        %li.signup-list
+          会員情報
+          .list-round.list-round-left_through
+          .list-round_bar.list-round_bar_ok1
+        %li.signup-list
+          電話番号認証
+          .list-round.list-round-left_through
+          .list-round_bar.list-round_bar_ok2
+        %li.signup-list.active-title
+          完了
+          .list-round.list-round-left_through
+          .list-round_bar.list-round_bar_ok3
+          .list-round_bar.list-round_bar_ok4
+  .signup-main
+    .signup-contents
+      会員登録完了
+    .signup-contents__form
+      .signup-content_text
+        %p ありがとうございます。登録が完了しました。
+        .signup_mercari_start
+          = link_to "/", class: 'next-button' do
+            メルカリをはじめる
+    = render 'signups/signup_footer'

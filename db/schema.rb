@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_121326) do
+ActiveRecord::Schema.define(version: 2020_02_14_041812) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider"
@@ -27,13 +34,11 @@ ActiveRecord::Schema.define(version: 2020_02_05_121326) do
     t.string "password", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
     t.integer "birth_year", null: false
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
-
     t.string "comment"
     t.integer "phone_number", null: false
     t.string "encrypted_password", default: "", null: false

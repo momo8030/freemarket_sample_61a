@@ -1,38 +1,39 @@
 %header
-  .header-top
-    .logo-search-contents
-      .logo-search-contents__left
-        = link_to root_path do
-          = image_tag('main/mercari_logo.svg', class: "logo")
-      %form{ action: '/', method: 'post' }
-        %input{ value: "", name: 'search',class: 'search-form',placeholder:'何かお探しですか？' } 
-        %button{ type: 'submit',class: 'search-btn' }
-          -#パスの指定（item）
+  .header
+    .header-top
+      .logo-search-contents
+        .logo-search-contents__left
           = link_to root_path do
-            = image_tag('main/search1_89287.svg', class:'search-icon')
-    .header-bottom
-      .header-bottom__lists
-        %ul.search-navs
-          %li.search-navs__category              
-            %h2.search-navs__category__icon  
-              -#パスの指定（item）  
-              = link_to root_path do    
-                = icon('fas','list-ul',class: 'nav-icon')
-                %span カテゴリーから探す
-                -#Ancestryのview挿入
- 
-          %li.search-navs__brand
-            %h2.search-navs__brand__icon
-              = link_to root_path do
-                = icon('fas','tags', class:'nav-icon')
-                -# パスの指定（item）
-                %span ブランドから探す
-      .header-bottom__right
- 
-        .signup-btn
-          -# パスの指定（registration_users_path）
-          =link_to '新規会員登録', root_path, class:'signin-text'
-        .login-btn
-          -#パスの指定（new_user_pathsession_path）
-          =link_to 'ログイン', root_path , class:'signin-btn__text'
+            = image_tag('fmarket_logo_red.svg', class: "logo")
+        %form{ action: '/', method: 'post' }
+          %input{ value: "", name: 'search',class: 'search-form',placeholder:'何かお探しですか？' } 
+          %button{ type: 'submit',class: 'search-btn' }
+            -#パスの指定（item）
+            = link_to root_path do
+              = image_tag('main/search1_89287.svg', class:'search-icon')
+      .header-bottom
+        .header-bottom__lists
+          %ul.search-navs
+            %li.search-navs__category              
+              %h2.search-navs__category__icon  
+                -#パスの指定（item）  
+                = link_to root_path do    
+                  = icon('fas','list-ul',class: 'nav-icon')
+                  %span カテゴリーから探す
+                  -#Ancestryのview挿入
+  
+            %li.search-navs__brand
+              %h2.search-navs__brand__icon
+                = link_to root_path do
+                  = icon('fas','tags', class:'nav-icon')
+                  -# パスの指定（item）
+                  %span ブランドから探す
+        .header-bottom__right
+  
+          .signup-btn
+            -# パスの指定（registration_users_path）
+            =link_to '新規会員登録', new_user_path, class:'signin-text'
+          .login-btn
+            -#パスの指定（new_user_pathsession_path）
+            =link_to 'ログイン', new_user_session_path , class:'signin-btn__text'
          

@@ -1,0 +1,63 @@
+- breadcrumb :info
+= render 'items/toppage/header2'
+= render "layouts/breadcrumbs"
+
+.wrapper
+  = render 'side_bar'
+  .identification
+    .identification__content
+      %h2.head 本人確認の登録
+    = form_with url: '#', class: 'identification__flame' do |f|
+      %div
+        %p 
+          お客様の本人情報をご登録ください
+          %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        .identification__flame__text
+          =link_to '#' do
+            本人確認書類のアップロードについて
+            %i.fas.fa-chevron-right
+      
+      .identification__flame__input-form
+        %label お名前
+        %p 山田 彩
+      .identification__flame__input-form
+        %label お名前カナ
+        %p ヤマダ アヤ
+      .identification__flame__input-form
+        %label 生年月日
+        %p 1995/1/1
+      .identification__flame__input-form
+        %label 郵便番号
+        %span.identification__flame__input-form__arbitrary 任意
+        = f.text_field :postal_code, placeholder: "例）1234567",class: "identification__flame__input-form__input-default"
+      .identification__flame__input-form
+        %label 都道府県
+        %span.identification__flame__input-form__arbitrary 任意
+        .identification__flame__input-form__select
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
+          %i.fas.fa-chevron-down
+      .identification__flame__input-form
+        %label 市区町村
+        %span.identification__flame__input-form__arbitrary 任意
+        = f.text_field :municipality, placeholder: "例）札幌市豊平区",class: "identification__flame__input-form__input-default"
+      .identification__flame__input-form
+        %label 番地
+        %span.identification__flame__input-form__arbitrary 任意
+        = f.text_field :address, placeholder: "例）月寒西一条10丁目1-1",class: "identification__flame__input-form__input-default"
+      .identification__flame__input-form
+        %label 建物名
+        %span.identification__flame__input-form__arbitrary 任意
+        = f.text_field :building_name, placeholder: "例）〇〇111",class: "identification__flame__input-form__input-default"
+
+      
+      = f.submit "登録する", class: "identification__flame__input-form__register"
+
+      .identification__flame__text-right
+        = link_to '#' do
+          本人情報の登録について
+          %i.fas.fa-chevron-right
+
+          = render 'users/exhibition-btn'
+= render 'items/toppage/bottom-banner-ad'
+= render 'items/toppage/footer'
