@@ -1,11 +1,13 @@
 .mypage__header
   - breadcrumb :mypage
   = render "layouts/breadcrumbs"
-.mypage-contents
+.mypage__contents
   .mypage__wrapper
     = render "side_bar"
     = render "mypage-main"
     = render "exhibition-btn"
-  
+.mypage__footer
+  = render "items/toppage/bottom-banner-ad"
+  = render "items/toppage/footer"
 
   

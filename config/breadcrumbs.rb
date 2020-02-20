@@ -20,12 +20,12 @@ end
 
 crumb :logout do
   link "ログアウト"
-  parent :users
+  parent :mypage
 end
 
 crumb :credit do
   link "支払い方法"
-  parent :users
+  parent :mypage
 end
 
 # crumb :project do |project|
