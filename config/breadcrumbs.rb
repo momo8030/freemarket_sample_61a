@@ -4,18 +4,18 @@ crumb :root do
 end
 
 crumb :mypage do
-  link "マイページ", user_path
+  link "マイページ", user_path(:id)
   parent :root
 end
 
 crumb :info do
   link "本人情報の登録"
-  parent :users
+  parent :mypage
 end
 
 crumb :profile do
   link "プロフィール"
-  parent :users
+  parent :mypage
 end
 
 crumb :logout do
