@@ -25,7 +25,12 @@ end
 
 crumb :credit do
   link "支払い方法"
-  parent :users
+  parent :mypage
+end
+
+crumb :creditcard do
+  link "クレジットカード情報入力"
+  parent :credit
 end
 
 # crumb :project do |project|
