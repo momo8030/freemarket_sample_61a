@@ -54,13 +54,14 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
 
-@mixin login-btn { 
+@mixin login-btn {
   font-size: 14px;
   margin: auto;
   padding: 15px 40px;
   width: 408px;
-  }
+}
 
 @mixin login-btn-fa{
   display: block;
@@ -100,5 +101,5 @@
   height: 128px;
   background-repeat: no-repeat;
   margin: 0;
-  padding: 40px; 
+  padding: 40px;
 }
