@@ -28,6 +28,11 @@ crumb :credit do
   parent :mypage
 end
 
+crumb :creditcard do
+  link "クレジットカード情報入力"
+  parent :credit
+end
+
 # crumb :project do |project|
 #   link project.name, project_path(project)
 #   parent :projects
