@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'cards/new'
   devise_for :users, controllers: {
   omniauth_callbacks: 'users/omniauth_callbacks',
   registrations: 'users/registrations'
@@ -17,6 +18,10 @@ Rails.application.routes.draw do
       get 'phone_number'
       post 'done'
     end
+  end
+
+  resources :cards,only:[:new, :create,:show]do
+   
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
