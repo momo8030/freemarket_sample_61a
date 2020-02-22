@@ -22,13 +22,46 @@
   background-color: $background_rgb;
   outline: none;
 }
+@mixin required {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  vertical-align: bottom;
+  background-color: #ea352d;
+}
+@mixin question {
+  display: block;
+  text-align: center;
+  float: left;
+  line-height: 15px;
+  background-color: #0099E8;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 10px;
+  width: 14px;
+  height: 14px;
+  margin-left: 3px;
+}
+@mixin select-form {
+  background-color: #fff;
+  padding: 0 56px 0 16px;
+  width: 400px;
+  height: 46px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
-@mixin login-btn { 
+@mixin login-btn {
   font-size: 14px;
   margin: auto;
   padding: 15px 40px;
   width: 408px;
-  }
+}
 
 @mixin login-btn-fa{
   display: block;

@@ -20,7 +20,7 @@ end
 
 crumb :logout do
   link "ログアウト"
-  parent :users
+  parent :mypage
 end
 
 crumb :credit do
