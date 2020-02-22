@@ -144,3 +144,14 @@
   font-size: 12px;
   vertical-align: top;
 }
+
+@mixin  btn_red{
+  display: block;
+  margin: 8px 0 0;
+  line-height: 50px;
+  width: 320px;
+  text-align: center;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+}

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new] do
     get :profile_edit
     get :identification
+    get :logout
   end
   
   resources :signups, only: [:new, :create] do
