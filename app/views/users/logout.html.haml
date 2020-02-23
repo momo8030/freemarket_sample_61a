@@ -1,0 +1,13 @@
+- breadcrumb :logout
+= render 'items/toppage/header2'
+= render "layouts/breadcrumbs"
+.wrapper
+  = render "users/side_bar" #サイドの部分テンプレート
+  .card
+    .card__container
+      .card-group
+        =link_to root_path, class: "logout-btn", method: :get do
+          ログアウト
+      = render 'users/exhibition-btn'
+= render 'items/toppage/bottom-banner-ad'
+= render 'items/toppage/footer'

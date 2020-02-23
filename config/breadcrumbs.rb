@@ -10,22 +10,27 @@ end
 
 crumb :info do
   link "本人情報の登録"
-  parent :mypage
+  parent :users
 end
 
 crumb :profile do
   link "プロフィール"
-  parent :mypage
+  parent :users
 end
 
 crumb :logout do
   link "ログアウト"
-  parent :mypage
+  parent :users
 end
 
 crumb :credit do
   link "支払い方法"
-  parent :mypage
+  parent :users
+end
+
+crumb :creditcard do
+  link "クレジットカード情報入力"
+  parent :credit
 end
 
 # crumb :project do |project|
