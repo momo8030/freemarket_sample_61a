@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
   }
   root 'items#index'
-  resources :items, only: :index do
+  resources :items, only: [:index, :new] do
     get :confirmation
   end
 
