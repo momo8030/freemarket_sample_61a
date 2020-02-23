@@ -1,4 +1,4 @@
-.header
+.exhibition__header
   = link_to "#", class: "item__index-link" do
     = image_tag "fmarket_logo_red", class: "img__main-link"
 .sell__container
@@ -182,4 +182,6 @@
           に同意したことになります。
       .price__container-btn
         = f.submit '出品する', class: 'exhibition__btn'
-        = link_to 'もどる', root_path , class: 'exhibition__btnーreturn' 
+        = link_to 'もどる', root_path , class: 'exhibition__btnーreturn'
+.exhibition__footer
+  = render 'signups/signup_footer'
