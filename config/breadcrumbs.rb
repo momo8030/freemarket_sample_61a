@@ -4,7 +4,7 @@ crumb :root do
 end
 
 crumb :mypage do
-  link "マイページ", user_path
+  link "マイページ", user_path(:id)
   parent :root
 end
 
@@ -26,6 +26,11 @@ end
 crumb :credit do
   link "支払い方法"
   parent :users
+end
+
+crumb :creditcard do
+  link "クレジットカード情報入力"
+  parent :credit
 end
 
 # crumb :project do |project|

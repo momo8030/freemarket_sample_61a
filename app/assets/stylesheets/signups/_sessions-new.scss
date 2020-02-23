@@ -1,0 +1,79 @@
+.login-contents{
+  display: block;
+  max-width: 456px;
+  margin: auto;
+
+  &__title{
+  font-size: 14px;
+  padding: 32px;
+  text-align: center;
+  line-height: 1.5;
+  background-color: #fff;
+  padding: 30px 64px;
+
+    .login-btn{
+      &__email{
+      display: block;
+      margin: 8px 0 0;
+      border: 1px solid #0099e8;
+      background: #0099e8;
+      line-height: 40px;
+      color: #fff;
+      }
+    } 
+  }
+
+  &__form{
+    background: #FFF;
+    margin: 1px auto;
+    padding: 20px 20px;
+    
+    .login-btn{
+      @include login-btn;
+
+      &__facebook{
+        @include login-btn-fa;
+        background: #385185;
+
+        .fa-2x{
+          position: relative;
+          right: 60px;
+        }
+      }
+
+      &__google{
+        @include login-btn-fa;
+        color: #333;
+        border: #979797 solid 1px;
+        background-color: #FFF;
+        
+        .fa-lg{
+          position: relative;
+          right: 70px;
+        }
+      }
+
+      &_start{
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        padding: 10px;
+        width: 328px;
+        }
+    }
+
+      .g-recaptcha{
+        position: relative;
+        left: 20px;
+        margin: 20px;
+      }
+      .login-a{
+        color: #0099e8;
+        display: block;
+        margin: 40px 0 0;
+        position: relative;
+        right: 80px;
+      }
+    
+  } 
+}

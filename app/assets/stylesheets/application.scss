@@ -6,9 +6,18 @@
 @import "config/colors";
 @import "mixin/mixin";
 @import "modules/header";
+@import "modules/header2";
+@import "modules/main";
 @import "modules/items";
 @import "modules/bottom-banner-ad";
 @import "modules/footer";
 @import "users";
 
+@import "signups/registrations-new";
+@import "signups/signup-header";
+@import "signups/new";
+@import "signups/signup-footer";
+@import "signups/sessions-new";
+
+@import "cards";
 

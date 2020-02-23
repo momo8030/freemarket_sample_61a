@@ -1,0 +1,44 @@
+.signup
+  .signup-header_new
+    .signup-header-logo_new
+      .signup-header__logo
+        =link_to root_path do
+          = image_tag('fmarket_logo_red.svg', class:  "signup-header-img")   
+    .signup-bar
+      %ol.signup-lists
+        %li.signup-list
+          会員情報
+          .list-round.list-round-left_through
+          .list-round_bar.list-round_bar_ok1
+        %li.signup-list.active-title
+          電話番号認証
+          .list-round.list-round-left_through
+          .list-round_bar.list-round_bar_ok2
+        %li.signup-list
+          完了
+          .list-round.list-round-right
+          .list-round_bar.list-round_bar_last1
+          .list-round_bar.list-round_bar_last2
+  .signup-main
+    .signup-contents
+      電話番号の確認
+    .signup-contents__form
+      .form-wapper
+      = form_with model: @user, url: done_signups_path,method: :post,  local: true do |f|
+        .signup-content_text
+          .form-group.form-group_text
+            = f.label :image, "携帯電話の番号", class: "form-group_label"
+          .form-group 
+            = f.text_field :phone_number, placeholder: '電話番号の入力', class:'form-input'
+        .signup-content_text
+          .form-group_p2
+            %p 本人確認のため、携帯電話のSMS(ショートメッセージ
+            %p サービス)を利用して認証を行います。
+        .form-group
+          = f.submit "SMSを送信する", class: 'next-button2'
+        .signup-content_text
+          .form-group_p2
+            %p ※電話番号は本人確認や不正利用防止のために利用し
+            %p ます。他のユーザーに公開されることはありません。
+            %a.login-b{href: "/"}電話番号の確認が必要な理由＞
+= render 'signups/signup_footer'

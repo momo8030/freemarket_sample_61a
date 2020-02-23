@@ -1,0 +1,17 @@
+.signup
+  = render 'signups/signup_header'
+  .signup-main
+    .signup-contents
+      新規会員登録
+    .signup-contents__form
+      .signup-btn
+        %a.signup-btn__email.btn-mail{href: "/signups/new"}
+          %i.far.fa-envelope.fa-lg
+          メールアドレスで登録する
+        =link_to user_facebook_omniauth_authorize_path, method: :post, class: "signup-btn__facebook" do
+          %i.fab.fa-facebook-square.fa-2x
+          Facebookで登録する
+        =link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "signup-btn__google" do
+          %i.fab.fa-google.fa-1x
+          Googleで登録する 
+  = render 'signups/signup_footer'
