@@ -15,40 +15,40 @@ a {
   .mypage__user {
     height: 200px;
     position: relative;
-    background-image: url(https://www.pakutaso.com/shared/img/thumb/HIRO95_yuubaenokage_TP_V.jpg);
+    background-image: url('https://www.pakutaso.com/shared/img/thumb/HIRO95_yuubaenokage_TP_V.jpg');
     &-icon {
       position: absolute;
       top: 40px;
       text-align: center;
-      .nickname {
-        margin: 8px 0 0 0;
-      }
-      .mypage-status {
-        margin-top: 8px;
-        span {
-          font-weight: bold;
-          font-size: 16px;
-          margin-left: 8px;
-        }
-        .status {
-          display: inline-block;
-        }
-        .exhibition {
-          margin-left: 8px;
-        }
+      .user-img {
+        margin: 0 320px;
+        border-radius: 100px;
+        transform: rotate( 90deg );
       }
     }
     &-icon:hover {
       opacity: 0.8;
-      .nickname {
-        text-decoration: underline;
+    }
+    .nickname {
+      margin: 8px 0 0 0;
+      text-decoration: none;
+    }
+    .nickname:hover {
+      text-decoration: underline;
+    }
+    .mypage-status {
+      margin-top: 8px;
+      span {
+        font-weight: bold;
+        font-size: 16px;
+        margin-left: 8px;
+      }
+      .status {
+        display: inline-block;
+      }
+      .exhibition {
+        margin-left: 8px;
       }
     }
-    .user-img {
-      margin: 0 320px;
-      border-radius: 100px;
-      transform: rotate( 90deg );
-    }
-   }
   }
-
+}
