@@ -1,2 +1,187 @@
-%h1 Items#new
-%p Find me in app/views/items/new.html.erb
+.exhibition__header
+  = link_to "#", class: "item__index-link" do
+    = image_tag "fmarket_logo_red", class: "img__main-link"
+.sell__container
+  = form_with model: @item, class:'sell-main__form', local: true do |f|
+    .sell__container-head
+      %h2 商品の情報を入力
+    .sell__container-upload-box 
+      %h3.label
+        出品画像
+        .span 必須
+        %p 最大10枚までアップロードできます
+        .img__post
+          = icon 'fas', 'camera'
+          .img__post-p ドラッグアンドドロップ
+          .img__post-p またはクリックしてファイルをアップロード
+           
+    .goods__container
+      .group-form
+        %h3.label
+          商品名
+          .span 必須  
+        = f.text_field :goods, placeholder: "商品名(必須40文字まで)", class: "input-form"
+      .goods__container-box
+        %h3.label
+          商品の説明
+          .span 必須
+          = f.text_area :introduction, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）\n2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", maxlength: "1000",class: "goods__description"
+    .sell__container-contents
+      .sell__container-l
+        %h4.sub-text
+          商品の詳細
+      .sell__container-r        
+        %h3.label
+          カテゴリー
+          .span 必須 
+        //カテゴリーリスト選択
+        -#  = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-parents", id: "parent-form", name: 'item[category_ids][]'
+        .select__block
+          .condition
+            .condition-form
+              %select.select-form{name: "category"}
+                %option{value: "0"}  ---
+                %option{value: "1"}  レディース
+                %option{value: "2"}  メンズ
+                %option{value: "3"}  ベビー・キッズ
+                %option{value: "4"}  インテリア・住まい・小物
+                %option{value: "5"}  本・音楽・ゲーム
+                %option{value: "6"}  おもちゃ・ホビー・グッズ
+                %option{value: "7"}  コスメ・香水・美容
+                %option{value: "8"}  家電・スマホ・カメラ
+                %option{value: "9"}  スポーツ・レジャー
+                %option{value: "10"}  ハンドメイド
+                %option{value: "11"}  チケット
+                %option{value: "12"}  自転車・オートバイ
+                %option{value: "13"}  その他
+              = icon 'fas arrow-down', 'chevron-down'
+          .condition
+            .condition-form
+              %select.select-form.child{name: "category-child"}
+                %option{value: "0"}  ---
+                %option{value: "1"}  トップス
+              = icon 'fas arrow-down', 'chevron-down'
+          .condition
+            .condition-form
+              %select.select-form.grand-child{name: "category-grand-child"}
+                %option{value: "0"}  ---
+                %option{value: "1"}  Tシャツ/カットソー（半袖/袖なし）
+              = icon 'fas arrow-down', 'chevron-down'
+          .group-form
+            .condition
+              %h3.label
+                サイズ
+                .span 必須 
+            .select__block
+              .condition-form
+                = f.select :size,[['---',""], ['XXS以下', 'XXS以下'], ['XS(SS)', 'XS(SS)'],['S', 'S'],['M', 'M'],['L', 'L'],['XL(LL)', 'XL(LL)'],['2XL(3L)', '2XL(3L)'],['3XL(4L)', '3XL(4L)'],['4XL(5L)以上)', '4XL(5L)以上)'],['FREE SIZE', 'FREE SIZE']], {}, class: "select-form"
+                = icon 'fas arrow-down', 'chevron-down'
+            .group-form
+              %h3.label
+                ブランド
+                .any 任意 
+              .select__block
+                = f.text_field :brand, placeholder: "例) シャネル",class: "brand-form etc"
+          .group-form
+            .condition
+              %h3.label
+                商品の状態
+                .span 必須 
+            .select__block
+              .condition-form
+                = f.select :goods_condition,[['---',""], ['新品、未使用', '新品、未使用'], ['未使用に近い', '未使用に近い'],['目立った傷や汚れなし', '目立った傷や汚れなし'],['やや傷や汚れあり', 'やや傷や汚れあり'],['傷や汚れあり', '傷や汚れあり'],['全体的に状態が悪い', '全体的に状態が悪い']], {}, class: "select-form"
+                = icon 'fas arrow-down', 'chevron-down'
+                //エラー文読み込み試し
+                -# = render partial: 'error-messages', locals{product: @product, column: 'condition_id'}
+    .sell__container-contents
+      .sell__container-l
+        %h4.sub-head
+          .sub-text
+            配送について
+          = link_to "#" ,target: "_blank",class: "question" do
+            ？  
+      .sell__container-r
+        .form__box   
+          %h3.label
+            配送料の負担
+            .span 必須 
+          .select__block
+            .condition
+              .condition-form
+                = f.select :delivery_charge,[['---',""], ['送料込み（出品者負担)', '送料込み（出品者負担)'], ['着払い(購入者負担)', '着払い(購入者負担)']], {}, class: "select-form"               
+                = icon 'fas arrow-down', 'chevron-down'
+          .group-form
+            %h3.label
+              配送方法
+              .span 必須 
+            .select__block
+              .condition
+                .condition-form
+                  = f.select :delivery_method,[['---',""], ['未定', '未定'], ['らくらくメルカリ便', 'らくらくメルカリ便'],['レターパック', 'レターパック'],['普通郵便（定形、定形外）', '普通郵便（定形、定形外）'],['クロネコヤマト', 'クロネコヤマト'],['ゆうパック', 'ゆうパック'],['クリックポスト', 'クリックポスト'],['ゆうパケット', 'ゆうパケット']], {}, class: "select-form"
+                  = icon 'fas arrow-down', 'chevron-down'
+        .form__box
+          .group-form
+            %h3.label
+              発送元の地域
+              .span 必須 
+            .select__block
+              .condition
+                .condition-form.prefecture
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
+                  = icon 'fas arrow-down', 'chevron-down'
+        .form__box
+          .group-form
+            %h3.label
+              発送までの日数
+              .span 必須 
+            .select__block
+              .condition
+                .condition-form
+                  = f.select :delivery_days,[['---',""], ['1~2日で発送', '1~2日で発送'], ['2〜3日で発送', '2〜3日で発送'],['4〜7日で発送', '4〜7日で発送']], {}, class: "select-form"
+                  = icon 'fas arrow-down', 'chevron-down'
+    .price__container
+      .price__container-example
+        %h4.sub-head
+          .sub-text
+            販売価格(300〜9,999,999)
+          = link_to "#" ,target: "_blank",class: "question" do
+            ？
+      %ul.price__container-right  
+        %li.price__container-sale
+          .price__container-sale-l
+            %h3.label
+              価格
+            .span 必須 
+          .price__container-sale-r
+            %p ¥
+            = f.number_field :price, min:300, max:9999999, class: "input-default", id: "sell-price", placeholder: "例）300", value: ""
+        %li.price__container-commission
+          %label 販売手数料(10%)
+          #commission
+        %li.price__container-profit
+          %h3.label 販売利益
+          #seller_gain
+    .price__container-warning
+      %div
+        %p.price__container-warning-p
+          = link_to "#", class: 'warning__link' do
+            禁止されている出品
+          、
+          = link_to "#", class: 'warning__link' do
+            行為
+          を必ずご確認ください。
+        %p.price__container-warning-p
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to "#", class: 'warning__link' do
+            偽ブランドの販売
+          は犯罪であり処罰される可能性があります。
+        %p.price__container-warning-p
+          また、出品をもちまして
+          = link_to "#", class: 'warning__link' do
+            加盟店規約
+          に同意したことになります。
+      .price__container-btn
+        = f.submit '出品する', class: 'exhibition__btn'
+        = link_to 'もどる', root_path , class: 'exhibition__btnーreturn'
+.exhibition__footer
+  = render 'signups/signup_footer'

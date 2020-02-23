@@ -2,7 +2,6 @@
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "modules/breadcrumbs";
-// @import "sell/sell-goods";
 @import "config/colors";
 @import "mixin/mixin";
 @import "modules/header";
@@ -11,6 +10,7 @@
 @import "modules/items";
 @import "modules/bottom-banner-ad";
 @import "modules/footer";
+@import "sell/sell-goods";
 @import "users";
 
 @import "signups/registrations-new";
