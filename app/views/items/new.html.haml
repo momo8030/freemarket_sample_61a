@@ -154,13 +154,19 @@
             .span 必須 
           .price__container-sale-r
             %p ¥
-            = f.number_field :price, min:300, max:9999999, class: "input-default", id: "sell-price", placeholder: "例）300", value: ""
+            %input#price_calc.input-default{placeholder: "例) 300", type: "number"}/
         %li.price__container-commission
-          %label 販売手数料(10%)
-          #commission
+          %li.price__container-sale
+            .price__container-l
+              %label 販売手数料(10%)
+            .price__container-r
+              #sell_fee
         %li.price__container-profit
-          %h3.label 販売利益
-          #seller_gain
+          %li.price__container-sale
+            .price__container-l
+              %label.profit 販売利益
+            .price__container-r
+              #sell_profit
     .price__container-warning
       %div
         %p.price__container-warning-p
