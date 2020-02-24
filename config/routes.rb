@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
   }
   root to: 'items#index'
-  resources :items, only: :index
+  resources :items, only: [:index, :show]
 
   resources :users, only: [:show, :new] do
     get :profile_edit
