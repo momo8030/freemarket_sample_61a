@@ -20,6 +20,22 @@
       color: #0099e8;
       text-decoration: none;
     }
+
+    .master{
+      position: relative;
+      left: 40px;
+    }
+
+    .btn_delate{
+      position: relative;
+      left: 300px;
+      bottom: 80px;
+      padding: 4px 6px;
+      background: #fff;
+      border-radius: 3px;
+      border: 1px solid #ea352d;
+      color: #ea352d;
+    }
   }
   
     .card-group{
@@ -34,7 +50,7 @@
         }
 
         &__form{
-          padding: 50px;
+          padding: 40px;
         }
 
         &__btn{
