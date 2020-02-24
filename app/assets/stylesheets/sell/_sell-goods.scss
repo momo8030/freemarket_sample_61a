@@ -187,7 +187,7 @@
 
 .price__container {
   padding: 40px ;
-
+  
   &-right {
     float: right;
     width: 400px;
@@ -200,7 +200,7 @@
     height: 72px;
     padding-bottom: 24px;
     border-bottom: 1px solid #ccc;
-
+    position:relative;
     &-l {
       float:left;
       width: 50%;
@@ -230,14 +230,17 @@
       }
     }
   }
-  //販売手数料
-  &-commission {
-    padding: 24px 0;
+  &-l {
+    line-height: 80px;
   }
+  &-r {
+    position:absolute;
+    right: 10px;
+    top: 50%;
+  }
+
   //販売利益
-  &-profit {
-    border-top: 1px solid #ccc;
-    padding: 24px 0;
+  .profit {
     font-weight: bold;
     font-size: 16px;
   }
