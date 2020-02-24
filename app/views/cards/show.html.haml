@@ -1,0 +1,16 @@
+- breadcrumb :credit
+= render 'items/toppage/header2'
+= render "layouts/breadcrumbs"
+.wrapper
+  = render "users/side_bar" #サイドの部分テンプレート
+  .card
+    .card__container
+      %h3.head 支払い方法
+      .card-group
+        -# クレジットカード削除を記述する
+      .card-group_form
+      %p
+      %a.payment{href: "/"}支払い方法について　＞
+      = render 'users/exhibition-btn'
+= render 'items/toppage/bottom-banner-ad'
+= render 'items/toppage/footer'

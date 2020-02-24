@@ -2,14 +2,16 @@
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "modules/breadcrumbs";
-// @import "sell/sell-goods";
 @import "config/colors";
 @import "mixin/mixin";
 @import "modules/header";
+@import "modules/header2";
 @import "modules/main";
 @import "modules/items";
 @import "modules/bottom-banner-ad";
+@import "modules/confirmation";
 @import "modules/footer";
+@import "sell/sell-goods";
 @import "users";
 @import "modules/show";
 @import "signups/registrations-new";
@@ -17,4 +19,6 @@
 @import "signups/new";
 @import "signups/signup-footer";
 @import "signups/sessions-new";
+
+@import "cards";
 

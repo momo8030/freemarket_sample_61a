@@ -1,0 +1,149 @@
+.card {
+  float: right;
+  width: 700px;
+
+  &__container {
+    background-color: white;
+
+    h3.head{
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid #f5f5f5;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .payment{
+      position: relative;
+      bottom: 50px;
+      left: 500px;
+      color: #0099e8;
+      text-decoration: none;
+    }
+  }
+  
+    .card-group{
+      width: 50%;
+      max-width: 343px;
+      margin: auto;
+      padding: 50px;
+      border-bottom: 1px solid #eee;
+
+        &__title{
+          font-weight: bold;
+        }
+
+        &__form{
+          padding: 50px;
+        }
+
+        &__btn{
+          padding: 10px;
+        }
+
+        .essential3{
+          @include essential;
+          position: relative;
+          bottom: 20px;
+          left: 120px;
+        }
+      
+        .btn_red{
+          @include btn_red;
+        }
+
+        .card-list{
+          display: flex;
+          margin: 8px 0 0;
+          position: relative;
+          right: 40px;
+
+          &_jpg{
+            padding-right: 5px;
+          }
+        }
+
+        .card_label{
+          position: relative;
+          top: 10px;
+        }
+
+        .card_code{
+          position: relative;
+          bottom: 25px;
+        }
+
+        .birth-group{
+          #birth_year,#birth_month{
+            @include birthday;
+            cursor: pointer; 
+          }
+
+          &__month{
+            position: relative;
+            left: px;
+            top: 20px;
+            right: 90px
+          }
+          &__year{
+            position: relative;
+            left: px;
+            top: 20px;
+            right: 70px;
+          } 
+
+          .select-default{
+            position: relative;
+            right: 100px;
+            width: 131px;
+          }
+          .select-default2{
+            position: relative;
+            right: 80px;
+            width: 131px;
+          }
+
+          .fa-chevron-down{
+            cursor: pointer;
+            position: relative;
+            bottom: 50px;
+            left: 10px;
+          }
+  
+          .fa-chevron-down.down{
+            cursor: pointer;
+            position: relative;
+            bottom: 50px;
+            left: 30px;
+          }
+        }
+
+        .form-input1{
+          @include form-input;
+          position: relative;
+          right: 40px;
+        }
+
+        .form-input2{
+          @include form-input;
+          position: relative;
+          right: 40px;
+          bottom: 40px;
+        }
+
+        .icon-question-circle{
+          position: relative;
+          bottom: 20px;
+          left: 120px;
+          color: #0099e8;
+        }
+
+        .next-button3{
+          @include next-button;
+          margin: 50px 0 0;
+          position: relative;
+          right: 40px;
+          bottom: 40px;
+        }
+    }
+}
