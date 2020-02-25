@@ -23,14 +23,14 @@
           %td.item-table__box__user
             =link_to 'poou','#' ,class:'user-nickname'
             .item-user-ratings
-              = link_to root_path do
-                = icon('fas','laugh',class: 'good-icon')
+              =link_to root_path do
+                =icon('fas','laugh',class: 'good-icon')
                 %span 201
-              = link_to root_path do
-                = icon('fas','meh',class: 'noramal-icon')
+              =link_to root_path do
+                =icon('fas','meh',class: 'noramal-icon')
                 %span 2
-              = link_to root_path do
-                = icon('fas','frown',class: 'bad-icon')
+              =link_to root_path do
+                =icon('fas','frown',class: 'bad-icon')
                 %span 0
         %tr
           %th カテゴリー
@@ -90,17 +90,17 @@
       .item-button-contener__left
         .item-like
           %button{type: 'button', name: 'like',class:'like-btn'}
-            = link_to root_path do
-              = icon('far','heart',class: 'heart-icon')
+            =link_to root_path do
+              =icon('far','heart',class: 'heart-icon')
               %span.fade-in-down いいね！
               %span.fade-in-down 26
         .item-report
-          = link_to root_path do
-            = icon('far','flag',class: 'flag-icon')
+          =link_to root_path do
+            =icon('far','flag',class: 'flag-icon')
             %span.fade-in-down 不敵切な商品の報告
         .item-button-contener__right
-          = link_to root_path do
-            = icon('fas','lock',class: 'lock-icon')
+          =link_to root_path do
+            =icon('fas','lock',class: 'lock-icon')
             %span
               =link_to'あんしん・あんぜんへの取り組み','',class: 'link-btn'
   .message-container
@@ -109,7 +109,7 @@
         %li.clearfix
           .message-user
             .user-unknown
-              = image_tag('user-icon.svg',class: 'icon',size:'32x32')
+              =image_tag('user-icon.svg',class: 'icon',size:'32x32')
             .message-user-name ゆっぴ
           .message-body
             .text
@@ -117,18 +117,18 @@
               %p 値下げは可能でしょうか？  
             .message-body__icons.clearfix
               .icon-left
-                = link_to root_path do
-                  = icon('far','clock',class: 'time-icon')
+                =link_to root_path do
+                  =icon('far','clock',class: 'time-icon')
                   %span １時間
               .icon-right
-                = link_to root_path do
-                  = icon('far','flag',class: 'flag-icon')
+                =link_to root_path do
+                  =icon('far','flag',class: 'flag-icon')
     .message-content 
       %ul.message-items
         %li.clearfix
           .message-user
             .user-unknown
-              = image_tag('user-icon2.png',class: 'icon2',size:'40x40')
+              =image_tag('user-icon2.png',class: 'icon2',size:'40x40')
             .message-is-seller 出品者
             .message-user-name poou
           .message-body
@@ -137,12 +137,12 @@
               %p 値下げは出来ません。
             .message-body__icons.clearfix
               .icon-left
-                = link_to root_path do
-                  = icon('far','clock',class: 'time-icon')
+                =link_to root_path do
+                  =icon('far','clock',class: 'time-icon')
                   %span １時間
               .icon-right
-                = link_to root_path do
-                  = icon('far','flag',class: 'flag-icon')
+                =link_to root_path do
+                  =icon('far','flag',class: 'flag-icon')
     .message-content    
       %form   
         %p 相手のことを考え丁寧なコメントを心がけましよう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -159,14 +159,14 @@
       .text-center
         %ul.social-media
           %li
-            = link_to root_path do
-              = icon('fab','facebook-square',class: 'facebook-icon')
+            =link_to root_path do
+              =icon('fab','facebook-square',class: 'facebook-icon')
           %li
-            = link_to root_path do
-              = icon('fab','twitter-square',class: 'twitter-icon')
+            =link_to root_path do
+              =icon('fab','twitter-square',class: 'twitter-icon')
           %li
-            = link_to root_path do
-              = icon('fab','pinterest-square',class: 'pinterest-icon')
+            =link_to root_path do
+              =icon('fab','pinterest-square',class: 'pinterest-icon')
   .items-in-user-profile 
     .items-box-heard
       =link_to 'poouさんのその他の出品',root_path,class:'link-buyer'
@@ -180,8 +180,8 @@
             .item-box-body__num
               .price ¥5,590
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 8
       .items-contents__box
         =link_to root_path('#'),class:'item'do
@@ -194,8 +194,8 @@
             .item-box-body__num
               .price ¥3,500
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 6
       .items-contents__box
         =link_to root_path('#'),class:'item'do
@@ -205,8 +205,8 @@
             .item-box-body__num
               .price ¥0
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
         =link_to root_path('#'),class:'item'do
@@ -216,8 +216,8 @@
             .item-box-body__num
               .price ¥0
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
         =link_to root_path('#'),class:'item'do
@@ -227,8 +227,8 @@
             .item-box-body__num
               .price ¥0
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
         =link_to root_path('#'),class:'item'do
@@ -238,8 +238,8 @@
             .item-box-body__num
               .price ¥0
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 0 
   .items-in-user-profile 
     .items-box-heard
@@ -254,8 +254,8 @@
             .item-box-body__num
               .price ¥4,100
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 49
       .items-contents__box
         =link_to root_path('#'),class:'item'do
@@ -265,8 +265,8 @@
             .item-box-body__num
               .price ¥0
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
         =link_to root_path('#'),class:'item'do
@@ -276,8 +276,8 @@
             .item-box-body__num
               .price ¥0
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
         =link_to root_path('#'),class:'item'do
@@ -287,8 +287,8 @@
             .item-box-body__num
               .price ¥0
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
         =link_to root_path('#'),class:'item'do
@@ -298,8 +298,8 @@
             .item-box-body__num
               .price ¥0
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
         =link_to root_path('#'),class:'item'do
@@ -309,11 +309,11 @@
             .item-box-body__num
               .price ¥0
               .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
+                =link_to root_path do
+                  =icon('far','heart',class: 'heart-icon')
                   %span 0
   .item-contents-bottom
-//- breadcrumb :item
-//= render "layouts/breadcrumbs"
+//-breadcrumb :item
+//=render "layouts/breadcrumbs"
 =render "items/toppage/bottom-banner-ad"
 =render "items/toppage/footer"
