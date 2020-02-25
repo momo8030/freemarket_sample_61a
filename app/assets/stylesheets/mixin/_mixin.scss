@@ -109,6 +109,7 @@
   border: 1px solid $boder-gray;
   border-collapse: collapse;  
 }
+
 @mixin comment-btn {
   background-color: $boder-gray;
   border: 1px solid $boder-gray;
@@ -130,10 +131,6 @@
   font-size: 48px;
   margin: 0 8px 8px 0;
   cursor: pointer;
-}
-
-=======
-  padding: 40px; 
 }
 
 @mixin birthday{
