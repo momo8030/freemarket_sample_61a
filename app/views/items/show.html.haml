@@ -1,51 +1,51 @@
 .product-detail
-  =render "items/toppage/header"
+  = render "items/toppage/header"
   %section.container
     %h1.item-name
       LAKOLE レザー調巾着バッグ
     .item-content
       .item-photo
         .owl-lazy
-          =image_tag('product/bag.jpg',size: '225x300')
+          = image_tag('product/bag.jpg',size: '225x300')
         .owl-item
-          =image_tag('product/bag.jpg',size: '60x60')
+          = image_tag('product/bag.jpg',size: '60x60')
         .owl-item
-          =image_tag('product/bag-1.jpg',size: '60x60')
+          = image_tag('product/bag-1.jpg',size: '60x60')
         .owl-item
-          =image_tag('product/bag-2.jpg',size: '60x60')
+          =i mage_tag('product/bag-2.jpg',size: '60x60')
         .owl-item
-          =image_tag('product/bag-3.jpg',size: '60x60')
+          = image_tag('product/bag-3.jpg',size: '60x60')
         .owl-item
-          =image_tag('product/bag-4.jpg',size: '60x60')
+          = image_tag('product/bag-4.jpg',size: '60x60')
       %table.item-table
         %tr.item-table__box
           %th.item-table__box__seller 出品者
           %td.item-table__box__user
-            =link_to 'poou','#' ,class:'user-nickname'
+            = link_to 'poou','#' ,class:'user-nickname'
             .item-user-ratings
-              =link_to root_path do
-                =icon('fas','laugh',class: 'good-icon')
+              = link_to root_path do
+                = icon('fas','laugh',class: 'good-icon')
                 %span 201
-              =link_to root_path do
-                =icon('fas','meh',class: 'noramal-icon')
+              = link_to root_path do
+                = icon('fas','meh',class: 'noramal-icon')
                 %span 2
-              =link_to root_path do
-                =icon('fas','frown',class: 'bad-icon')
+              = link_to root_path do
+                = icon('fas','frown',class: 'bad-icon')
                 %span 0
         %tr
           %th カテゴリー
           %td
-            =link_to'レディース','#',class: 'ladys'
+            = link_to'レディース','#',class: 'ladys'
             %br
             %i.fas.fa-chevron-right
-            =link_to'バック','#',class: 'bag'
+            = link_to'バック','#',class: 'bag'
             %br
             %i.fas.fa-chevron-right
-            =link_to'ショルダーバック','#',class: 'shoulder-bag'
+            = link_to'ショルダーバック','#',class: 'shoulder-bag'
         %tr
           %th ブランド
           %td
-            =link_to'トゥディフル','#',class: 'brand-link'
+            = link_to'トゥディフル','#',class: 'brand-link'
         %tr
           %th 商品のサイズ
           %td なし
@@ -90,26 +90,26 @@
       .item-button-contener__left
         .item-like
           %button{type: 'button', name: 'like',class:'like-btn'}
-            =link_to root_path do
-              =icon('far','heart',class: 'heart-icon')
+            = link_to root_path do
+              = icon('far','heart',class: 'heart-icon')
               %span.fade-in-down いいね！
               %span.fade-in-down 26
         .item-report
-          =link_to root_path do
-            =icon('far','flag',class: 'flag-icon')
+          = link_to root_path do
+            = icon('far','flag',class: 'flag-icon')
             %span.fade-in-down 不敵切な商品の報告
         .item-button-contener__right
-          =link_to root_path do
-            =icon('fas','lock',class: 'lock-icon')
+          = link_to root_path do
+            = icon('fas','lock',class: 'lock-icon')
             %span
-              =link_to'あんしん・あんぜんへの取り組み','',class: 'link-btn'
+              = link_to'あんしん・あんぜんへの取り組み','',class: 'link-btn'
   .message-container
     .message-content
       %ul.message-items
         %li.clearfix
           .message-user
             .user-unknown
-              =image_tag('user-icon.svg',class: 'icon',size:'32x32')
+              = image_tag('user-icon.svg',class: 'icon',size:'32x32')
             .message-user-name ゆっぴ
           .message-body
             .text
@@ -117,18 +117,18 @@
               %p 値下げは可能でしょうか？  
             .message-body__icons.clearfix
               .icon-left
-                =link_to root_path do
-                  =icon('far','clock',class: 'time-icon')
+                = link_to root_path do
+                  = icon('far','clock',class: 'time-icon')
                   %span １時間
               .icon-right
-                =link_to root_path do
-                  =icon('far','flag',class: 'flag-icon')
+                = link_to root_path do
+                  = icon('far','flag',class: 'flag-icon')
     .message-content 
       %ul.message-items
         %li.clearfix
           .message-user
             .user-unknown
-              =image_tag('user-icon2.png',class: 'icon2',size:'40x40')
+              = image_tag('user-icon2.png',class: 'icon2',size:'40x40')
             .message-is-seller 出品者
             .message-user-name poou
           .message-body
@@ -137,11 +137,11 @@
               %p 値下げは出来ません。
             .message-body__icons.clearfix
               .icon-left
-                =link_to root_path do
-                  =icon('far','clock',class: 'time-icon')
+                = link_to root_path do
+                  = icon('far','clock',class: 'time-icon')
                   %span １時間
               .icon-right
-                =link_to root_path do
+                = link_to root_path do
                   =icon('far','flag',class: 'flag-icon')
     .message-content    
       %form   
@@ -151,42 +151,42 @@
     %ul.nav-item-link.clearfix
       %li.prev
         %i.fas.fa-chevron-left
-        =link_to'TP−Link WiFi 無線LANカード','',class: 'link-btn'
+        = link_to'TP−Link WiFi 無線LANカード','',class: 'link-btn'
       %li.next
-        =link_to'アメリカの人気のお菓子！','',class: 'link-btn'
+        = link_to'アメリカの人気のお菓子！','',class: 'link-btn'
         %i.fas.fa-chevron-right
     .item-social-media-box
       .text-center
         %ul.social-media
           %li
-            =link_to root_path do
-              =icon('fab','facebook-square',class: 'facebook-icon')
+            = link_to root_path do
+              = icon('fab','facebook-square',class: 'facebook-icon')
           %li
-            =link_to root_path do
-              =icon('fab','twitter-square',class: 'twitter-icon')
+            = link_to root_path do
+              = icon('fab','twitter-square',class: 'twitter-icon')
           %li
-            =link_to root_path do
-              =icon('fab','pinterest-square',class: 'pinterest-icon')
+            = link_to root_path do
+              = icon('fab','pinterest-square',class: 'pinterest-icon')
   .items-in-user-profile 
     .items-box-heard
-      =link_to 'poouさんのその他の出品',root_path,class:'link-buyer'
+      = link_to 'poouさんのその他の出品',root_path,class:'link-buyer'
     .items-contents.clearfix
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
-            =image_tag 'product/item-1.jpg', size: '230x230'
+            = image_tag 'product/item-1.jpg', size: '230x230'
           .item-box-body
             %h2.item-name STUDIOUS タートルスクエアヤーンニット
             .item-box-body__num
               .price ¥5,590
               .like
-                =link_to root_path do
+                = link_to root_path do
                   =icon('far','heart',class: 'heart-icon')
                   %span 8
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
-            =image_tag 'product/sandal.jpg', size: '220x230'
+            = image_tag 'product/sandal.jpg', size: '220x230'
             .item-img__top
             .tag SOLD
           .item-box-body
@@ -194,126 +194,126 @@
             .item-box-body__num
               .price ¥3,500
               .like
-                =link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
+                = link_to root_path do
+                  = icon('far','heart',class: 'heart-icon')
                   %span 6
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
           .item-box-body
             %h2.item-name 
             .item-box-body__num
               .price ¥0
               .like
-                =link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
+                = link_to root_path do
+                  = icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
           .item-box-body
             %h2.item-name 
             .item-box-body__num
               .price ¥0
               .like
-                =link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
+                = link_to root_path do
+                  = icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
           .item-box-body
             %h2.item-name 
             .item-box-body__num
               .price ¥0
               .like
-                =link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
+                = link_to root_path do
+                  = icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
           .item-box-body
             %h2.item-name 
             .item-box-body__num
               .price ¥0
               .like
-                =link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
+                = link_to root_path do
+                  = icon('far','heart',class: 'heart-icon')
                   %span 0 
   .items-in-user-profile 
     .items-box-heard
-      =link_to 'トゥデイフルのショルダーバッグ その他の商品',root_path,class:'link-brand'
+      = link_to 'トゥデイフルのショルダーバッグ その他の商品',root_path,class:'link-brand'
     .items-contents.clearfix
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
-            =image_tag 'product/eco-item.jpg', size: '220x220'
+            = image_tag 'product/eco-item.jpg', size: '220x220'
           .item-box-body
             %h2.item-name エコレザースクエアポシェット ロープショルダーバッグ
             .item-box-body__num
               .price ¥4,100
               .like
-                =link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
+                = link_to root_path do
+                  = icon('far','heart',class: 'heart-icon')
                   %span 49
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
           .item-box-body
             %h2.item-name 
             .item-box-body__num
               .price ¥0
               .like
-                =link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
+                = link_to root_path do
+                  = icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
           .item-box-body
             %h2.item-name 
             .item-box-body__num
               .price ¥0
               .like
-                =link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
+                = link_to root_path do
+                  = icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
           .item-box-body
             %h2.item-name 
             .item-box-body__num
               .price ¥0
               .like
-                =link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
+                = link_to root_path do
+                  = icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
           .item-box-body
             %h2.item-name 
             .item-box-body__num
               .price ¥0
               .like
-                =link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
+                = link_to root_path do
+                  = icon('far','heart',class: 'heart-icon')
                   %span 0
       .items-contents__box
-        =link_to root_path('#'),class:'item'do
+        = link_to root_path('#'),class:'item'do
           .item-img
           .item-box-body
             %h2.item-name 
             .item-box-body__num
               .price ¥0
               .like
-                =link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
+                = link_to root_path do
+                  = icon('far','heart',class: 'heart-icon')
                   %span 0
   .item-contents-bottom
-//-breadcrumb :item
-//=render "layouts/breadcrumbs"
-=render "items/toppage/bottom-banner-ad"
-=render "items/toppage/footer"
+//- breadcrumb :item
+//= render "layouts/breadcrumbs"
+= render "items/toppage/bottom-banner-ad"
+= render "items/toppage/footer"
