@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   omniauth_callbacks: 'users/omniauth_callbacks',
   registrations: 'users/registrations'
   }
+  
   root 'items#index'
-  resources :items, only: [:index, :new] do
+  resources :items, only: [:index, :new, :show] do
     get :confirmation
   end
 
