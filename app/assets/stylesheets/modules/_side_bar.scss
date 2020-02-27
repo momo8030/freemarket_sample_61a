@@ -41,8 +41,12 @@ ul {
   margin-top: 8px;
 }
 
-#nav a .list__mypage-active.active    {
+.active    {
   font-weight: bold;
   background:#EEE;
+  .fas {
+    font-weight: bold;
+    color: #333;
+  }
 }
 

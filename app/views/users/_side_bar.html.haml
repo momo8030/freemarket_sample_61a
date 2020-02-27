@@ -1,6 +1,6 @@
 .side__list
   .mypage__all-list
-    %ul#nav
+    %ul.menu
       = link_to "#", class: 'list__item',id: "list_active" do
         %li.mypage__list.list__mypage-active
           マイページ
@@ -61,7 +61,7 @@
   .merpay
     %h3.side__h3 
       メルペイ
-    %ul.merpay-setting.nav#list_active
+    %ul.merpay-setting.menu
       = link_to "#", class: 'list__item' do
         %li.mypage__list
           売上・振込申請
@@ -73,7 +73,7 @@
   .setting
     %h3.side__h3 
       設定
-    %ul.merpay-setting.nav#list_active
+    %ul.merpay-setting.menu
       = link_to "#", class: 'list__item' do
         %li.mypage__list
           プロフィール
