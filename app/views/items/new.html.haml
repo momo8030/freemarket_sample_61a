@@ -1,6 +1,5 @@
-.exhibition__header
-  = link_to root_path class: "item__index-link" do
-    = image_tag "fmarket_logo_red", class: "img__main-link"
+.signup
+  = render 'signups/signup_header'
 .sell__container
   = form_with model: @item, class:'sell-main__form', local: true do |f|
     .sell__container-head

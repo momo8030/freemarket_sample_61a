@@ -7,10 +7,19 @@
     .card__container
       %h3.head 支払い方法
       .card-group
-        -# クレジットカード削除を記述する
-      .card-group_form
+        .card-group__title
+          クレジットカード一覧
+          %ul.card-list
+            %li.card-list_jpg 
+              = image_tag 'card/mastercard.png', size:'34x20',class:'master'
+        .card-group__btn
+          %p ************1052
+          %p 10 / 23
+        =link_to root_path, class: "btn_delate" do
+          削除する
+      .card-group__form
       %p
-      %a.payment{href: "/"}支払い方法について　＞
+      %a.payment{href: "/"}支払い方法について ＞
       = render 'users/exhibition-btn'
 = render 'items/toppage/bottom-banner-ad'
 = render 'items/toppage/footer'
