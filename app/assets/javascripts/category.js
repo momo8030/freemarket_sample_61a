@@ -90,7 +90,7 @@ $(function(){
   })
   
   // 編集時、カテゴリー追加
-  if(document.URL.match(/sell/) && document.URL.match(/edit/)) {
+  if(document.URL.match(/items/) && document.URL.match(/edit/)) {
     $(document).ready(function(){
       let sub = $(mainCategory).val();
       let sub_sub = $(subCategory).children('select').val();
@@ -251,10 +251,4 @@ $(function(){
       alert('カテゴリー検索に失敗しました');
     });
   });
-
-
-
-
-
-  
 });

@@ -724,7 +724,7 @@ class Category < ActiveHash::Base
     { id: 711, name: 'クリスマス', sub: '4', sub_sub: '73', size: '', brand: '' },
     { id: 712, name: '冬一般', sub: '4', sub_sub: '73', size: '', brand: '' },
     { id: 713, name: 'その他', sub: '4', sub_sub: '73', size: '', brand: '' },
-
+    #本
     { id: 714, name: '文学/小説', sub: '5', sub_sub: '75', size: '', brand: '' },
     { id: 715, name: '人文/社会', sub: '5', sub_sub: '75', size: '', brand: '' },
     { id: 716, name: 'ノンフィクション/教養', sub: '5', sub_sub: '75', size: '', brand: '' },
@@ -776,7 +776,7 @@ class Category < ActiveHash::Base
     { id: 762, name: '携帯用ゲームソフト', sub: '5', sub_sub: '', size: '', brand: '' },
     { id: 763, name: 'PCゲーム', sub: '5', sub_sub: '', size: '', brand: '' },
     { id: 764, name: 'その他', sub: '5', sub_sub: '', size: '', brand: '' },
-
+    #おもちゃ
     { id: 765, name: 'キャラクターグッズ', sub: '6', sub_sub: '', size: '', brand: '' },
     { id: 766, name: 'ぬいぐるみ', sub: '6', sub_sub: '', size: '', brand: '' },
     { id: 767, name: '小物/アクセサリー', sub: '6', sub_sub: '', size: '', brand: '' },
@@ -878,7 +878,7 @@ class Category < ActiveHash::Base
     { id: 863, name: 'アマチュア無線', sub: '6', sub_sub: '', size: '', brand: '' },
     { id: 864, name: 'パチンコ/パチスロ', sub: '6', sub_sub: '', size: '', brand: '' },
     { id: 865, name: 'その他', sub: '6', sub_sub: '', size: '', brand: '' },
-
+  #コスメ
     { id: 866, name: 'ファンデーション', sub: '7', sub_sub: '', size: '', brand: '' },
     { id: 867, name: '化粧下地', sub: '7', sub_sub: '', size: '', brand: '' },
     { id: 868, name: 'コントロールカラー', sub: '7', sub_sub: '', size: '', brand: '' },
@@ -967,7 +967,7 @@ class Category < ActiveHash::Base
     { id: 951, name: '看護/介護用品', sub: '7', sub_sub: '', size: '', brand: '' },
     { id: 952, name: '救急/衛生用品', sub: '7', sub_sub: '', size: '', brand: '' },
     { id: 953, name: 'その他', sub: '7', sub_sub: '', size: '', brand: '' },
-
+  #スマホ
     { id: 954, name: 'スマートフォン本体', sub: '8', sub_sub: '', size: '', brand: '' },
     { id: 955, name: 'バッテリー/充電器', sub: '8', sub_sub: '', size: '', brand: '' },
     { id: 956, name: '携帯電話本体', sub: '8', sub_sub: '', size: '', brand: '' },
@@ -1281,7 +1281,7 @@ class Category < ActiveHash::Base
     { id: 1260, name: 'ミラー', sub: '12', sub_sub: '', size: '', brand: '' },
     { id: 1261, name: '外国オートバイ用パーツ', sub: '12', sub_sub: '', size: '', brand: '' },
     { id: 1262, name: 'その他', sub: '12', sub_sub: '', size: '', brand: '' },
-    { id: 1263, name: 'ヘルメット/シールド', sub: '12', sub_sub: '', size: '', brand: '' },
+    { id: 1263, name: 'ヘルメット/シールド', sub: '12', sub_sub: '11', size: '', brand: '' },
     { id: 1264, name: 'バイクウエア/装備', sub: '12', sub_sub: '', size: '', brand: '' },
     { id: 1265, name: 'アクセサリー', sub: '12', sub_sub: '', size: '', brand: '' },
     { id: 1266, name: 'メンテナンス', sub: '12', sub_sub: '', size: '', brand: '' },
