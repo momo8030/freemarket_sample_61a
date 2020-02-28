@@ -1,5 +1,5 @@
 .exhibition__header
-  = link_to "#", class: "item__index-link" do
+  = link_to root_path class: "item__index-link" do
     = image_tag "fmarket_logo_red", class: "img__main-link"
 .sell__container
   = form_with model: @item, class:'sell-main__form', local: true do |f|
@@ -14,7 +14,7 @@
           = icon 'fas', 'camera'
           .img__post-p ドラッグアンドドロップ
           .img__post-p またはクリックしてファイルをアップロード
-           
+
     .goods__container
       .group-form
         %h3.label
@@ -30,69 +30,36 @@
       .sell__container-l
         %h4.sub-text
           商品の詳細
-      .sell__container-r        
+      .sell__container-r#form__box-detail      
         %h3.label
-          カテゴリー
-          .span 必須 
-        //カテゴリーリスト選択
-        -#  = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, class: "select-parents", id: "parent-form", name: 'item[category_ids][]'
+          = f.label :category_id do
+            カテゴリー
+            .span 必須 
+        
         .select__block
-          .condition
+          %div#select__category-wrapper.condition
             .condition-form
-              %select.select-form{name: "category"}
-                %option{value: "0"}  ---
-                %option{value: "1"}  レディース
-                %option{value: "2"}  メンズ
-                %option{value: "3"}  ベビー・キッズ
-                %option{value: "4"}  インテリア・住まい・小物
-                %option{value: "5"}  本・音楽・ゲーム
-                %option{value: "6"}  おもちゃ・ホビー・グッズ
-                %option{value: "7"}  コスメ・香水・美容
-                %option{value: "8"}  家電・スマホ・カメラ
-                %option{value: "9"}  スポーツ・レジャー
-                %option{value: "10"}  ハンドメイド
-                %option{value: "11"}  チケット
-                %option{value: "12"}  自転車・オートバイ
-                %option{value: "13"}  その他
               = icon 'fas arrow-down', 'chevron-down'
-          .condition
-            .condition-form
-              %select.select-form.child{name: "category-child"}
-                %option{value: "0"}  ---
-                %option{value: "1"}  トップス
-              = icon 'fas arrow-down', 'chevron-down'
-          .condition
-            .condition-form
-              %select.select-form.grand-child{name: "category-grand-child"}
-                %option{value: "0"}  ---
-                %option{value: "1"}  Tシャツ/カットソー（半袖/袖なし）
-              = icon 'fas arrow-down', 'chevron-down'
-          .group-form
-            .condition
-              %h3.label
-                サイズ
-                .span 必須 
-            .select__block
-              .condition-form
-                = f.select :size,[['---',""], ['XXS以下', 'XXS以下'], ['XS(SS)', 'XS(SS)'],['S', 'S'],['M', 'M'],['L', 'L'],['XL(LL)', 'XL(LL)'],['2XL(3L)', '2XL(3L)'],['3XL(4L)', '3XL(4L)'],['4XL(5L)以上)', '4XL(5L)以上)'],['FREE SIZE', 'FREE SIZE']], {}, class: "select-form"
-                = icon 'fas arrow-down', 'chevron-down'
+              = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '---' }, class: 'select-form', id: 'select__category-main'
+              
+         
             .group-form
               %h3.label
                 ブランド
                 .any 任意 
               .select__block
                 = f.text_field :brand, placeholder: "例) シャネル",class: "brand-form etc"
-          .group-form
-            .condition
-              %h3.label
-                商品の状態
-                .span 必須 
-            .select__block
-              .condition-form
-                = f.select :goods_condition,[['---',""], ['新品、未使用', '新品、未使用'], ['未使用に近い', '未使用に近い'],['目立った傷や汚れなし', '目立った傷や汚れなし'],['やや傷や汚れあり', 'やや傷や汚れあり'],['傷や汚れあり', '傷や汚れあり'],['全体的に状態が悪い', '全体的に状態が悪い']], {}, class: "select-form"
-                = icon 'fas arrow-down', 'chevron-down'
-                //エラー文読み込み試し
-                -# = render partial: 'error-messages', locals{product: @product, column: 'condition_id'}
+        .group-form
+          .condition
+            %h3.label
+              商品の状態
+              .span 必須 
+          .select__block
+            .condition-form
+              = icon 'fas arrow-down', 'chevron-down'
+              = f.collection_select :condition_id, Condition.all, :id, :value, { prompt: '---' }, class: 'select-form'
+              //エラー文読み込み試し
+              -# = render partial: 'error-messages', locals{product: @product, column: 'condition_id'}
     .sell__container-contents
       .sell__container-l
         %h4.sub-head
@@ -101,24 +68,16 @@
           = link_to "#" ,target: "_blank",class: "question" do
             ？  
       .sell__container-r
-        .form__box   
+        .form__box
           %h3.label
             配送料の負担
             .span 必須 
           .select__block
             .condition
               .condition-form
-                = f.select :delivery_charge,[['---',""], ['送料込み（出品者負担)', '送料込み（出品者負担)'], ['着払い(購入者負担)', '着払い(購入者負担)']], {}, class: "select-form"               
                 = icon 'fas arrow-down', 'chevron-down'
-          .group-form
-            %h3.label
-              配送方法
-              .span 必須 
-            .select__block
-              .condition
-                .condition-form
-                  = f.select :delivery_method,[['---',""], ['未定', '未定'], ['らくらくメルカリ便', 'らくらくメルカリ便'],['レターパック', 'レターパック'],['普通郵便（定形、定形外）', '普通郵便（定形、定形外）'],['クロネコヤマト', 'クロネコヤマト'],['ゆうパック', 'ゆうパック'],['クリックポスト', 'クリックポスト'],['ゆうパケット', 'ゆうパケット']], {}, class: "select-form"
-                  = icon 'fas arrow-down', 'chevron-down'
+                = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, { prompt: '---' }, class: 'select-form'
+          .group-form#form__group-delivery-charge
         .form__box
           .group-form
             %h3.label
@@ -137,8 +96,8 @@
             .select__block
               .condition
                 .condition-form
-                  = f.select :delivery_days,[['---',""], ['1~2日で発送', '1~2日で発送'], ['2〜3日で発送', '2〜3日で発送'],['4〜7日で発送', '4〜7日で発送']], {}, class: "select-form"
                   = icon 'fas arrow-down', 'chevron-down'
+                  = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :value, { prompt: '---' }, class: 'select-form'
     .price__container
       .price__container-example
         %h4.sub-head

@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new] do
     get :confirmation
   end
+  
+  namespace :api do
+    resources :items, only: :new, defaults: { format: 'json' }
+    get '/items/new_delivery', to: 'items#new_delivery', defaults: { format: 'json' }
+  end
 
   resources :users, only: [:show, :new] do
     get :profile_edit
