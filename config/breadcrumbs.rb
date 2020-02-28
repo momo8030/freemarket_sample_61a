@@ -24,7 +24,7 @@ crumb :logout do
 end
 
 crumb :credit do
-  link "支払い方法", new_card_path
+  link "支払い方法", root_path
   parent :mypage
 end
 
