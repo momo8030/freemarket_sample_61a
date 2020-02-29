@@ -16,13 +16,16 @@ $(function(){
     let subOptionHTML =`<option value="${category.id}", data-size-id="${category.size}", data-brand-id="${category.brand}">${category.name}</option>`;
     $(appendWrap).children('select').append(subOptionHTML);
   }
-  function attrCustomData(category, appendWrap, index){
-    $(appendWrap).children('select').children(`option:nth-child(${index + 2})`).attr({
-      'data-size-id': category.size,
-      'data-brand-id': category.brand,
-    });
-  }
+
+  //編集時に関係してくる
+  // function attrCustomData(category, appendWrap, index){
+  //   $(appendWrap).children('select').children(`option:nth-child(${index + 2})`).attr({
+  //     'data-size-id': category.size,
+  //     'data-brand-id': category.brand,
+  //   });
+  // }
   
+  //メインカテゴリー
   const categoryWrapper = '#select__category-wrapper';
   const mainCategory = '#select__category-main';
   const subCategory = '#select__category-wrapper div:nth-child(2)';
@@ -90,34 +93,33 @@ $(function(){
   })
   
   // 編集時、カテゴリー追加
-  if(document.URL.match(/items/) && document.URL.match(/edit/)) {
-    $(document).ready(function(){
-      let sub = $(mainCategory).val();
-      let sub_sub = $(subCategory).children('select').val();
+  // if(document.URL.match(/items/) && document.URL.match(/edit/)) {
+  //   $(document).ready(function(){
+  //     let sub = $(mainCategory).val();
+  //     let sub_sub = $(subCategory).children('select').val();
       
-      $.ajax({
-        type: "GET",
-        url: '/items/new',
-        data: { sub: sub, sub_sub: sub_sub },
-        dataType: 'json'
-      })
+  //     $.ajax({
+  //       type: "GET",
+  //       url: '/items/new',
+  //       data: { sub: sub, sub_sub: sub_sub },
+  //       dataType: 'json'
+  //     })
       
-      .done(function(categories){
-        if(sub != ''){
-          categories.forEach(function(category, index){
-            attrCustomData(category, subSubCategory, index);
-          });
-        }
-      })
-      .fail(function(){
-        alert('カテゴリー編集に失敗しました');
-      });
-    });
-  }
+  //     .done(function(categories){
+  //       if(sub != ''){
+  //         categories.forEach(function(category, index){
+  //           attrCustomData(category, subSubCategory, index);
+  //         });
+  //       }
+  //     })
+  //     .fail(function(){
+  //       alert('カテゴリー編集に失敗しました');
+  //     });
+  //   });
+  // }
   
   // サイズ選択欄追加
   function appendSize(){
-    console.log(this);
     const sizeHTML = `<div class="size-add" id="form__group-size">
                       <label for="product_size">サイズ
                         <span class = "span"> 必須</span>
@@ -179,7 +181,6 @@ $(function(){
     })
 
     .done(function(sizes){
-      console.log(sizeId);
       $(sizeWrap).remove();
       if(sizeId != '' && sizes[0]){
         appendSize();
@@ -230,9 +231,10 @@ $(function(){
   // 配送料選択時、配送方法表示
   $(document).on('change', deliveryCharge, function(){
     let deliveryChargeId = $(this).val();
+    console.log(deliveryChargeId);
     $.ajax({
       type: "GET",
-      url: '/api/items/new_delivery',
+      url: '/api/items/new_delivery', //items_controller
       data: { charge: deliveryChargeId },
       dataType: 'json'
     })
