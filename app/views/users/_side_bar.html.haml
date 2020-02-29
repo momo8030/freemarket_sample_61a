@@ -1,8 +1,8 @@
 .side__list
   .mypage__all-list
     %ul.menu
-      = link_to "#", class: 'list__item',id: "list_active" do
-        %li.mypage__list.list__mypage-active
+      = link_to "#", class: 'list__item' do
+        %li#mypage.mypage__list
           マイページ
           = icon 'fas', 'chevron-right'
       = link_to "#", class: 'list__item' do
@@ -75,7 +75,7 @@
       設定
     %ul.merpay-setting.menu
       = link_to "#", class: 'list__item' do
-        %li.mypage__list
+        %li#profile.mypage__list
           プロフィール
           = icon 'fas', 'chevron-right'
       = link_to "#", class: 'list__item' do
@@ -83,7 +83,7 @@
           発送元・お届け先住所変更
           = icon 'fas', 'chevron-right'
       = link_to new_card_path, class: 'list__item' do
-        %li.mypage__list
+        %li#card.mypage__list
           支払い方法
           = icon 'fas', 'chevron-right'
       = link_to "#", class: 'list__item' do
