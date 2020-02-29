@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   
   resources :signups, only: [:index] do
     collection do
-      get 'step1' #情報の一部を入力
-      post 'step1', to: 'signups#step1_validates' #入力した情報のバリデーションチェック
-      get 'step2' #残りの情報を入力
-      post 'step2',to: 'signups#create' #入力した情報を保存
+      get 'user_information' #情報の一部を入力
+      post 'user_information', to: 'signups#user_information_validates' #入力した情報のバリデーションチェック
+      get 'phone_number_Verification' #残りの情報を入力
+      post 'phone_number_Verification',to: 'signups#create' #入力した情報を保存
       get 'done'
     end
   end

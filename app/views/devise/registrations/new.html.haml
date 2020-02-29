@@ -5,7 +5,7 @@
       新規会員登録
     .signup-contents__form
       .signup-btn
-        =link_to step1_signups_path, method: :get, class: "signup-btn__email" do
+        =link_to user_information_signups_path, method: :get, class: "signup-btn__email" do
           %i.far.fa-envelope.fa-lg
           メールアドレスで登録する
         =link_to user_facebook_omniauth_authorize_path, method: :post, class: "signup-btn__facebook" do

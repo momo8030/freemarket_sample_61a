@@ -1,9 +1,9 @@
 class SignupsController < ApplicationController
-  def step1
+  def user_information
     @user = User.new
   end
 
-  def step1_validates
+  def user_information_validates
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -33,14 +33,14 @@ class SignupsController < ApplicationController
     skip_phonenumber_validate(@user.errors) 
 
     if @user.errors.messages.blank? && @user.errors.details.blank?
-      redirect_to step2_signups_path
+      redirect_to phone_number_Verification_signups_path
     else
       @user.errors.messages[:birth_day] = change_birthday_validate_message(@user)
       render :step1
     end
   end
 
-  def step2
+  def phone_number_Verification
     @user = User.new
   end
 
@@ -76,7 +76,7 @@ class SignupsController < ApplicationController
       session.delete(:birth_day)
       redirect_to done_signups_path 
     else
-      render :step2
+      render :phone_number_Verification
     end
   end
 
