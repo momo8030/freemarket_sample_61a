@@ -33,14 +33,14 @@ class SignupsController < ApplicationController
     skip_phonenumber_validate(@user.errors) 
 
     if @user.errors.messages.blank? && @user.errors.details.blank?
-      redirect_to phone_number_Verification_signups_path
+      redirect_to phone_number_verification_signups_path
     else
       @user.errors.messages[:birth_day] = change_birthday_validate_message(@user)
       render :step1
     end
   end
 
-  def phone_number_Verification
+  def phone_number_verification
     @user = User.new
   end
 
@@ -76,7 +76,7 @@ class SignupsController < ApplicationController
       session.delete(:birth_day)
       redirect_to done_signups_path 
     else
-      render :phone_number_Verification
+      render :phone_number_verification
     end
   end
 
