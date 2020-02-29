@@ -24,7 +24,7 @@
       電話番号の確認
     .signup-contents__form
       .form-wapper
-      = form_with model: @user, url: done_signups_path,method: :post,  local: true do |f|
+      = form_for @user, url: step2_signups_path, method: :post do |f|
         .signup-content_text
           .form-group.form-group_text
             = f.label :image, "携帯電話の番号", class: "form-group_label"

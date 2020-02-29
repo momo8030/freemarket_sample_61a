@@ -24,7 +24,7 @@
       会員情報入力
     .signup-contents__form
       .form-wapper
-      = form_with model: @user, url: phone_number_signups_path, method: :get,  local: true do |f|
+      = form_for @user, url: step1_signups_path, method: :post do |f|
         .signup-content_text
           .form-group.form-group_text
             = f.label :nickname, "ニックネーム", class: "form-group_label"
