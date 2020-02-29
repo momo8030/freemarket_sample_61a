@@ -36,7 +36,7 @@ class SignupsController < ApplicationController
       redirect_to phone_number_verification_signups_path
     else
       @user.errors.messages[:birth_day] = change_birthday_validate_message(@user)
-      render :step1
+      render :user_information
     end
   end
 
