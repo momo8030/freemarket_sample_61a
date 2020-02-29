@@ -41,7 +41,6 @@
               = icon 'fas arrow-down', 'chevron-down'
               = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '---' }, class: 'select-form', id: 'select__category-main'
               
-         
             .group-form
               %h3.label
                 ブランド
