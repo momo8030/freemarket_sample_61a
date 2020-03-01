@@ -91,7 +91,7 @@
           メール/パスワード
           = icon 'fas', 'chevron-right'
       = link_to "#", class: 'list__item' do
-        %li.mypage__list
+        %li#user-info.mypage__list
           本人情報
           = icon 'fas', 'chevron-right'
       = link_to "#", class: 'list__item' do
@@ -99,7 +99,7 @@
           電話番号の確認
           = icon 'fas', 'chevron-right'
       = link_to "/users/:user_id/logout", class: 'list__item' do
-        %li.mypage__list
+        %li#logout.mypage__list
           ログアウト
           = icon 'fas', 'chevron-right'    
         
