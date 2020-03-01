@@ -24,7 +24,7 @@ class User < ApplicationRecord
   validates :birth_year,        presence: true, numericality: true
   validates :birth_month,       presence: true, numericality: true
   validates :birth_day,         presence: true, numericality: true
-  validates :phone_number,      presence: true, uniqueness: true, numericality: true,format: {with: /\A\d{10,11}\z/}
+  validates :phone_number,      presence: true, uniqueness: true, numericality: true
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create

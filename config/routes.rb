@@ -21,10 +21,13 @@ Rails.application.routes.draw do
     get :logout
   end
   
-  resources :signups, only: [:new, :create] do
+  resources :signups, only: [:index] do
     collection do
-      get 'phone_number'
-      post 'done'
+      get 'user_information' #情報の一部を入力
+      post 'user_information', to: 'signups#user_information_validates' #入力した情報のバリデーションチェック
+      get 'phone_number_verification' #残りの情報を入力
+      post 'phone_number_verification',to: 'signups#create' #入力した情報を保存
+      get 'done'
     end
   end
 

@@ -98,7 +98,7 @@
         %li.mypage__list
           電話番号の確認
           = icon 'fas', 'chevron-right'
-      = link_to "#", class: 'list__item' do
+      = link_to "/users/:user_id/logout", class: 'list__item' do
         %li#logout.mypage__list
           ログアウト
           = icon 'fas', 'chevron-right'    
