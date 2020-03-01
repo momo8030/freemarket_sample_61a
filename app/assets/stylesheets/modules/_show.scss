@@ -31,15 +31,18 @@
   }
   .owl-item {
     height: 60px;
-    width: 60px;
+    width: 100%;
     overflow: hidden;
-    float: left;
-    position: relative;
     cursor: pointer;
-    opacity: 0.4;
-    &:hover{
-      opacity: 1; 
-    }
+  }
+  .sub-image {
+    float: left;
+    display: block;
+    position: relative;
+    opacity: 0.4
+  }
+  .sub-image:hover {
+    opacity: 1;
   }
   table {
     width: 300px;
