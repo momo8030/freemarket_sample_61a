@@ -11,6 +11,7 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User"
   has_many   :images,dependent: :destroy
+  # 画像のアップロード時に必要な記述
   # accepts_nested_attributes_for :images,allow_destory: true
   has_many :likes
 
