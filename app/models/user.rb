@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :bought_items, foreign_key: "buyer_id", class_name: "Item"
   has_many :selling_items, foreign_key: "seller_id", class_name: "Item"
   has_many :sns_credentials
+  has_many :cards,dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email,             presence: true, uniqueness: true
