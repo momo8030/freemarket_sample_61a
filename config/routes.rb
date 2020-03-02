@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
   }
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+    post '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   
