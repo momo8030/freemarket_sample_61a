@@ -6,8 +6,12 @@
   .card
     .card__container
       .card-group
-        =link_to root_path, class: "logout-btn", method: :get do
+        =link_to destroy_user_session_path, class: "logout-btn", method: :delete do
           ログアウト
       = render 'users/exhibition-btn'
 = render 'items/toppage/bottom-banner-ad'
 = render 'items/toppage/footer'
+:javascript
+  $(document).ready(function(){
+    $("#logout").addClass("active")
+  });

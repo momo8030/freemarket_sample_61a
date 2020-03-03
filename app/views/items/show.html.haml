@@ -2,21 +2,14 @@
   = render "items/toppage/header"
   %section.container
     %h1.item-name
-      LAKOLE レザー調巾着バッグ
+      = @item.name
     .item-content
       .item-photo
         .owl-lazy
-          = image_tag('product/bag.jpg',size: '225x300')
+          = image_tag "#{@images[0].url}",size:'225x300',class:'main-image'
         .owl-item
-          = image_tag('product/bag.jpg',size: '60x60')
-        .owl-item
-          = image_tag('product/bag-1.jpg',size: '60x60')
-        .owl-item
-          = image_tag('product/bag-2.jpg',size: '60x60')
-        .owl-item
-          = image_tag('product/bag-3.jpg',size: '60x60')
-        .owl-item
-          = image_tag('product/bag-4.jpg',size: '60x60')
+          - @images.each do |image|
+            = image_tag "#{image.url}",size:'60x60',class:'sub-image'
       %table.item-table
         %tr.item-table__box
           %th.item-table__box__seller 出品者
