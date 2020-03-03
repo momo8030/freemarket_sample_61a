@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @images = @item.images.order('id ASC')
+    @seller = @item.seller
+    @brand = @item.brand
   end
 
   def new
