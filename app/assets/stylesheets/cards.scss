@@ -28,13 +28,14 @@
 
     .btn_delate{
       position: relative;
-      left: 300px;
-      bottom: 80px;
+      left: 200px;
+      bottom: 40px;
       padding: 4px 6px;
       background: #fff;
       border-radius: 3px;
       border: 1px solid #ea352d;
       color: #ea352d;
+      cursor: pointer; 
     }
   }
   
@@ -90,7 +91,7 @@
         }
 
         .birth-group{
-          #birth_year,#birth_month{
+          #exp_year,#exp_month{
             @include birthday;
             cursor: pointer; 
           }
@@ -134,13 +135,13 @@
           }
         }
 
-        .form-input1{
+        .number{
           @include form-input;
           position: relative;
           right: 40px;
         }
 
-        .form-input2{
+        .cvc{
           @include form-input;
           position: relative;
           right: 40px;
