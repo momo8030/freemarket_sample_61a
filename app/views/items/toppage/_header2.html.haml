@@ -28,11 +28,28 @@
                 -# パスの指定（item）
                 %span ブランドから探す
       .header2-bottom__right
- 
-        .signup-btn
-          -# パスの指定（registration_users_path）
-          =link_to '新規会員登録', new_user_registration_path, class:'signin-text'
-        .login-btn
-          -#パスの指定（new_user_pathsession_path）
-          =link_to 'ログイン', new_user_session_path , class:'signin-btn__text'
-         
+        %ul.signed-btn
+          - if user_signed_in?
+            %li.like-btn
+              = link_to "#", class: 'like' do
+                %i.far.fa-heart
+                %span いいね！一覧
+            %li.notice-btn
+              = link_to "#", class: 'notice' do
+                %i.far.fa-bell
+                %span お知らせ
+            %li.todo_list-btn
+              = link_to "#", class: 'todo_list' do
+                %i.fas.fa-check
+                %span やることリスト
+            %li.mypage-btn
+              = link_to user_path(:id), class: 'mypage' do
+                = image_tag 'haru.jpg', class: 'user-img', size: '30x30'
+                %span マイページ
+          -else
+            %li.signup-btn
+              -# パスの指定（registration_users_path）
+              =link_to '新規会員登録', new_user_registration_path, class:'signin-text'
+            %li.login-btn
+              -#パスの指定（new_user_pathsession_path）
+              =link_to 'ログイン', new_user_session_path , class:'signin-btn__text'

@@ -89,12 +89,32 @@ header {
       &__right {
         display: flex;
         justify-content: space-between;
-        .signup-btn {
-          background-color: $red; 
-          border-color: $red;
-          @include btn_default;    
-          .signin-text {
-            color: $background_rgb;
+        height: 40px;
+        .signed-btn {
+          display: flex;
+          .like-btn {
+            @include user_signed;
+          }
+          .notice-btn {
+            @include user_signed;
+          }
+          .todo_list-btn {
+            @include user_signed;
+          }
+          .mypage-btn {
+            font-size: 15px;
+            padding: 0 20px;
+            display: flex;
+            .user-img {
+              border-radius: 50%;
+            }
+            span {
+              padding-left: 5px;
+              vertical-align: top;  
+            }
+            a:hover {
+              color: $light_blue; 
+            }
           }
         }
         .login-btn {
