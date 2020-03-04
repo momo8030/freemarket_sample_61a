@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   
   root 'items#index'
-  resources :items, only: [:index, :new, :show] do
+  resources :items, only: [:index, :new, :show, :create] do
     get :confirmation
   end
   
