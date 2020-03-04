@@ -35,8 +35,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards,only:[:new, :create,:show]do
-   
+  resources :cards,only:[:index,:new,:show]do
+    collection do
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+      post 'show', to: 'cards#show'
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
