@@ -34,7 +34,7 @@
 
   &-upload-box {
     padding: 40px;
-    height: 223px;
+    height: 100%;
     border-bottom: 1px solid #f5f5f5;
 
     p {
@@ -110,6 +110,7 @@
   }
 
   .goods__container { 
+    clear: both;
     padding: 40px;
     border-bottom: 1px solid #f5f5f5;
     &-box {
