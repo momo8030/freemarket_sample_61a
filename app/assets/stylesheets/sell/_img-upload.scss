@@ -1,0 +1,46 @@
+.dropzone__container {
+  width: 100%;
+  height: 100%;
+  
+  .dropzone-area {
+    @include dropzone ;
+    float:right;
+  }
+  .img_view > img {
+    width: 120px;
+    margin-top: 16px;
+  }
+  .btn_wrapper {
+    display: flex;
+    .btn_edit {
+      float: left;
+      padding: 8px;   
+    }
+  }
+  .img_view {
+    float:left;
+    padding-right: 4px;
+    }
+  
+  .dropzone-area2 {
+    @include dropzone;
+    display: none;
+    float:right;
+    P {
+      height: 100%;
+    }
+  }
+  #preview {
+    float:left;
+    .btn_wrapper {
+      clear: both;
+    }
+  }
+  .input_area {
+    height: 100%;
+    width: 100%;
+    .upload-image {
+      display: none;
+    }
+  }
+}

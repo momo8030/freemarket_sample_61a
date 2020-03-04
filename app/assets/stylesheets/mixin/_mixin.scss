@@ -201,3 +201,11 @@
   justify-content: space-between;
   font-size: 15px;
 }
+
+@mixin dropzone {
+  width: 620px;
+  height: 150px;
+  background-color: #f5f5f5;
+  border: 1px dashed rgb(204,204,204,);
+  margin-top: 16px;
+}
