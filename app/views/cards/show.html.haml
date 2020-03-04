@@ -8,22 +8,19 @@
       %h3.head 支払い方法
       .card-group
         .card-group__title
-          クレジットカード一覧
-          %ul.card-list
-            %li.card-list_jpg 
-              = image_tag 'card/mastercard.png', size:'34x20',class:'master'
-        .card-group__btn
-          %p ************1052
-          %p 10 / 23
-        =link_to root_path, class: "btn_delate" do
-          削除する
+          %label クレジットカード一覧
+          %br
+          = "**** **** **** " + @default_card_information.last4
+          %br
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+          = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            %input{ type: "hidden", name: "card_id", value: "" }
+            %button.btn_delate  削除する
       .card-group__form
       %p
       %a.payment{href: "/"}支払い方法について ＞
       = render 'users/exhibition-btn'
 = render 'items/toppage/bottom-banner-ad'
 = render 'items/toppage/footer'
-:javascript
-  $(document).ready(function(){
-    $("#card").addClass("active")
-  });
