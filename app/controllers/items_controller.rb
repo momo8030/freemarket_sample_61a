@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.includes(:images).order('created_at DESC')
   end
 
   def show
@@ -8,7 +9,8 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
+    @item.images.new
     @categories = Category.where(sub: params[:sub], sub_sub: params[:sub_sub])
     respond_to do |format|
       format.html
@@ -16,7 +18,22 @@ class ItemsController < ApplicationController
     end
   end
 
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   def edit
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :price, :comment, :state, :category, :size, :postage, :region, :shopping_date, :buyer_id, :seller_id, :brand, images_attributes: [:url])
   end
 
 end
