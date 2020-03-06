@@ -1,7 +1,7 @@
 .signup
   = render 'signups/signup_header'
 .sell__container
-  = form_with model: @item, class:'sell-main__form', local: true do |f|
+  = form_with model: @item, class:'sell-main__form dropzone', id: "item-doropzone", local: true do |f|
     .sell__container-head
       %h2 商品の情報を入力
     .sell__container-upload-box 
@@ -9,11 +9,18 @@
         出品画像
         .span 必須
         %p 最大10枚までアップロードできます
-        .img__post
-          = icon 'fas', 'camera'
-          .img__post-p ドラッグアンドドロップ
-          .img__post-p またはクリックしてファイルをアップロード
-
+        = f.fields_for :item_images do |image|
+          .dropzone__container
+            #preview
+            .dropzone-area
+              = image.label :image, class: "dropzone-box", for: "upload-image" do
+                .input_area
+                  = image.file_field :image, multiple: true, name: 'item_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                  %p ここをクリックしてください
+            #preview2
+            .dropzone-area2
+              = image.label :image, class: "dropzone-box", for: "upload-image" do
+                %p ここをクリックしてください
     .goods__container
       .group-form
         %h3.label
@@ -31,16 +38,13 @@
           商品の詳細
       .sell__container-r#form__box-detail      
         %h3.label
-          = f.label :category_id do
-            カテゴリー
-            .span 必須 
-        
+          カテゴリー
+          .span 必須 
         .select__block
           %div#select__category-wrapper.condition
             .condition-form
               = icon 'fas arrow-down', 'chevron-down'
               = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '---' }, class: 'select-form', id: 'select__category-main'
-              
             .group-form
               %h3.label
                 ブランド
@@ -56,8 +60,6 @@
             .condition-form
               = icon 'fas arrow-down', 'chevron-down'
               = f.collection_select :condition_id, Condition.all, :id, :value, { prompt: '---' }, class: 'select-form'
-              //エラー文読み込み試し
-              -# = render partial: 'error-messages', locals{product: @product, column: 'condition_id'}
     .sell__container-contents
       .sell__container-l
         %h4.sub-head
