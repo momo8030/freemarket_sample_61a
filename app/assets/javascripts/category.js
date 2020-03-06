@@ -17,14 +17,6 @@ $(function(){
     $(appendWrap).children('select').append(subOptionHTML);
   }
 
-  //編集時に関係してくる
-  // function attrCustomData(category, appendWrap, index){
-  //   $(appendWrap).children('select').children(`option:nth-child(${index + 2})`).attr({
-  //     'data-size-id': category.size,
-  //     'data-brand-id': category.brand,
-  //   });
-  // }
-  
   //メインカテゴリー
   const categoryWrapper = '#select__category-wrapper';
   const mainCategory = '#select__category-main';
@@ -91,32 +83,6 @@ $(function(){
       alert('カテゴリー検索に失敗しました');
     });
   })
-  
-  // 編集時、カテゴリー追加
-  // if(document.URL.match(/items/) && document.URL.match(/edit/)) {
-  //   $(document).ready(function(){
-  //     let sub = $(mainCategory).val();
-  //     let sub_sub = $(subCategory).children('select').val();
-      
-  //     $.ajax({
-  //       type: "GET",
-  //       url: '/items/new',
-  //       data: { sub: sub, sub_sub: sub_sub },
-  //       dataType: 'json'
-  //     })
-      
-  //     .done(function(categories){
-  //       if(sub != ''){
-  //         categories.forEach(function(category, index){
-  //           attrCustomData(category, subSubCategory, index);
-  //         });
-  //       }
-  //     })
-  //     .fail(function(){
-  //       alert('カテゴリー編集に失敗しました');
-  //     });
-  //   });
-  // }
   
   // サイズ選択欄追加
   function appendSize(){
