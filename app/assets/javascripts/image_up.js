@@ -1,7 +1,6 @@
 $(function(){
   var dropzone = $('.dropzone-area'); //クリックすると画像を選択出来るエリア・・・上段
   var dropzone2 = $('.dropzone-area2'); //クリックすると画像を選択出来るエリア・・・下段
-  // var dropzone_box = $('.dropzone-box');
   var images = [];
   var inputs  =[];
   var input_area = $('.input_area');
