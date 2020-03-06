@@ -21,7 +21,6 @@
             .dropzone-area2
               = image.label :image, class: "dropzone-box", for: "upload-image" do
                 %p ここをクリックしてください
-
     .goods__container
       .group-form
         %h3.label
@@ -39,16 +38,13 @@
           商品の詳細
       .sell__container-r#form__box-detail      
         %h3.label
-          = f.label :category_id do
-            カテゴリー
-            .span 必須 
-        
+          カテゴリー
+          .span 必須 
         .select__block
           %div#select__category-wrapper.condition
             .condition-form
               = icon 'fas arrow-down', 'chevron-down'
               = f.collection_select :category_id, Category.where(sub: '0'), :id, :name, { prompt: '---' }, class: 'select-form', id: 'select__category-main'
-              
             .group-form
               %h3.label
                 ブランド
@@ -64,8 +60,6 @@
             .condition-form
               = icon 'fas arrow-down', 'chevron-down'
               = f.collection_select :condition_id, Condition.all, :id, :value, { prompt: '---' }, class: 'select-form'
-              //エラー文読み込み試し
-              -# = render partial: 'error-messages', locals{product: @product, column: 'condition_id'}
     .sell__container-contents
       .sell__container-l
         %h4.sub-head
