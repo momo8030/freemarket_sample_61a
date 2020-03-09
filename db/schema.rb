@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_064232) do
+ActiveRecord::Schema.define(version: 2020_03_08_122507) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -27,12 +27,6 @@ ActiveRecord::Schema.define(version: 2020_03_08_064232) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "url", null: false
     t.bigint "item_id", null: false
@@ -45,17 +39,21 @@ ActiveRecord::Schema.define(version: 2020_03_08_064232) do
     t.string "name", null: false
     t.integer "price", null: false
     t.string "comment"
-    t.integer "state", null: false
-    t.string "category", null: false
-    t.integer "size"
-    t.string "postage", null: false
-    t.string "region", null: false
-    t.integer "shopping_date", null: false
     t.integer "buyer_id"
     t.integer "seller_id", null: false
-    t.integer "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "condition_id", null: false
+    t.integer "category_id", null: false
+    t.integer "size_id"
+    t.integer "delivery_charge_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "delivery_days_id", null: false
+    t.integer "delivery_method_id", null: false
+    t.integer "likes_count"
+    t.text "brand"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -99,6 +97,7 @@ ActiveRecord::Schema.define(version: 2020_03_08_064232) do
   end
 
   add_foreign_key "images", "items"
+  add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
   add_foreign_key "sns_credentials", "users"
