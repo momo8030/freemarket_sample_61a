@@ -168,7 +168,7 @@ $(function(){
   });
 
   const deliveryChargeWrap = '#form__group-delivery-charge';
-  const deliveryCharge = '#delivery_charge_id';
+  const deliveryCharge = '#item_delivery_charge_id';
   const deliverymethodWrap = '#form__group-delivery-method';
 
   // 配送方法選択欄の追加
@@ -196,8 +196,8 @@ $(function(){
 
   // 配送料選択時、配送方法表示
   $(document).on('change', deliveryCharge, function(){
+    console.log(this);
     let deliveryChargeId = $(this).val();
-    console.log(deliveryChargeId);
     $.ajax({
       type: "GET",
       url: '/api/items/new_delivery', //items_controller
