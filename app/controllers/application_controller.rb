@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def set_categories
     @main_categories = Category.where( sub: '0' )
-    @category = Category.where( sub: params[:id], sub_sub: params[:sub_sub])
+    @sub_category = Category.where( sub: params[:id], sub_sub: params[:sub_sub])
     @sub_subcategories = Category.where( sub: params[:sub_sub], sub_sub: params[:sub] )
   end
 end
