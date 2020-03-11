@@ -4,3 +4,50 @@
   =render "items/toppage/bottom-banner-ad"
   =render "items/toppage/footer"
   =render "users/exhibition-btn"
+
+  //各カテゴリー、ブランドへ移動するjs
+:javascript
+  $(function() {
+    //カテゴリー移動
+    var ladys = $('#ladys').offset().top;
+    var mens = $('#mens').offset().top;
+    var home_appliances = $('#home_appliances').offset().top;
+    var hobys = $('#hobys').offset().top;
+
+    $('#lady').click(function() {
+      $(window).scrollTop(ladys);
+    });
+
+    $('#men').click(function() {
+      $(window).scrollTop(mens);
+    });
+
+    $('#home_appliance').click(function() {
+      $(window).scrollTop(home_appliances);
+    });
+
+    $('#hoby').click(function() {
+      $(window).scrollTop(hobys);
+    });
+    //ブランド移動
+    var chanels = $('#chanels').offset().top;
+    var vuittons = $('#vuittons').offset().top;
+    var supremes = $('#supremes').offset().top;
+    var nikes = $('#nikes').offset().top;
+
+    $('#chanel').click(function() {
+      $(window).scrollTop(chanels);
+    });
+
+    $('#vuitton').click(function() {
+      $(window).scrollTop(vuittons);
+    });
+
+    $('#supreme').click(function() {
+      $(window).scrollTop(supremes);
+    });
+
+    $('#nike').click(function() {
+      $(window).scrollTop(nikes);
+    });
+  })
