@@ -1,5 +1,5 @@
 $(function(){
-  const priceInput = '#price_calc';  //販売価格
+  const priceInput = '#item_price';  //販売価格
   const feeFeild = '#sell_fee';     //手数料(10%)
   const profitFeild = '#sell_profit';   //販売利益
 
