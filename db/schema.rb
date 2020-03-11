@@ -19,22 +19,10 @@ ActiveRecord::Schema.define(version: 2020_03_08_122507) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,8 +52,6 @@ ActiveRecord::Schema.define(version: 2020_03_08_122507) do
     t.integer "delivery_method_id", null: false
     t.integer "likes_count"
     t.text "brand"
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -109,7 +95,6 @@ ActiveRecord::Schema.define(version: 2020_03_08_122507) do
   end
 
   add_foreign_key "images", "items"
-  add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
   add_foreign_key "sns_credentials", "users"
