@@ -9,10 +9,30 @@ class Item < ApplicationRecord
   # belongs_to user, foreign_key: 'user_id'
   belongs_to :category
   belongs_to :seller, class_name: "User"
-  belongs_to :buyer, class_name: "User"
+  # belongs_to :buyer, class_name: "User"
   has_many   :images,dependent: :destroy
   # 画像のアップロード時に必要な記述
   # accepts_nested_attributes_for :images,allow_destory: true
   has_many :likes
+
+  validates :name, presence: true
+  validates :price, presence: true
+  validates :comment, presence: true
+  validates :condition_id, presence: true
+  validates :category_id, presence: true
+  validates :size_id, presence: true
+  validates :delivery_charge_id, presence: true
+  validates :prefecture_id, presence: true
+  validates :delivery_days_id, presence: true
+  validates :delivery_method_id, presence: true
+  # validates :brand, :numericality => { :allow_blank => true }
+
+  # validates :buyer_id, :numericality => { :allow_blank => true }
+  validates :seller_id, :numericality => { :allow_blank => true }
+  validates :likes_count, :numericality => { :allow_blank => true }
+
+  
+
+  accepts_nested_attributes_for :images, allow_destroy: true
 
 end

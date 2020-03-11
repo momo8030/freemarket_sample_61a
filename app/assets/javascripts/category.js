@@ -103,7 +103,7 @@ $(function(){
   // サイズは必須項目のため、選択欄がないとき用に空のvalueを追加
   function appendSizeNull(){
     const sizeNullHTML = `<div id="form__group-size">
-                            <input type="hidden" name="product[size_id]" value="99"></input>
+                            <input type="hidden" name="item[size_id]" value="99"></input>
                           </div>`;
     $(categoryWrapper).parent().after(sizeNullHTML);
   }
@@ -122,7 +122,7 @@ $(function(){
                         <span class="any">任意</span>
                       </label>
                       <div>
-                        <input class="select-form" placeholder="例）シャネル" type="text" name="product[brand]" id="product_brand">
+                        <input class="select-form" placeholder="例）シャネル" type="text" name="item[brand]" id="product_brand">
                       </div>
                       <div></div>
                       <ul class="sell-main__has-error-text"></ul>
@@ -167,7 +167,7 @@ $(function(){
   });
 
   const deliveryChargeWrap = '#form__group-delivery-charge';
-  const deliveryCharge = '#delivery_charge_id';
+  const deliveryCharge = '#item_delivery_charge_id';
   const deliverymethodWrap = '#form__group-delivery-method';
 
   // 配送方法選択欄の追加
@@ -178,7 +178,7 @@ $(function(){
                               </h3>
                               <div class="condition-form">
                                 <i class='fas arrow-down', 'chevron-down'></i>
-                                <select class="select-form" name="product[delivery_method_id]" id="product_delivery_method_id">
+                                <select class="select-form" name="item[delivery_method_id]" id="product_delivery_method_id">
                                   <option value="">--</option>
                               </div>
                               <ul class="sell-main__has-error-text">
@@ -195,6 +195,7 @@ $(function(){
 
   // 配送料選択時、配送方法表示
   $(document).on('change', deliveryCharge, function(){
+    console.log(this);
     let deliveryChargeId = $(this).val();
     $.ajax({
       type: "GET",

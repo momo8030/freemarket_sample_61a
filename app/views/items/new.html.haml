@@ -1,7 +1,7 @@
 .signup
   = render 'signups/signup_header'
 .sell__container
-  = form_with model: @item, class:'sell-main__form dropzone', id: "item-doropzone", local: true do |f|
+  = form_for @item, url: items_path, method: :post, class:'sell-main__form dropzone', id: "item-doropzone" do |f|
     .sell__container-head
       %h2 商品の情報を入力
     .sell__container-upload-box 
@@ -9,13 +9,13 @@
         出品画像
         .span 必須
         %p 最大10枚までアップロードできます
-        = f.fields_for :item_images do |image|
+        = f.fields_for :images do |image|
           .dropzone__container
             #preview
             .dropzone-area
               = image.label :image, class: "dropzone-box", for: "upload-image" do
                 .input_area
-                  = image.file_field :image, multiple: true, name: 'item_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                  = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
                   %p ここをクリックしてください
             #preview2
             .dropzone-area2
@@ -26,12 +26,12 @@
         %h3.label
           商品名
           .span 必須  
-        = f.text_field :goods, placeholder: "商品名(必須40文字まで)", class: "input-form"
+        = f.text_field :name, placeholder: "商品名(必須40文字まで)", class: "input-form"
       .goods__container-box
         %h3.label
           商品の説明
           .span 必須
-          = f.text_area :introduction, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）\n2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", maxlength: "1000",class: "goods__description"
+          = f.text_area :comment, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）\n2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", maxlength: "1000",class: "goods__description"
     .sell__container-contents
       .sell__container-l
         %h4.sub-text
@@ -113,7 +113,8 @@
             .span 必須 
           .price__container-sale-r
             %p ¥
-            %input#price_calc.input-default{placeholder: "例) 300", type: "number"}/
+            #price_calc.input-default
+            = f.number_field :price, placeholder: "例) 300", type: "number"
         %li.price__container-commission
           %li.price__container-sale
             .price__container-l
