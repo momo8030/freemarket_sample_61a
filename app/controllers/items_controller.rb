@@ -75,13 +75,13 @@ class ItemsController < ApplicationController
   end
 
   private
-  
-  def set_card
-    @credit = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
-  end
 
   def item_params
     params.require(:item).permit(:name, :price, :comment, :condition_id, :category_id, :size_id, :delivery_charge_id, :prefecture_id, :delivery_days_id, :delivery_method_id, :brand, :buyer_id, :likes_count, images_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
+  end
+
+  def set_card
+    @credit = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
   
 
