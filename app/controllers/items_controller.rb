@@ -1,14 +1,14 @@
 class ItemsController < ApplicationController
   def index
 
-    @ladies_items = Item.where(category_id: 1).includes(images).order('created_at DESC').limit(10)  #ladysカテゴリーの商品を１０件代入
-    @mens_items = Item.where(category_id: 2).includes(images).order('created_at DESC').limit(10)    #mensカテゴリーの商品を１０件代入
-    @toys_items = Item.where(category_id: 6).includes(images).order('created_at DESC').limit(10)    #おもちゃカテゴリーの商品を１０件代入
-    @home_appliances_items = Item.where(category_id: 8).includes(images).order('created_at DESC').limit(10)   #家電カテゴリーの商品を１０件代入
-    @chanel_items = Item.where('brands like?', '%シャネル%').includes(images).order('created_at DESC').limit(10) #シャネルを含む商品を１０件代入
-    @vuitton_items = Item.where('brands like?', '%ヴィトン%').includes(images).order('created_at DESC').limit(10)  #ヴィトンを含む商品を１０件代入
-    @supreme_items = Item.where('brands like?', '%シュプリーム%').includes(images).order('created_at DESC').limit(10)  #シュプリームを含む商品を１０件代入
-    @nike_items = Item.where('brands like?', '%ナイキ%').includes(images).order('created_at DESC').limit(10) #ナイキを含む商品を１０件代入
+    # @ladies_items = Item.where(category_id: 159..337).includes(:images).order('created_at DESC').limit(10)  #ladysカテゴリーの商品を１０件代入
+    # @mens_items = Item.where(category_id: 338..467).includes(:images).order('created_at DESC').limit(10)    #mensカテゴリーの商品を１０件代入
+    # @toys_items = Item.where(category_id: 765..865).includes(:images).order('created_at DESC').limit(10)    #おもちゃカテゴリーの商品を１０件代入
+    # @home_appliances_items = Item.where(category_id: 954..1028).includes(:images).order('created_at DESC').limit(10)   #家電カテゴリーの商品を１０件代入
+    # @chanel_items = Item.where('brand like?', '%シャネル%').includes(:images).order('created_at DESC').limit(10) #シャネルを含む商品を１０件代入
+    # @vuitton_items = Item.where('brand like?', '%ヴィトン%').includes(:images).order('created_at DESC').limit(10)  #ヴィトンを含む商品を１０件代入
+    # @supreme_items = Item.where('brand like?', '%シュプリーム%').includes(:images).order('created_at DESC').limit(10)  #シュプリームを含む商品を１０件代入
+    # @nike_items = Item.where('brand like?', '%ナイキ%').includes(:images).order('created_at DESC').limit(10) #ナイキを含む商品を１０件代入
 
     @items = Item.includes(:images).order('created_at DESC')
 
@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    binding.pry
     if @item.save
       redirect_to root_path
     else
