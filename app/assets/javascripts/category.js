@@ -10,7 +10,6 @@ $(function(){
                   </div>`;
     $(categoryWrapper).append(subHTML);
   }
-
   // カテゴリーの選択内容追加
   function appendOption(category, appendWrap){
     let subOptionHTML =`<option value="${category.id}", data-size-id="${category.size}", data-brand-id="${category.brand}">${category.name}</option>`;
@@ -206,7 +205,6 @@ $(function(){
     })
     
     .done(function(deliverymethods){
-      console.log(deliverymethods);
       $(deliverymethodWrap).remove();
       if(deliveryChargeId != '' && deliverymethods[0]){
         appendDeliverymethod();
