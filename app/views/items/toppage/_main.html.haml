@@ -39,14 +39,14 @@
       .items
         .items__contents
           - @ladies_items.each do |item|
-          .items__contents__box
-            = link_to item_path(item), class:'item'do
-              .item-img
-                = image_tag "#{item.images[0].image}", size: '187x187'  
-                %span
-                  = "¥" + item.price
-              .item-name
-                = item.name
+            .items__contents__box
+              = link_to item_path(item), class:'item'do
+                .item-img
+                  = image_tag "#{item.images[0].url.url}"  
+                  %span
+                    = "¥" + "#{item.price}"
+                .item-name
+                  = item.name
         
     .main__category-bottom__box
       %h2#mens
@@ -56,14 +56,14 @@
       .items
         .items__contents
           - @mens_items.each do |item|
-          .items__contents__box
-            = link_to item_path(item), class:'item'do
-              .item-img
-                = image_tag "#{item.images[0].image}", size: '187x187'  
-                %span
-                  = "¥" + item.price
-              .item-name
-                = item.name
+            .items__contents__box
+              = link_to item_path(item), class:'item'do
+                .item-img
+                  = image_tag "#{item.images[0].url.url}"  
+                  %span
+                    = "¥" + "#{item.price}"
+                .item-name
+                  = item.name
         
     .main__category-bottom__box
       %h2#home_appliances
@@ -72,15 +72,15 @@
           =link_to'もっと見る 〉','#',class:'item-link'   
       .items
         .items__contents
-          - @home_alliances_items.each do |item|
-          .items__contents__box
-            = link_to item_path(item), class:'item'do
-              .item-img
-                = image_tag "#{item.images[0].image}", size: '187x187'  
-                %span
-                  = "¥" + item.price
-              .item-name
-                = item.name
+          - @home_appliances_items.each do |item|
+            .items__contents__box
+              = link_to item_path(item), class:'item'do
+                .item-img
+                  = image_tag "#{item.images[0].url.url}"  
+                  %span
+                    = "¥" + "#{item.price}"
+                .item-name
+                  = item.name
         
     .main__category-bottom__box
       %h2#toys
@@ -90,14 +90,14 @@
       .items
         .items__contents
           - @toys_items.each do |item|
-          .items__contents__box
-            = link_to item_path(item), class:'item'do
-              .item-img
-                = image_tag "#{item.images[0].image}", size: '187x187'  
-                %span
-                  = "¥" + item.price
-              .item-name
-                = item.name
+            .items__contents__box
+              = link_to item_path(item), class:'item'do
+                .item-img
+                  = image_tag "#{item.images[0].url.url}"  
+                  %span
+                    = "¥" + "#{item.price}"
+                .item-name
+                  = item.name
         
   .category
     人気のブランド
@@ -119,14 +119,14 @@
       .items
         .items__contents
           - @chanel_items.each do |item|
-          .items__contents__box
-            = link_to item_path(item), class:'item'do
-              .item-img
-                = image_tag "#{item.images[0].image}", size: '187x187'
-                %span
-                  = "¥" + item.price
-              .item-name
-                = item.name
+            .items__contents__box
+              = link_to item_path(item), class:'item'do
+                .item-img
+                  = image_tag "#{item.images[0].url.url}"
+                  %span
+                    = "¥" + "#{item.price}"
+                .item-name
+                  = item.name
         
     .main__category-bottom__box
       %h2#vuittons
@@ -136,14 +136,14 @@
       .items
         .items__contents
           - @vuitton_items.each do |item|
-          .items__contents__box
-            = link_to item_path(item), class:'item'do
-              .item-img
-                = image_tag "#{item.images[0].image}", size: '187x187'
-                %span
-                  = "¥" + item.price
-              .item-name
-                = item.name
+            .items__contents__box
+              = link_to item_path(item), class:'item'do
+                .item-img
+                  = image_tag "#{item.images[0].url.url}"
+                  %span
+                    = "¥" + "#{item.price}"
+                .item-name
+                  = item.name
         
     .main__category-bottom__box
       %h2#supremes
@@ -153,14 +153,14 @@
       .items
         .items__contents
           - @supreme_items.each do |item|
-          .items__contents__box
-            = link_to item_path(item), class:'item'do
-              .item-img
-                = image_tag "#{item.images[0].image}", size: '187x187'
-                %span
-                  = "¥" + item.price
-              .item-name
-                = item.name
+            .items__contents__box
+              = link_to item_path(item), class:'item'do
+                .item-img
+                  = image_tag "#{item.images[0].url.url}"
+                  %span
+                    = "¥" + "#{item.price}"
+                .item-name
+                  = item.name
         
     .main__category-bottom__box
       %h2#nikes
@@ -170,11 +170,11 @@
       .items
         .items__contents
           - @nike_items.each do |item|
-          .items__contents__box
-            = link_to item_path(item), class:'item'do
-              .item-img
-                = image_tag "#{item.images[0].image}", size: '187x187'
-                %span
-                  = "¥" + item.price
-              .item-name
-                = item.name 
+            .items__contents__box
+              = link_to item_path(item), class:'item'do
+                .item-img
+                  = image_tag "#{item.images[0].url.url}"
+                  %span
+                    = "¥" + "#{item.price}"
+                .item-name
+                  = item.name 
