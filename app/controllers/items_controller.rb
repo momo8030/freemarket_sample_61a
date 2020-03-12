@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  require 'payjp'
+  before_action :set_card
+
   def index
 
     @ladies_items = Item.where(category_id: 1).includes(images).order('created_at DESC').limit(10)  #ladysカテゴリーの商品を１０件代入
@@ -41,10 +44,45 @@ class ItemsController < ApplicationController
   def edit
   end
 
+
+  def confirmation
+    card = Card.where(user_id: current_user.id).first
+    # テーブルからpayjpの顧客IDを検索
+    if card.blank?
+      #登録された情報がない場合にカード登録画面に移動
+      flash[:notice] = 'クレジットカードの登録して下さい'
+      # redirect_to controller: "cards", action: "new"
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: 300,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+    redirect_to action: :done
+  end
+
+  def done
+  end
+
   private
+  
+  def set_card
+    @credit = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+  end
 
   def item_params
     params.require(:item).permit(:name, :price, :comment, :condition_id, :category_id, :size_id, :delivery_charge_id, :prefecture_id, :delivery_days_id, :delivery_method_id, :brand, :buyer_id, :likes_count, images_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
   end
+  
 
 end
