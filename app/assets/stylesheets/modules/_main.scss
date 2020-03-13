@@ -107,17 +107,24 @@
       width: 208px;
       height: 272px;
       float:left;
-      bottom: 0;  
-      &__box {
-        width: 188px;
-        height: 252px;
-        background-color: white;
-        border: 1px solid transparent;
-        margin-left:0;
-        box-shadow: 0 2px 4px 0 $border_rgb;
-        cursor: pointer;
-        &:hover {
-          outline:1px solid $light_blue; 
+      bottom: 0;
+      &-area {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        background-color: $background_rgb;
+        &__box {
+          float:left;
+          margin: 6px;
+          width: 188px;
+          height: 252px;
+          background-color: white;
+          border: 1px solid transparent;
+          box-shadow: 0 2px 4px 0 $border_rgb;
+          position: relative;
+          cursor: pointer;
+          &:hover {
+            outline:1px solid $light_blue; 
+          }
         }
       }
       .item-img {
@@ -125,8 +132,7 @@
         height: 188px;
         cursor: pointer;
         overflow: hidden;
-        position: relative;
-      } 
+      }
       span {
         align-items: center;
         background: rgba(0,0,0,.4);
@@ -138,11 +144,11 @@
         font-size: 17px;
         height: 28px;
         letter-spacing: .02em;
-        margin: 0;
+        top: 64%;
         padding: 0 12px;
         position: absolute;
         z-index: 2;
-      }
+      } 
       .item-name {
         box-sizing: border-box;
         color: #222;
