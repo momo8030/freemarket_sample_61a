@@ -86,6 +86,11 @@ class ItemsController < ApplicationController
   def done
   end
 
+  def destroy
+    @item.destroy
+    redirect_to user_path
+  end
+
   private
 
   def item_params
