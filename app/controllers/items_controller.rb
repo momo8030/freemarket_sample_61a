@@ -75,10 +75,10 @@ class ItemsController < ApplicationController
     if 
       #購入者はupdate_attributeで引数に渡してDBにcurrent_user.idとbuyer_idを同時に登録
       @item.update_attribute(:buyer_id, current_user.id)
-      redirect_to action: :done
+      redirect_to item_done_path
     else
       flash[:alert] = '購入に失敗しました。'
-      redirect_to controller: "items", action: 'show'
+      redirect_to item_path
     end
     
   end
