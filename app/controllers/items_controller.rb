@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   
-  # before_action :set_card
+  before_action :set_card
 
   require 'payjp'
 
@@ -64,13 +64,23 @@ class ItemsController < ApplicationController
   end
 
   def pay
+    @item = Item.find(params[:item_id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
-    amount: 300,
+    amount: @item.price,
     card: params['payjp-token'],
-    currency: 'jpy'
+    # 日本円
+    currency: 'jpy' 
     )
-    redirect_to action: :done
+    if 
+      #購入者はupdate_attributeで引数に渡してDBにcurrent_user.idとbuyer_idを同時に登録
+      @item.update_attribute(:buyer_id, current_user.id)
+      redirect_to action: :done
+    else
+      flash[:alert] = '購入に失敗しました。'
+      redirect_to controller: "items", action: 'show'
+    end
+    
   end
 
   def done
@@ -82,9 +92,9 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :price, :comment, :condition_id, :category_id, :size_id, :delivery_charge_id, :prefecture_id, :delivery_days_id, :delivery_method_id, :brand, :buyer_id, :likes_count, images_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
-  # def set_card
-  #   @credit = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
-  # end
+  def set_card
+    @credit = Card.present?
+  end
   
 
 end
