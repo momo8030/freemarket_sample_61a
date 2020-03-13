@@ -14,7 +14,7 @@ $(function(){
     inputs.push($(this));//選択したimgのプレビュー作成
     var img = $(`<div class= "img_view"><img></div>`); //divタグ作成
     reader.onload = function(e) {  //ファイルを読み込んだあと以下実行
-      var btn_wrapper = $('<div class="btn_wrapper"><div class="btn edit">編集</div><div class="btn delete">削除</div></div>'); 
+      var btn_wrapper = $('<div class="btn_wrapper"><div class="btn delete">削除</div></div>'); 
       img.append(btn_wrapper); //編集・削除ボタン作成
       img.find('img').attr({
         src: e.target.result

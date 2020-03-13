@@ -38,15 +38,16 @@
           =link_to'もっと見る 〉','#',class:'item-link'   
       .items
         .items__contents
-          - @ladies_items.each do |item|
-            .items__contents__box
-              = link_to item_path(item), class:'item'do
-                .item-img
-                  = image_tag "#{item.images[0].url.url}"  
+          %ul.items__contents-area.grid
+            - @ladies_items.each do |item|
+              %li.items__contents-area__box
+                = link_to item_path(item), class:'item'do
+                  .item-img
+                    = image_tag "#{item.images[0].url.url}" ,size: "187x187"
                   %span
                     = "¥" + "#{item.price}"
-                .item-name
-                  = item.name
+                  .item-name
+                    = item.name
         
     .main__category-bottom__box
       %h2#mens
@@ -55,15 +56,16 @@
           =link_to'もっと見る 〉','#',class:'item-link'   
       .items
         .items__contents
-          - @mens_items.each do |item|
-            .items__contents__box
-              = link_to item_path(item), class:'item'do
-                .item-img
-                  = image_tag "#{item.images[0].url.url}"  
+          %ul.items__contents-area.grid
+            - @mens_items.each do |item|
+              %li.items__contents-area__box
+                = link_to item_path(item), class:'item'do
+                  .item-img
+                    = image_tag "#{item.images[0].url.url}" ,size: "187x187"
                   %span
                     = "¥" + "#{item.price}"
-                .item-name
-                  = item.name
+                  .item-name
+                    = item.name
         
     .main__category-bottom__box
       %h2#home_appliances
@@ -72,15 +74,16 @@
           =link_to'もっと見る 〉','#',class:'item-link'   
       .items
         .items__contents
-          - @home_appliances_items.each do |item|
-            .items__contents__box
-              = link_to item_path(item), class:'item'do
-                .item-img
-                  = image_tag "#{item.images[0].url.url}"  
+          %ul.items__contents-area
+            - @home_appliances_items.each do |item|
+              %li.items__contents-area__box
+                = link_to item_path(item), class:'item'do
+                  .item-img
+                    = image_tag "#{item.images[0].url.url}" ,size: "187x187"
                   %span
                     = "¥" + "#{item.price}"
-                .item-name
-                  = item.name
+                  .item-name
+                    = item.name
         
     .main__category-bottom__box
       %h2#toys
@@ -89,15 +92,16 @@
           =link_to'もっと見る 〉','#',class:'item-link'   
       .items
         .items__contents
-          - @toys_items.each do |item|
-            .items__contents__box
-              = link_to item_path(item), class:'item'do
-                .item-img
-                  = image_tag "#{item.images[0].url.url}"  
+          %ul.items__contents-area
+            - @toys_items.each do |item|
+              %li.items__contents-area__box
+                = link_to item_path(item), class:'item'do
+                  .item-img
+                    = image_tag "#{item.images[0].url.url}" ,size: "187x187"
                   %span
                     = "¥" + "#{item.price}"
-                .item-name
-                  = item.name
+                  .item-name
+                    = item.name
         
   .category
     人気のブランド
@@ -118,15 +122,16 @@
           =link_to'もっと見る 〉','#',class:'item-link'   
       .items
         .items__contents
-          - @chanel_items.each do |item|
-            .items__contents__box
-              = link_to item_path(item), class:'item'do
-                .item-img
-                  = image_tag "#{item.images[0].url.url}"
+          %ul.items__contents-area
+            - @chanel_items.each do |item|
+              %li.items__contents-area__box
+                = link_to item_path(item), class:'item'do
+                  .item-img
+                    = image_tag "#{item.images[0].url.url}" ,size: "187x187"
                   %span
                     = "¥" + "#{item.price}"
-                .item-name
-                  = item.name
+                  .item-name
+                    = item.name
         
     .main__category-bottom__box
       %h2#vuittons
@@ -135,15 +140,16 @@
           =link_to'もっと見る 〉','#',class:'item-link'   
       .items
         .items__contents
-          - @vuitton_items.each do |item|
-            .items__contents__box
-              = link_to item_path(item), class:'item'do
-                .item-img
-                  = image_tag "#{item.images[0].url.url}"
+          %ul.items__contents-area
+            - @vuitton_items.each do |item|
+              %li.items__contents-area__box
+                = link_to item_path(item), class:'item'do
+                  .item-img
+                    = image_tag "#{item.images[0].url.url}" ,size: "187x187"
                   %span
                     = "¥" + "#{item.price}"
-                .item-name
-                  = item.name
+                  .item-name
+                    = item.name
         
     .main__category-bottom__box
       %h2#supremes
@@ -152,15 +158,16 @@
           =link_to'もっと見る 〉','#',class:'item-link'   
       .items
         .items__contents
-          - @supreme_items.each do |item|
-            .items__contents__box
-              = link_to item_path(item), class:'item'do
-                .item-img
-                  = image_tag "#{item.images[0].url.url}"
+          %ul.items__contents-area
+            - @supreme_items.each do |item|
+              %li.items__contents-area__box
+                = link_to item_path(item), class:'item'do
+                  .item-img
+                    = image_tag "#{item.images[0].url.url}" ,size: "187x187"
                   %span
                     = "¥" + "#{item.price}"
-                .item-name
-                  = item.name
+                  .item-name
+                    = item.name
         
     .main__category-bottom__box
       %h2#nikes
@@ -169,12 +176,13 @@
           =link_to'もっと見る 〉','#',class:'item-link'   
       .items
         .items__contents
-          - @nike_items.each do |item|
-            .items__contents__box
-              = link_to item_path(item), class:'item'do
-                .item-img
-                  = image_tag "#{item.images[0].url.url}"
+          %ul.items__contents-area
+            - @nike_items.each do |item|
+              %li.items__contents-area__box
+                = link_to item_path(item), class:'item'do
+                  .item-img
+                    = image_tag "#{item.images[0].url.url}" ,size: "187x187"
                   %span
                     = "¥" + "#{item.price}"
-                .item-name
-                  = item.name 
+                  .item-name
+                    = item.name
