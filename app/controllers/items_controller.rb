@@ -86,6 +86,9 @@ class ItemsController < ApplicationController
   def done
   end
 
+  def exhibition_suspension
+  end
+  
   def destroy
     if @item.destroy
       redirect_to user_path

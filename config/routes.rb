@@ -11,10 +11,11 @@ Rails.application.routes.draw do
 
   
   root 'items#index'
-  resources :items, only: [:index, :new, :show, :create, :destroy] do
+  resources :items do
     get :confirmation
     post 'pay', to: 'items#pay'
     get :done
+    get :exhibition_suspension
   end
   
   namespace :api do
