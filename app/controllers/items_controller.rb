@@ -88,6 +88,14 @@ class ItemsController < ApplicationController
 
   def exhibition_suspension
   end
+  
+  def destroy
+    if @item.destroy
+      redirect_to user_path
+    else
+      render :show,  alert: '削除に失敗しました'
+    end
+  end
 
   private
 
