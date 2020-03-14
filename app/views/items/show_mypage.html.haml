@@ -1,0 +1,90 @@
+.product-detail
+  = render "items/toppage/header"
+  %section.container
+    %h1.item-name
+      = @item.name
+    .item-content
+      - if (@item.buyer_id.blank?)
+        .item-photo
+          .owl-lazy
+            = image_tag "#{@images[0].url}",size:'225x300',class:'main-image'
+      - else
+        .item-photo
+          .item-photo__top
+          .stop-tag SOLD
+          .owl-lazy
+            = image_tag "#{@images[0].url}",size:'225x300',class:'main-image' 
+          .owl-item
+            - @images.each do |image|
+              = image_tag "#{image.url}",size:'60x60',class:'sub-image'
+      %table.item-table
+        %tr.item-table__box
+          %th.item-table__box__seller 出品者
+          %td.item-table__box__user
+            = link_to "#{@item.seller.nickname}",user_path(@seller),class:'user-nickname'
+            .item-user-ratings
+              = link_to root_path do
+                = icon('fas','laugh',class: 'good-icon')
+                %span 201
+              = link_to root_path do
+                = icon('fas','meh',class: 'noramal-icon')
+                %span 2
+              = link_to root_path do
+                = icon('fas','frown',class: 'bad-icon')
+                %span 0
+        %tr
+          %th カテゴリー
+          %td
+            = link_to'レディース','#',class: 'ladys'
+            %br
+            %i.fas.fa-chevron-right
+            = link_to'バック','#',class: 'bag'
+            %br
+            %i.fas.fa-chevron-right
+            = link_to'ショルダーバック','#',class: 'shoulder-bag'
+        %tr
+          %th ブランド
+          %td
+            = link_to'',class: 'brand-link'
+            = @brand
+        %tr
+          %th 商品のサイズ
+          %td
+        %tr
+          %th 商品の状態
+          %td 目立った傷や汚れなし
+        %tr
+          %th 配送料の負担
+          %td 送料込み（出品者の負担）
+        %tr
+          %th 配送の方法
+          %td 普通郵便(定形、定形外)
+        %tr
+          %th 発送元地域
+          %td 奈良
+        %tr
+          %th 発送日の目安
+          %td 4~7日で発送
+    .item-price-box
+      %span.price= converting_to_jpy(@item.price)
+      %span.tax (税込)
+      %span.shipping-free 送料込み
+    .item-description
+      %p.item-description__inner
+        = @item.comment
+  .container-2 
+    .btn_contener
+      = link_to root_path do
+        .item-edit-btn 商品の編集
+        .p or
+        .item-stop-btn 出品を一旦停止する
+      = link_to item_path(@item),method: :delete, data: {turbolinks: false} do
+        .item-deleat-btn この商品を削除する
+  .message-container
+    .message-content    
+      %form   
+        %p 相手のことを考え丁寧なコメントを心がけましよう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.textarea-default
+        %button{ type: 'submit',class: 'search-btn' }コメントする
+= render "items/toppage/bottom-banner-ad"
+= render "items/toppage/footer"
