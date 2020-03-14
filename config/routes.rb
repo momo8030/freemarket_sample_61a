@@ -8,12 +8,17 @@ Rails.application.routes.draw do
     post '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  
   root 'items#index'
-  resources :items, only: [:index, :new, :show] do
+  resources :items, only: [:index, :new, :show ] do
     get :confirmation
   end
   
+  resources :items, only: :show_mypage, path: "m:id" do
+    collection do
+      get 'show_mypage'
+    end
+  end
+ 
   namespace :api do
     resources :items, only: :new, defaults: { format: 'json' }
     get '/items/new_delivery', to: 'items#new_delivery', defaults: { format: 'json' }
@@ -38,5 +43,6 @@ Rails.application.routes.draw do
   resources :cards,only:[:new, :create,:show]do
    
   end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
