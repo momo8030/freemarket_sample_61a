@@ -1,0 +1,69 @@
+.dropzone__container {
+  width: 100%;
+  height: 100%;
+  
+  .dropzone-area {
+    @include dropzone ;
+    float:right;
+  }
+  .img_view {
+    float:left;
+    padding-right: 4px;
+    }
+  .img_view > img {
+    width: 120px;
+    margin-top: 16px;
+    height: 120px;
+  }
+  .btn_wrapper {
+    display: flex;
+    clear: both;
+    .btn_edit {
+      float: left;
+      padding: 8px;   
+    }
+  }
+  
+  .dropzone-area2 {
+    @include dropzone;
+    display: none;
+    float:right;
+    position:relative;
+    P {
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      line-height: 130px;
+    }
+    .fa {
+      font-size: 20px;
+      position:absolute;
+      top: 40%;
+      left: 40%;
+    }
+  }
+  #preview {
+    float:left;
+    .btn_wrapper {
+    }
+  }
+  .input_area {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    .upload-image {
+      display: none;
+    }
+    p {
+      position: absolute;
+      top: 40%;
+      left: 35%;
+    }
+    .fa {
+      font-size: 20px;
+      position:absolute;
+      top: 40%;
+      left: 40%;
+    }
+  }
+}

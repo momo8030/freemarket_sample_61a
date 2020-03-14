@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_100146) do
+ActiveRecord::Schema.define(version: 2020_03_08_122507) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -19,22 +19,10 @@ ActiveRecord::Schema.define(version: 2020_03_01_100146) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,17 +39,19 @@ ActiveRecord::Schema.define(version: 2020_03_01_100146) do
     t.string "name", null: false
     t.integer "price", null: false
     t.string "comment"
-    t.integer "state", null: false
-    t.string "category", null: false
-    t.integer "size"
-    t.string "postage", null: false
-    t.string "region", null: false
-    t.integer "shopping_date", null: false
     t.integer "buyer_id"
     t.integer "seller_id", null: false
-    t.integer "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "condition_id", null: false
+    t.integer "category_id", null: false
+    t.integer "size_id"
+    t.integer "delivery_charge_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "delivery_days_id", null: false
+    t.integer "delivery_method_id", null: false
+    t.integer "likes_count"
+    t.text "brand"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,9 +79,9 @@ ActiveRecord::Schema.define(version: 2020_03_01_100146) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.date "birth_year", null: false
-    t.date "birth_month", null: false
-    t.date "birth_day", null: false
+    t.integer "birth_year", null: false
+    t.integer "birth_month", null: false
+    t.integer "birth_day", null: false
     t.string "comment"
     t.string "phone_number", null: false
     t.string "encrypted_password", default: "", null: false

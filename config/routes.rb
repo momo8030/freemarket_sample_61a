@@ -2,15 +2,18 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
   omniauth_callbacks: 'users/omniauth_callbacks',
-  registrations: 'users/registrations'
+  registrations: 'users/registrations',
+  sessions: 'users/sessions'
   }
   devise_scope :user do
     post '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   root 'items#index'
-  resources :items, only: [:index, :new, :show ] do
+  resources :items, only: [:index, :new, :show, :create] do
     get :confirmation
+    post 'pay', to: 'items#pay'
+    get :done
   end
   
   resources :items, only: :show_mypage, path: "m:id" do
@@ -40,8 +43,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards,only:[:new, :create,:show]do
-   
+  resources :cards,only:[:index,:new,:show]do
+    collection do
+      get 'index',to: 'cards#index'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+      post 'show', to: 'cards#show'
+    end
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

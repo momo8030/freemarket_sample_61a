@@ -1,0 +1,23 @@
+.signup
+  = render 'signups/signup_header'
+  .section
+    %section.section-buy
+      %i.far.fa-clock.shipping 発送をお待ちください
+      .content-shipping
+        出品者からの発送通知をお待ちください
+  .content-main
+  %section.buy-container
+    %h2 購入完了しました
+    .section.item-details
+      .item-box
+        .item-box__image
+          = image_tag('past-tradition-_3.jpg')
+      .buy-container    
+        .done__modal__content__info__inner__price
+          %h3 支払い金額
+          .done__modal__content__info__inner__price--num
+            %h3
+            = "¥ 300"
+            %span (税込)
+        %button.next-button4
+          =link_to "トップに戻る",root_path,class: "top"

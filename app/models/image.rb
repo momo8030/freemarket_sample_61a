@@ -1,7 +1,7 @@
 class Image < ApplicationRecord
   belongs_to :item
   # 画像アップロード時に必要な記述
-  # mount_uploders :url,ImageUploder 
+  mount_uploader :url, ImageUploader 
 
-  validates :url,:item_id, presence: true
+  validates :url, presence: true
 end
