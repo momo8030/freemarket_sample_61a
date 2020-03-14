@@ -31,9 +31,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
   def show_mypage
     show_item
   end
@@ -130,5 +127,8 @@ class ItemsController < ApplicationController
     @credit = Card.present?
   end
   
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
 end
