@@ -86,7 +86,15 @@ class ItemsController < ApplicationController
   def done
   end
 
-  private
+  def destroy
+    if @item.destroy
+      redirect_to user_path
+    else
+      render :show,  alert: '削除に失敗しました'
+    end
+  end
+
+z  private
 
   def item_params
     params.require(:item).permit(:name, :price, :comment, :condition_id, :category_id, :size_id, :delivery_charge_id, :prefecture_id, :delivery_days_id, :delivery_method_id, :brand, :buyer_id, :likes_count, images_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
