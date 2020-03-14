@@ -1,0 +1,54 @@
+.container-2 {
+  margin: 8px auto;
+  width: 700px;
+  .btn_contener {
+    margin: 24px 0;
+    padding:8px 16px;
+    width: 700px;
+    background-color: $white;
+    .item-edit-btn {
+      @include red-btn;
+      font-size: 14px;
+      line-height: 48px;
+    }
+    .p {
+      margin-top: 16px;
+      text-align: center;
+      font: 16px;
+    }
+    .item-stop-btn {
+      margin: 16px 0;
+      @include gray-btn-mine;
+    }
+    .item-deleat-btn {
+      margin: 16px 0 24px 0;
+      @include gray-btn-mine;
+    }
+  }
+}
+// 公開停止中にする時に使用
+.item-photo-seller {
+  width: 300px; 
+  height: 375px;
+  margin-left: 0;
+  background-color: $show-white;
+  &__top {
+    width: 0;
+    height: 0;
+    z-index: 1; 
+    border-width: 120px 120px 0 0;
+    position: absolute;
+    border-style: solid ;
+    border-color: #888 transparent; 
+  }
+  .stop-tag {
+    margin-top: 34px;
+    z-index: 1;
+    font-weight: 600;
+    font-size: 18px;
+    color: $white;
+    transform: rotate(-45deg);
+    letter-spacing: 1px;
+    position: absolute;
+  }
+}

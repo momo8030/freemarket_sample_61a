@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_card
-  before_action :set_item,only: [:show,:show_mypage]
+  before_action :set_item,only: [:show,:show_mypage,:exhibition_suspension]
   require 'payjp'
   
 
@@ -37,6 +37,11 @@ class ItemsController < ApplicationController
   def show_mypage
     show_item
   end
+
+  def exhibition_suspension
+    show_item
+  end
+
   def show_item
     @images = @item.images.order('id ASC')
     @seller = @item.seller
@@ -106,8 +111,6 @@ class ItemsController < ApplicationController
   def done
   end
 
-  def exhibition_suspension
-  end
   
   def destroy
     if @item.destroy
