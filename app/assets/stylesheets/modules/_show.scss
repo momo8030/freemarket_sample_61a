@@ -23,6 +23,25 @@
     height: 375px;
     margin-left: 0;
     background-color: $show-white;
+    &__top {
+      width: 0;
+      height: 0;
+      z-index: 1; 
+      border-width: 120px 120px 0 0;
+      position: absolute;
+      border-style: solid ;
+      border-color: #ea352d transparent; 
+    }
+    .sold-out-tag { 
+      margin-top: 24px;
+      z-index: 3;
+      font-weight: 600;
+      font-size: 28px;
+      color: $white;
+      transform: rotate(-45deg);
+      letter-spacing: 2px;
+      position: absolute;
+    }
   }
   .owl-lazy {
     margin: 0 37px;
@@ -105,17 +124,22 @@
     }
   }
   .item-buy-btn {
-    background-color: #e62017;
-    cursor: pointer;
-    margin: 16px 0 0;
-    text-align: center;
-    font-weight: 600;
+    @include red-btn;
     font-size: 24px;
-    height: 60px;
     line-height: 60px;
     .buy-btn{
       color: $white;
     }
+  }
+  .item-sold-btn{
+    background: #888;
+    cursor: not-allowed;
+    margin: 16px 0 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 60px;
+    color:white;
   }
   .item-description {
     padding-top: 32px;
@@ -391,7 +415,8 @@
   }
 }
 .items-contents {
-  height: 700px; 
+  display: flex;
+  flex-wrap: wrap;
   &__box { 
     float: left;
     width: 220px;

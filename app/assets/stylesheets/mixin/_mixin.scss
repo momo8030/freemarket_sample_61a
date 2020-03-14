@@ -104,6 +104,7 @@
   margin: 0;
   padding: 40px;  
 }
+
 @mixin table {
   padding: 8px;
   font-size: 13px;
@@ -132,6 +133,23 @@
   font-size: 48px;
   margin: 0 8px 8px 0;
   cursor: pointer;
+}
+
+@mixin red-btn {
+  background-color: #e62017;
+  cursor: pointer;
+  margin: 16px 0 0;
+  text-align: center;
+  color: $white;
+}
+
+@mixin gray-btn-mine {
+  background: #AAAAAA;
+  cursor: not-allowed;
+  text-align: center;
+  font-size: 14px; 
+  line-height: 48px;
+  color:white;
 }
 
 @mixin birthday{

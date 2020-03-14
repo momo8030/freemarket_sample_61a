@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item,only: [:show,:show_mypage]
+
   require 'payjp'
+  
 
   def index
 
@@ -18,8 +21,28 @@ class ItemsController < ApplicationController
   end
 
   def show
+     if user_signed_in?
+       if @item.seller_id == current_user.id
+         redirect_to show_mypage_items_path
+       else
+         show_item
+       end
+     else
+       show_item
+    end
+  end
+
+  def set_item
     @item = Item.find(params[:id])
+  end
+  def show_mypage
+    show_item
+  end
+  def show_item
     @images = @item.images.order('id ASC')
+    @seller = @item.seller
+    @brand = @item.brand
+    @seller_items = Item.where(seller_id: @seller.id).order("id DESC").limit(6)
   end
 
   def new
@@ -83,6 +106,17 @@ class ItemsController < ApplicationController
 
   def done
     @item = Item.find(params[:item_id])
+  end
+
+  def exhibition_suspension
+  end
+  
+  def destroy
+    if @item.destroy
+      redirect_to user_path
+    else
+      render :show,  alert: '削除に失敗しました'
+    end
   end
 
   private

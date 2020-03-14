@@ -4,17 +4,24 @@
     %h1.item-name
       = @item.name
     .item-content
-      .item-photo
-        .owl-lazy
-          = image_tag "#{@images[0].url}",size:'225x300',class:'main-image'
-        .owl-item
-          - @images.each do |image|
-            = image_tag "#{image.url}",size:'60x60',class:'sub-image'
+      - if (@item.buyer_id.blank?)
+        .item-photo
+          .owl-lazy
+            = image_tag "#{@images[0].url}",size:'225x300',class:'main-image'
+      - else
+        .item-photo
+          .item-photo__top
+          .sold-out-tag SOLD
+          .owl-lazy
+            = image_tag "#{@images[0].url}",size:'225x300',class:'main-image' 
+          .owl-item
+            - @images.each do |image|
+              = image_tag "#{image.url}",size:'60x60',class:'sub-image'
       %table.item-table
         %tr.item-table__box
           %th.item-table__box__seller 出品者
           %td.item-table__box__user
-            = link_to 'poou','#' ,class:'user-nickname'
+            = link_to "#{@item.seller.nickname}",user_path(@seller),class:'user-nickname'
             .item-user-ratings
               = link_to root_path do
                 = icon('fas','laugh',class: 'good-icon')
@@ -38,10 +45,11 @@
         %tr
           %th ブランド
           %td
-            = link_to'トゥディフル','#',class: 'brand-link'
+            = link_to'',class: 'brand-link'
+            = @brand
         %tr
           %th 商品のサイズ
-          %td なし
+          %td
         %tr
           %th 商品の状態
           %td 目立った傷や汚れなし
@@ -53,12 +61,12 @@
           %td 普通郵便(定形、定形外)
         %tr
           %th 発送元地域
-          %td 奈良県
+          %td 奈良
         %tr
           %th 発送日の目安
           %td 4~7日で発送
     .item-price-box
-      %span.price ¥1,900 
+      %span.price= converting_to_jpy(@item.price)
       %span.tax (税込)
       %span.shipping-free 送料込み
     .item-buy-btn
@@ -83,19 +91,32 @@
       .item-button-contener__left
         .item-like
           %button{type: 'button', name: 'like',class:'like-btn'}
+      - if (@item.buyer_id.blank?)
+        .item-buy-btn 
+          =link_to '購入画面に進む','',class: 'buy-btn'
+      - else
+        .item-sold-btn
+          売り切れました
+      .item-description
+        .item-description__inner
+          = @item.comment
+      .item-button-contener.clearfix
+        .item-button-contener__left
+          .item-like
+            %button{type: 'button', name: 'like',class:'like-btn'}
+              = link_to root_path do
+                = icon('far','heart',class: 'heart-icon')
+            %span.fade-in-down いいね！
+            %span.fade-in-down 26
+          .item-report
             = link_to root_path do
-              = icon('far','heart',class: 'heart-icon')
-              %span.fade-in-down いいね！
-              %span.fade-in-down 26
-        .item-report
-          = link_to root_path do
-            = icon('far','flag',class: 'flag-icon')
+              = icon('far','flag',class: 'flag-icon')
             %span.fade-in-down 不敵切な商品の報告
-        .item-button-contener__right
-          = link_to root_path do
-            = icon('fas','lock',class: 'lock-icon')
+          .item-button-contener__right
+            = link_to root_path do
+              = icon('fas','lock',class: 'lock-icon')
             %span
-              = link_to'あんしん・あんぜんへの取り組み','',class: 'link-btn'
+            = link_to'あんしん・あんぜんへの取り組み','',class: 'link-btn'
   .message-container
     .message-content
       %ul.message-items
@@ -159,87 +180,46 @@
               = icon('fab','twitter-square',class: 'twitter-icon')
           %li
             = link_to root_path do
-              = icon('fab','pinterest-square',class: 'pinterest-icon')
+              = icon('fab','pinterest-square',class: 'pinterest-icon')  
+-if @seller_items    
   .items-in-user-profile 
     .items-box-heard
-      = link_to 'poouさんのその他の出品',root_path,class:'link-buyer'
+      = link_to "#{@seller.nickname}さんのその他の出品",root_path,class:'link-buyer'
+    .items-contents
+      - @seller_items.each do |item|
+        .items-contents__box
+          = link_to item_path(item),class:'item'do
+            - if (item.buyer_id.blank?)
+              .item-img
+                = image_tag "#{item.images.first.url}",size: '230x230'
+              .item-box-body
+                %h2.item-name=item.name
+                .item-box-body__num
+                  .price= converting_to_jpy(item.price)
+                  .like
+                    = link_to root_path do
+                      =icon('far','heart',class: 'heart-icon')
+                      %span 8
+            -else
+              .item-img  
+                = image_tag "#{item.images.first.url}",size: '230x230'
+                .item-img__top
+                .tag SOLD
+              .item-box-body
+                %h2.item-name=item.name
+                .item-box-body__num
+                  .price= converting_to_jpy(item.price)
+                  .like
+                    = link_to root_path do
+                      =icon('far','heart',class: 'heart-icon')
+                      %span 8
+  .items-in-user-profile 
+    .items-box-heard
+      = link_to "ショルダーバック（レディース） その他の商品",root_path,class:'link-brand'
     .items-contents.clearfix
       .items-contents__box
         = link_to root_path('#'),class:'item'do
-          .item-img
-            = image_tag 'product/item-1.jpg', size: '230x230'
-          .item-box-body
-            %h2.item-name STUDIOUS タートルスクエアヤーンニット
-            .item-box-body__num
-              .price ¥5,590
-              .like
-                = link_to root_path do
-                  =icon('far','heart',class: 'heart-icon')
-                  %span 8
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
-          .item-img
-            = image_tag 'product/sandal.jpg', size: '220x230'
-            .item-img__top
-            .tag SOLD
-          .item-box-body
-            %h2.item-name ZARAメッシュストラップサンダル
-            .item-box-body__num
-              .price ¥3,500
-              .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
-                  %span 6
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
-          .item-img
-          .item-box-body
-            %h2.item-name 
-            .item-box-body__num
-              .price ¥0
-              .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
-                  %span 0
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
-          .item-img
-          .item-box-body
-            %h2.item-name 
-            .item-box-body__num
-              .price ¥0
-              .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
-                  %span 0
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
-          .item-img
-          .item-box-body
-            %h2.item-name 
-            .item-box-body__num
-              .price ¥0
-              .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
-                  %span 0
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
-          .item-img
-          .item-box-body
-            %h2.item-name 
-            .item-box-body__num
-              .price ¥0
-              .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
-                  %span 0 
-  .items-in-user-profile 
-    .items-box-heard
-      = link_to 'トゥデイフルのショルダーバッグ その他の商品',root_path,class:'link-brand'
-    .items-contents.clearfix
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
+          
           .item-img
             = image_tag 'product/eco-item.jpg', size: '220x220'
           .item-box-body
@@ -306,7 +286,7 @@
                   = icon('far','heart',class: 'heart-icon')
                   %span 0
   .item-contents-bottom
-//- breadcrumb :item
-//= render "layouts/breadcrumbs"
+- breadcrumb :item, @item
+= render "layouts/breadcrumbs"
 = render "items/toppage/bottom-banner-ad"
 = render "items/toppage/footer"
