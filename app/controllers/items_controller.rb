@@ -86,6 +86,9 @@ class ItemsController < ApplicationController
   def done
   end
 
+  def exhibition_suspension
+  end
+
   private
 
   def item_params
