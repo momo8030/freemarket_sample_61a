@@ -33,10 +33,10 @@ crumb :creditcard do
   parent :credit
 end
 
-# crumb :project do |project|
-#   link project.name, project_path(project)
-#   parent :projects
-# end
+ crumb :item do |item|
+   link item.name, item_path(item)
+   parent :root
+end
 
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
