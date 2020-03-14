@@ -8,10 +8,13 @@
         .item-photo
           .owl-lazy
             = image_tag "#{@images[0].url}",size:'225x300',class:'main-image'
+          .owl-item
+            - @images.each do |image|
+              = image_tag "#{image.url}",size:'60x60',class:'sub-image'
       - else
         .item-photo
           .item-photo__top
-          .stop-tag SOLD
+          .sold-out-tag SOLD
           .owl-lazy
             = image_tag "#{@images[0].url}",size:'225x300',class:'main-image' 
           .owl-item
@@ -79,7 +82,7 @@
         .p or
       = link_to exhibition_suspension_items_path do
         .item-stop-btn 出品を一旦停止する
-      = link_to item_path(@item),method: :delete, data: {turbolinks: false} do
+      = link_to item_path(@item), method: :delete do
         .item-deleat-btn この商品を削除する
   .message-container
     .message-content    
