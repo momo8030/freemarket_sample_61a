@@ -14,12 +14,12 @@ Rails.application.routes.draw do
     get :confirmation
     post 'pay', to: 'items#pay'
     get :done
-    get :exhibition_suspension
   end
   
   resources :items, only: :show_mypage, path: "m:id" do
     collection do
       get 'show_mypage'
+      get :exhibition_suspension
     end
   end
  
