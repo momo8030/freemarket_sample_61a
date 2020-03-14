@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   end
 
   root 'items#index'
-  resources :items, only: [:index, :new, :show, :create] do
+  resources :items do
     get :confirmation
     post 'pay', to: 'items#pay'
     get :done
+    get :exhibition_suspension
   end
   
   resources :items, only: :show_mypage, path: "m:id" do
