@@ -8,6 +8,9 @@
         .item-photo
           .owl-lazy
             = image_tag "#{@images[0].url}",size:'225x300',class:'main-image'
+          .owl-item
+            - @images.each do |image|
+              = image_tag "#{image.url}",size:'60x60',class:'sub-image'
       - else
         .item-photo
           .item-photo__top
@@ -93,7 +96,7 @@
           %button{type: 'button', name: 'like',class:'like-btn'}
       - if (@item.buyer_id.blank?)
         .item-buy-btn 
-          =link_to '購入画面に進む','',class: 'buy-btn'
+          =link_to '購入画面に進む', item_confirmation_path(@item), class: 'buy-btn'
       - else
         .item-sold-btn
           売り切れました

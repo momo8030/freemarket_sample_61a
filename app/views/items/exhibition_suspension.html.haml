@@ -4,22 +4,14 @@
     %h1.item-name
       = @item.name
     .item-content
-      - if (@item.buyer_id.blank?)
-        .item-photo
-          .owl-lazy
-            = image_tag "#{@images[0].url}",size:'225x300',class:'main-image'
-          .owl-item
-            - @images.each do |image|
-              = image_tag "#{image.url}",size:'60x60',class:'sub-image'
-      - else
-        .item-photo
-          .item-photo__top
-          .sold-out-tag SOLD
-          .owl-lazy
-            = image_tag "#{@images[0].url}",size:'225x300',class:'main-image' 
-          .owl-item
-            - @images.each do |image|
-              = image_tag "#{image.url}",size:'60x60',class:'sub-image'
+      .item-photo-seller
+        .item-photo-seller__top
+        .stop-tag 出品停止中
+        .owl-lazy
+          = image_tag "#{@images[0].url}",size:'225x300',class:'main-image' 
+        .owl-item
+          - @images.each do |image|
+            = image_tag "#{image.url}",size:'60x60',class:'sub-image'
       %table.item-table
         %tr.item-table__box
           %th.item-table__box__seller 出品者
@@ -80,15 +72,15 @@
       = link_to root_path do
         .item-edit-btn 商品の編集
         .p or
-      = link_to exhibition_suspension_items_path do
-        .item-stop-btn 出品を一旦停止する
-      = link_to item_path(@item), method: :delete do
+      = link_to show_mypage_items_path do
+        .item-stop-btn 出品を再開する
+      = link_to item_path(@item),method: :delete, data: {turbolinks: false} do
         .item-deleat-btn この商品を削除する
   .message-container
     .message-content    
       %form   
         %p 相手のことを考え丁寧なコメントを心がけましよう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         %textarea.textarea-default
-        %button{ type: 'submit',class: 'search-btn' }コメントする
+        %button2{ type: 'submit',class: 'search-btn', disabled: true }コメントする
 = render "items/toppage/bottom-banner-ad"
 = render "items/toppage/footer"

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item,only: [:show,:show_mypage]
+  before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy]
 
   require 'payjp'
   
@@ -32,12 +32,14 @@ class ItemsController < ApplicationController
     end
   end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
   def show_mypage
     show_item
   end
+
+  def exhibition_suspension
+    show_item
+  end
+
   def show_item
     @images = @item.images.order('id ASC')
     @seller = @item.seller
@@ -108,8 +110,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def exhibition_suspension
-  end
   
   def destroy
     if @item.destroy
@@ -123,6 +123,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :comment, :condition_id, :category_id, :size_id, :delivery_charge_id, :prefecture_id, :delivery_days_id, :delivery_method_id, :brand, :buyer_id, :likes_count, images_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
+  end
+  
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end
