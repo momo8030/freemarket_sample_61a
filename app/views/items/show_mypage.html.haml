@@ -77,7 +77,7 @@
         = @item.comment
   .container-2 
     .btn_contener
-      = link_to root_path do
+      = link_to edit_item_path(@item.id), method: :get do
         .item-edit-btn 商品の編集
         .p or
       = link_to exhibition_suspension_items_path do
