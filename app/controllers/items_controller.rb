@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy]
+  before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy, :update]
 
   require 'payjp'
   
 
   def index
-
+  
     @ladies_items = Item.where(category_id: 159..337).includes(:images).order('created_at DESC').limit(10)  #ladysカテゴリーの商品を１０件代入
     @mens_items = Item.where(category_id: 338..467).includes(:images).order('created_at DESC').limit(10)    #mensカテゴリーの商品を１０件代入
     @toys_items = Item.where(category_id: 765..865).includes(:images).order('created_at DESC').limit(10)    #おもちゃカテゴリーの商品を１０件代入
@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     @nike_items = Item.where('brand like?', '%ナイキ%').includes(:images).order('created_at DESC').limit(10) #ナイキを含む商品を１０件代入
 
     @items = Item.includes(:images).order('created_at DESC')
-
+    
   end
 
   def show
@@ -67,6 +67,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @images = @item.images
+  end
+
+  def update
+    @item.update(item_params) if @item.seller_id == current_user.id
+    redirect_to show_mypage_items_path
+    binding.pry
   end
 
 
