@@ -72,6 +72,28 @@
       %span.price= converting_to_jpy(@item.price)
       %span.tax (税込)
       %span.shipping-free 送料込み
+    .item-buy-btn
+      =link_to '購入画面に進む',item_confirmation_path(@item),class: 'buy-btn'
+    .item-description
+      %p.item-description__inner
+        こちらはLAKOLEのレザー調巾着バッグになります★
+        %br
+        わりと荷物は入ります♪
+        %br
+        5回程使用していますが、目立って傷や汚れはありません。
+        %br
+        %br
+        %br
+        縦20cm
+        %br
+        幅15cm
+        %br
+        %br
+        ※他サイトにも出品しておりますので、ご購入の際はにはコメントお願いします★
+    .item-button-contener.clearfix
+      .item-button-contener__left
+        .item-like
+          %button{type: 'button', name: 'like',class:'like-btn'}
       - if (@item.buyer_id.blank?)
         .item-buy-btn 
           =link_to '購入画面に進む', item_confirmation_path(@item), class: 'buy-btn'

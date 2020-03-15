@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_card
+
   before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy]
+
   require 'payjp'
   
 
@@ -70,6 +71,7 @@ class ItemsController < ApplicationController
 
 
   def confirmation
+    @item = Item.find(params[:item_id])
     card = Card.where(user_id: current_user.id).first
     # テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -102,10 +104,10 @@ class ItemsController < ApplicationController
       flash[:alert] = '購入に失敗しました。'
       render template: "items/show"
     end
-    
   end
 
   def done
+    @item = Item.find(params[:item_id])
   end
 
   
@@ -121,10 +123,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :comment, :condition_id, :category_id, :size_id, :delivery_charge_id, :prefecture_id, :delivery_days_id, :delivery_method_id, :brand, :buyer_id, :likes_count, images_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
-  end
-
-  def set_card
-    @credit = Card.present?
   end
   
   def set_item
