@@ -35,13 +35,16 @@
         %tr
           %th カテゴリー
           %td
-            = link_to'レディース','#',class: 'ladys'
+            = link_to '#',class: 'ladys' do
+              =@main_category.name
             %br
             %i.fas.fa-chevron-right
-            = link_to'バック','#',class: 'bag'
+            = link_to'#',class: 'bag' do
+              =@sub_category.name
             %br
             %i.fas.fa-chevron-right
-            = link_to'ショルダーバック','#',class: 'shoulder-bag'
+            = link_to'#',class: 'shoulder-bag' do
+              =@sub_sub_category.name
         %tr
           %th ブランド
           %td
@@ -49,26 +52,30 @@
             = @brand
         %tr
           %th 商品のサイズ
-          %td
+          %td=@size.value
         %tr
           %th 商品の状態
-          %td 目立った傷や汚れなし
+          %td=@condition.value
         %tr
           %th 配送料の負担
-          %td 送料込み（出品者の負担）
+          %td=@delivery_charge.value
         %tr
           %th 配送の方法
-          %td 普通郵便(定形、定形外)
+          %td=@delivery_method.value 
         %tr
           %th 発送元地域
-          %td 奈良
+          %td=@prefecture.name
         %tr
           %th 発送日の目安
-          %td 4~7日で発送
+          %td=@delivery_days.value
     .item-price-box
       %span.price= converting_to_jpy(@item.price)
       %span.tax (税込)
-      %span.shipping-free 送料込み
+      %span.shipping-free 
+      - if @item.delivery_charge_id == 1
+        送料込み
+      - else
+        着払い
     .item-description
       %p.item-description__inner
         = @item.comment
