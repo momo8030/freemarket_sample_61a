@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
-
+  before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy]
   before_action :set_card
   before_action :set_delivery,only: [:show,:show_mypage,:edit]
   before_action :set_category,only: [:show,:show_mypage,:edit]
   before_action :set_prefecture,only: [:show,:show_mypage,:edit]
   before_action :set_size,only: [:show,:show_mypage,:edit]
   before_action :set_condition,only: [:show,:show_mypage,:edit]
-  before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy]
+  
   require 'payjp'
   
 
@@ -143,7 +143,7 @@ class ItemsController < ApplicationController
     @delivery_charge = DeliveryCharge.find(@item.delivery_charge_id)
     @delivery_days = DeliveryDays.find(@item.delivery_days_id)
     @delivery_method = DeliveryMethod.find(@item.delivery_method_id)
-  end
+   end
   def set_category
     @sub_sub_category = Category.find(@item.category_id)
     @sub_category = Category.find(Category.find(@item.category_id).sub_sub) unless Category.find(@item.category_id).sub_sub == 0
