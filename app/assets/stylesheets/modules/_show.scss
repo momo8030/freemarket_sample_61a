@@ -51,7 +51,6 @@
   .owl-item {
     height: 60px;
     width: 100%;
-    overflow: hidden;
     cursor: pointer;
   }
   .sub-image {
@@ -327,6 +326,17 @@
     color: $white;
     background-color: $icon-gray;
     cursor: pointer;
+    border: 1px solid $icon-gray;
+  }
+  button2{
+    width: 100%;
+    height: 50px;
+    line-height: 48px;
+    margin-top: 8px;
+    text-align: center;
+    display: inline-block;
+    color: $white;
+    background-color: $icon-gray;
     border: 1px solid $icon-gray;
   }
 }

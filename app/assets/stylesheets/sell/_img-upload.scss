@@ -16,11 +16,18 @@
     height: 120px;
   }
   .btn_wrapper {
-    display: flex;
-    clear: both;
-    .btn_edit {
-      float: left;
-      padding: 8px;   
+    position:relative;
+    height: 30px;
+    background-color: #f5f5f5;
+    &:hover {
+      cursor: pointer;
+    }
+    .delete {
+      position:absolute;
+      top:6px;
+      left: 35%;
+      color: #0095EE;
+      
     }
   }
   

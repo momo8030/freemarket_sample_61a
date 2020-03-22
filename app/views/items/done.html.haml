@@ -10,14 +10,17 @@
     %h2 購入完了しました
     .section.item-details
       .item-box
+        = @item.name
         .item-box__image
-          = image_tag('past-tradition-_3.jpg')
+          = image_tag "#{@item.images[0].url.url}" ,size: "187x187"
       .buy-container    
         .done__modal__content__info__inner__price
           %h3 支払い金額
           .done__modal__content__info__inner__price--num
-            %h3
-            = "¥ 300"
-            %span (税込)
+            .price
+              %span 
+              ¥
+              = @item.price 
+              %span.fee (税込) 
         %button.next-button4
           =link_to "トップに戻る",root_path,class: "top"

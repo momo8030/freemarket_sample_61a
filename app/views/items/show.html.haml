@@ -83,8 +83,12 @@
         .item-buy-btn 
           =link_to '購入画面に進む','',class: 'buy-btn'
       - else
-        .item-sold-btn
-          売り切れました
+        - if (@item.buyer_id.blank?)
+          .item-buy-btn 
+            =link_to '購入画面に進む', new_user_session_path, class: 'buy-btn'
+        - else
+          .item-sold-btn
+            売り切れました
       .item-description
         .item-description__inner
           = @item.comment

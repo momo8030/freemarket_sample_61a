@@ -7,12 +7,14 @@
       .item-details__inner
         .item-box
           .item-box__image
-            = image_tag('past-tradition-_3.jpg')
+            = image_tag "#{@item.images[0].url.url}" ,size: "187x187"
           .item-box__label
             .name
-              RUIMAS 高級メンズミリタリースポーツクォーツ時計
+              = @item.name
             .price
-              %span ¥10,000
+              %span 
+              ¥
+              = @item.price 
               %span.fee (税込) 送料込み
     %section.item-content
       .item-content__inner
@@ -20,7 +22,9 @@
           .buy-price__label
             .title 支払い金額
             .price 
-              %span.pay ¥10,000
+              %span 
+                ¥
+                = @item.price 
         %p.buy-point
           %input{disabled: "", type: "checkbox"}/
           %label ポイントを消費（所持ポイント: P0）

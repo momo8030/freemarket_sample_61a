@@ -1,20 +1,21 @@
 class ItemsController < ApplicationController
+
   before_action :set_card
-  before_action :set_item,only: [:show,:show_mypage]
   before_action :set_delivery,only: [:show,:show_mypage,:edit]
   before_action :set_category,only: [:show,:show_mypage,:edit]
   before_action :set_prefecture,only: [:show,:show_mypage,:edit]
   before_action :set_size,only: [:show,:show_mypage,:edit]
   before_action :set_condition,only: [:show,:show_mypage,:edit]
+  before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy]
   require 'payjp'
   
 
   def index
 
-    @ladies_items = Item.where(category_id: 159..337).includes(:images).order('created_at DESC').limit(10)  #ladysカテゴリーの商品を１０件代入
-    @mens_items = Item.where(category_id: 338..467).includes(:images).order('created_at DESC').limit(10)    #mensカテゴリーの商品を１０件代入
-    @toys_items = Item.where(category_id: 765..865).includes(:images).order('created_at DESC').limit(10)    #おもちゃカテゴリーの商品を１０件代入
-    @home_appliances_items = Item.where(category_id: 954..1028).includes(:images).order('created_at DESC').limit(10)   #家電カテゴリーの商品を１０件代入
+    @ladies_items = Item.where(category_id: 159..337, buyer_id: nil).includes(:images).order('created_at DESC').limit(10)  #ladysカテゴリーの商品を１０件代入
+    @mens_items = Item.where(category_id: 338..467, buyer_id: nil).includes(:images).order('created_at DESC').limit(10)    #mensカテゴリーの商品を１０件代入
+    @toys_items = Item.where(category_id: 765..865, buyer_id: nil).includes(:images).order('created_at DESC').limit(10)    #おもちゃカテゴリーの商品を１０件代入
+    @home_appliances_items = Item.where(category_id: 954..1028, buyer_id: nil).includes(:images).order('created_at DESC').limit(10)   #家電カテゴリーの商品を１０件代入
     @chanel_items = Item.where('brand like?', '%シャネル%').includes(:images).order('created_at DESC').limit(10) #シャネルを含む商品を１０件代入
     @vuitton_items = Item.where('brand like?', '%ヴィトン%').includes(:images).order('created_at DESC').limit(10)  #ヴィトンを含む商品を１０件代入
     @supreme_items = Item.where('brand like?', '%シュプリーム%').includes(:images).order('created_at DESC').limit(10)  #シュプリームを含む商品を１０件代入
@@ -37,6 +38,10 @@ class ItemsController < ApplicationController
   end
 
   def show_mypage
+    show_item
+  end
+  
+  def exhibition_suspension
     show_item
   end
 
@@ -72,6 +77,7 @@ class ItemsController < ApplicationController
 
 
   def confirmation
+    @item = Item.find(params[:item_id])
     card = Card.where(user_id: current_user.id).first
     # テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -104,14 +110,12 @@ class ItemsController < ApplicationController
       flash[:alert] = '購入に失敗しました。'
       render template: "items/show"
     end
-    
   end
 
   def done
+    @item = Item.find(params[:item_id])
   end
 
-  def exhibition_suspension
-  end
   
   def destroy
     if @item.destroy

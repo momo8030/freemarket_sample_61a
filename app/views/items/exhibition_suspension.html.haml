@@ -4,22 +4,14 @@
     %h1.item-name
       = @item.name
     .item-content
-      - if (@item.buyer_id.blank?)
-        .item-photo
-          .owl-lazy
-            = image_tag "#{@images[0].url}",size:'225x300',class:'main-image'
-          .owl-item
-            - @images.each do |image|
-              = image_tag "#{image.url}",size:'60x60',class:'sub-image'
-      - else
-        .item-photo
-          .item-photo__top
-          .sold-out-tag SOLD
-          .owl-lazy
-            = image_tag "#{@images[0].url}",size:'225x300',class:'main-image' 
-          .owl-item
-            - @images.each do |image|
-              = image_tag "#{image.url}",size:'60x60',class:'sub-image'
+      .item-photo-seller
+        .item-photo-seller__top
+        .stop-tag 出品停止中
+        .owl-lazy
+          = image_tag "#{@images[0].url}",size:'225x300',class:'main-image' 
+        .owl-item
+          - @images.each do |image|
+            = image_tag "#{image.url}",size:'60x60',class:'sub-image'
       %table.item-table
         %tr.item-table__box
           %th.item-table__box__seller 出品者
@@ -38,16 +30,13 @@
         %tr
           %th カテゴリー
           %td
-            = link_to '#',class:'parent'  do
-              =@main_category.name
+            = link_to'レディース','#',class: 'ladys'
             %br
             %i.fas.fa-chevron-right
-            = link_to'#',class: 'child' do
-              =@sub_category.name
+            = link_to'バック','#',class: 'bag'
             %br
             %i.fas.fa-chevron-right
-            = link_to'#',class: 'grand-child' do
-              =@sub_sub_category.name
+            = link_to'ショルダーバック','#',class: 'shoulder-bag'
         %tr
           %th ブランド
           %td
@@ -55,47 +44,43 @@
             = @brand
         %tr
           %th 商品のサイズ
-          %td=@size.value
+          %td
         %tr
           %th 商品の状態
-          %td=@condition.value
+          %td 目立った傷や汚れなし
         %tr
           %th 配送料の負担
-          %td=@delivery_charge.value
+          %td 送料込み（出品者の負担）
         %tr
           %th 配送の方法
-          %td=@delivery_method.value 
+          %td 普通郵便(定形、定形外)
         %tr
           %th 発送元地域
-          %td=@prefecture.name
+          %td 奈良
         %tr
           %th 発送日の目安
-          %td=@delivery_days.value
+          %td 4~7日で発送
     .item-price-box
       %span.price= converting_to_jpy(@item.price)
       %span.tax (税込)
-      %span.shipping-free 
-      - if @item.delivery_charge_id == 1
-        送料込み
-      - else
-        着払い
+      %span.shipping-free 送料込み
     .item-description
       %p.item-description__inner
         = @item.comment
   .container-2 
     .btn_contener
-      = link_to edit_item_path(@item.id) do
+      = link_to root_path do
         .item-edit-btn 商品の編集
         .p or
-      = link_to exhibition_suspension_items_path do
-        .item-stop-btn 出品を一旦停止する
-      = link_to item_path(@item), method: :delete do
+      = link_to show_mypage_items_path do
+        .item-stop-btn 出品を再開する
+      = link_to item_path(@item),method: :delete, data: {turbolinks: false} do
         .item-deleat-btn この商品を削除する
   .message-container
     .message-content    
       %form   
         %p 相手のことを考え丁寧なコメントを心がけましよう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         %textarea.textarea-default
-        %button{ type: 'submit',class: 'search-btn' }コメントする
+        %button2{ type: 'submit',class: 'search-btn', disabled: true }コメントする
 = render "items/toppage/bottom-banner-ad"
 = render "items/toppage/footer"
