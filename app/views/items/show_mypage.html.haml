@@ -38,13 +38,13 @@
         %tr
           %th カテゴリー
           %td
-            = link_to'レディース','#',class: 'ladys'
+            = link_to "#{Category.find(Category.find(Category.find(@item.category_id).sub_sub).sub).name}","#", class: 'parent'
             %br
             %i.fas.fa-chevron-right
-            = link_to'バック','#',class: 'bag'
+            = link_to "#{Category.find(Category.find(@item.category_id).sub_sub).name}","#", class: 'child'
             %br
             %i.fas.fa-chevron-right
-            = link_to'ショルダーバック','#',class: 'shoulder-bag'
+            = link_to "#{Category.find(@item.category_id).name}", "#", class: 'grand-child'
         %tr
           %th ブランド
           %td
@@ -53,21 +53,28 @@
         %tr
           %th 商品のサイズ
           %td
+            = Size.find(@item.size_id).value
         %tr
           %th 商品の状態
-          %td 目立った傷や汚れなし
+          %td 
+            = Condition.find(@item.condition_id).value
         %tr
           %th 配送料の負担
-          %td 送料込み（出品者の負担）
+          %td 
+            = DeliveryCharge.find(@item.delivery_charge_id).value
         %tr
           %th 配送の方法
-          %td 普通郵便(定形、定形外)
+          %td
+            = DeliveryMethod.find(@item.delivery_method_id).value
         %tr
           %th 発送元地域
-          %td 奈良
+          %td
+            = Prefecture.find(@item.prefecture_id).name
         %tr
           %th 発送日の目安
-          %td 4~7日で発送
+          %td
+            = DeliveryDays.find(@item.delivery_days_id).value
+            
     .item-price-box
       %span.price= converting_to_jpy(@item.price)
       %span.tax (税込)
@@ -77,7 +84,7 @@
         = @item.comment
   .container-2 
     .btn_contener
-      = link_to root_path do
+      = link_to edit_item_path(@item.id), method: :get do
         .item-edit-btn 商品の編集
         .p or
       = link_to exhibition_suspension_items_path do
