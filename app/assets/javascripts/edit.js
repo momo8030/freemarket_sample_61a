@@ -1,3 +1,79 @@
+$(function(){
+  var dropzone = $('.dropzone-area'); //クリックすると画像を選択出来るエリア・・・上段
+  var dropzone2 = $('.dropzone-area2'); //クリックすると画像を選択出来るエリア・・・下段
+  var input_area = $('.input_area');
+  
+  var preview = $('#preview');
+  var preview2 = $('#preview2');
+  
+  $(document).on('change', 'input[type= "file"].upload-image',function(event) {
+    var count_data = $('.img_view').length;
+    
+    var file = $(this).prop('files')[0];
+    var reader = new FileReader(); 
+    var img = $(`<div class= "img_view"><img></div>`);
+
+    reader.onload = function(e) {
+      var btn_wrapper = $('<div class="btn_wrapper"><div class="btn delete">削除</div></div>'); 
+      img.append(btn_wrapper);
+      img.find('img').attr({
+        src: e.target.result
+      })
+    }
+    reader.readAsDataURL(file);
+
+    if (count_data > 5){
+      preview2.append(img);
+
+      dropzone.css({
+        'display': 'none'
+      })
+      dropzone2.css({   
+        'display': 'block'
+      })
+    }
+    else {
+      preview.append(img);
+
+      dropzone.css({
+        'display': 'block'
+      })
+      dropzone.css({
+        'width': `calc(100% - (20% * ${count_data}))`
+      })
+      dropzone2.css({   
+        'display': 'none'
+      })
+    }
+
+    // if 灰色のやつ
+
+    var image_id = $(this).data('image');
+    image_id += 1
+    $('.dropzone-box').attr('for',`item_images_attributes_${image_id}_url`);
+    var new_image = $(`<input name="item[images_attributes][${image_id}][url]", class="upload-image" data-image="${image_id}", type="file", id="item_images_attributes_${image_id}_url">`);
+    input_area.append(new_image);
+    var count_id = $(this).data('image');
+    $('img:last').attr('data-image', `${count_id}`)
+    
+  });
+
+  $(document).on('click', '.delete', function() {
+    $(this).parent().parent().remove();
+    var del_id = $(this).parent().prev().data('image');
+    var del_image = $(`<input name="item[images_attributes][${del_id}][_destroy]", class="delete-image", type="hidden", value=1>`);
+    $('#preview2').append(del_image);
+  });
+
+  // if 灰色のやつ 増えるver
+  
+})
+
+
+
+
+
+
 // $(function(){
 
 //   //プレビューのhtmlを定義
