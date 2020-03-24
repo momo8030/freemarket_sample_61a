@@ -52,7 +52,7 @@
           #preview
             - @item.images.each_with_index do |image, i|
               %div.img_view
-                = image_tag image.url.url, data:{ image: i }, width: "118", height: '110'
+                = image_tag image.url.url, data:{ image: i }
                 %div.btn_wrapper
                   %div.btn.delete 削除
           .dropzone-area

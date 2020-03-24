@@ -72,7 +72,6 @@ class ItemsController < ApplicationController
 
   def update
     @item.update(item_params)
-    binding.pry
     redirect_to show_mypage_items_path
   end
 
