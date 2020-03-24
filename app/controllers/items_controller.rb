@@ -51,6 +51,7 @@ class ItemsController < ApplicationController
     @brand = @item.brand
     @seller_items = Item.where(seller_id: @seller.id).order('id DESC').limit(6)
     @sub_sub_category_items = Item.where(category_id: @sub_sub_category.id).order("id DESC").limit(6)
+    @like = Like.find_by(user_id: current_user.id, item_id: params[:id]) if user_signed_in?
   end
 
   def new
