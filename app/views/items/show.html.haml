@@ -79,9 +79,13 @@
         送料込み
       - else
         着払い
-      - if (@item.buyer_id.blank?)
-        .item-buy-btn 
-          =link_to '購入画面に進む','',class: 'buy-btn'
+      - if user_signed_in?
+        - if (@item.buyer_id.blank?)
+          .item-buy-btn 
+            =link_to '購入画面に進む', item_confirmation_path(@item), class:'buy-btn'
+        - else
+          .item-sold-btn
+            売り切れました
       - else
         - if (@item.buyer_id.blank?)
           .item-buy-btn 
