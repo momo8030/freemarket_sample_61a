@@ -117,6 +117,14 @@ header {
             }
           }
         }
+        .signup-btn {
+          background-color: $red; 
+          border-color: $red;
+          @include btn_default;    
+          .signin-text {
+            color: $background_rgb;
+          }
+        }
         .login-btn {
           background-color: $white;
           color: $light_blue;

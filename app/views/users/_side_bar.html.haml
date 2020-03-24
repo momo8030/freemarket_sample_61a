@@ -1,7 +1,7 @@
 .side__list
   .mypage__all-list
     %ul.menu
-      = link_to "#", class: 'list__item' do
+      = link_to user_path(:id), class: 'list__item' do
         %li#mypage.mypage__list
           マイページ
           = icon 'fas', 'chevron-right'
@@ -17,7 +17,7 @@
         %li.mypage__list
           いいね！一覧
           = icon 'fas', 'chevron-right'
-      = link_to "#", class: 'list__item' do
+      = link_to "../items/new", class: 'list__item' do
         %li.mypage__list
           出品する
           = icon 'fas', 'chevron-right'
@@ -74,7 +74,7 @@
     %h3.side__h3 
       設定
     %ul.merpay-setting.menu
-      = link_to "#", class: 'list__item' do
+      = link_to user_profile_edit_path(:user_id), class: 'list__item' do
         %li#profile.mypage__list
           プロフィール
           = icon 'fas', 'chevron-right'
@@ -90,7 +90,7 @@
         %li.mypage__list
           メール/パスワード
           = icon 'fas', 'chevron-right'
-      = link_to "#", class: 'list__item' do
+      = link_to user_identification_path(:user_id), class: 'list__item' do
         %li#user-info.mypage__list
           本人情報
           = icon 'fas', 'chevron-right'
