@@ -8,6 +8,7 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find_by(user_id: current_user.id, item_id: params[:item_id])
+    @like.destroy
     @item.reload   
   end
 
