@@ -38,13 +38,16 @@
         %tr
           %th カテゴリー
           %td
-            = link_to'レディース','#',class: 'ladys'
+            = link_to '#',class: 'ladys' do
+              =@main_category.name
             %br
             %i.fas.fa-chevron-right
-            = link_to'バック','#',class: 'bag'
+            = link_to'#',class: 'bag' do
+              =@sub_category.name
             %br
             %i.fas.fa-chevron-right
-            = link_to'ショルダーバック','#',class: 'shoulder-bag'
+            = link_to'#',class: 'shoulder-bag' do
+              =@sub_sub_category.name
         %tr
           %th ブランド
           %td
@@ -52,54 +55,44 @@
             = @brand
         %tr
           %th 商品のサイズ
-          %td
+          %td=@size.value
         %tr
           %th 商品の状態
-          %td 目立った傷や汚れなし
+          %td=@condition.value
         %tr
           %th 配送料の負担
-          %td 送料込み（出品者の負担）
+          %td=@delivery_charge.value
         %tr
           %th 配送の方法
-          %td 普通郵便(定形、定形外)
+          %td=@delivery_method.value 
         %tr
           %th 発送元地域
-          %td 奈良
+          %td=@prefecture.name
         %tr
           %th 発送日の目安
-          %td 4~7日で発送
+          %td=@delivery_days.value
     .item-price-box
       %span.price= converting_to_jpy(@item.price)
       %span.tax (税込)
-      %span.shipping-free 送料込み
-    -# .item-buy-btn
-    -#   =link_to '購入画面に進む',item_confirmation_path(@item),class: 'buy-btn'
-    -# .item-description
-    -#   %p.item-description__inner
-    -#     こちらはLAKOLEのレザー調巾着バッグになります★
-    -#     %br
-    -#     わりと荷物は入ります♪
-    -#     %br
-    -#     5回程使用していますが、目立って傷や汚れはありません。
-    -#     %br
-    -#     %br
-    -#     %br
-    -#     縦20cm
-    -#     %br
-    -#     幅15cm
-    -#     %br
-    -#     %br
-    -#     ※他サイトにも出品しておりますので、ご購入の際はにはコメントお願いします★
-    .item-button-contener.clearfix
-      -# .item-button-contener__left
-      -#   .item-like
-      -#     %button{type: 'button', name: 'like',class:'like-btn'}
-      - if (@item.buyer_id.blank?)
-        .item-buy-btn 
-          =link_to '購入画面に進む', item_confirmation_path(@item), class: 'buy-btn'
+      %span.shipping-free
+      - if @item.delivery_charge_id == 1
+        送料込み
       - else
-        .item-sold-btn
-          売り切れました
+        着払い
+      - if user_signed_in?
+        - if (@item.buyer_id.blank?)
+          .item-buy-btn 
+            =link_to '購入画面に進む', item_confirmation_path(@item), class:'buy-btn'
+        - else
+          .item-sold-btn
+            売り切れました
+      - else
+        - if (@item.buyer_id.blank?)
+          .item-buy-btn 
+            =link_to '購入画面に進む', new_user_session_path, class: 'buy-btn'
+        - else
+          .item-sold-btn
+            売り切れました
       .item-description
         .item-description__inner
           = @item.comment
@@ -183,11 +176,10 @@
               = icon('fab','twitter-square',class: 'twitter-icon')
           %li
             = link_to root_path do
-              = icon('fab','pinterest-square',class: 'pinterest-icon')  
--if @seller_items    
+              = icon('fab','pinterest-square',class: 'pinterest-icon')     
   .items-in-user-profile 
     .items-box-heard
-      = link_to "#{@seller.nickname}さんのその他の出品",root_path,class:'link-buyer'
+      = link_to "#{@seller.nickname}さんのその他の出品",'',class:'link-buyer'
     .items-contents
       - @seller_items.each do |item|
         .items-contents__box
@@ -218,76 +210,35 @@
                       %span 8
   .items-in-user-profile 
     .items-box-heard
-      = link_to "ショルダーバック（レディース） その他の商品",root_path,class:'link-brand'
-    .items-contents.clearfix
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
-          
-          .item-img
-            = image_tag 'product/eco-item.jpg', size: '220x220'
-          .item-box-body
-            %h2.item-name エコレザースクエアポシェット ロープショルダーバッグ
-            .item-box-body__num
-              .price ¥4,100
-              .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
-                  %span 49
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
-          .item-img
-          .item-box-body
-            %h2.item-name 
-            .item-box-body__num
-              .price ¥0
-              .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
-                  %span 0
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
-          .item-img
-          .item-box-body
-            %h2.item-name 
-            .item-box-body__num
-              .price ¥0
-              .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
-                  %span 0
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
-          .item-img
-          .item-box-body
-            %h2.item-name 
-            .item-box-body__num
-              .price ¥0
-              .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
-                  %span 0
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
-          .item-img
-          .item-box-body
-            %h2.item-name 
-            .item-box-body__num
-              .price ¥0
-              .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
-                  %span 0
-      .items-contents__box
-        = link_to root_path('#'),class:'item'do
-          .item-img
-          .item-box-body
-            %h2.item-name 
-            .item-box-body__num
-              .price ¥0
-              .like
-                = link_to root_path do
-                  = icon('far','heart',class: 'heart-icon')
-                  %span 0
+      = link_to "#{@sub_sub_category.name} (#{@main_category.name}) その他の商品",'',class:'link-brand'
+    .items-contents
+      - @sub_sub_category_items.each do |item|
+        .items-contents__box
+          = link_to item_path(item.id),class:'item'do
+            - if (item.buyer_id.blank?)
+              .item-img
+                = image_tag "#{item.images.first.url}",size: '230x230'
+              .item-box-body
+                %h2.item-name=item.name
+                .item-box-body__num
+                  .price= converting_to_jpy(item.price)
+                  .like
+                    = link_to root_path do
+                      =icon('far','heart',class: 'heart-icon')
+                      %span 8
+            -else
+              .item-img  
+                = image_tag "#{item.images.first.url}",size: '230x230'
+                .item-img__top
+                .tag SOLD
+              .item-box-body
+                %h2.item-name=item.name
+                .item-box-body__num
+                  .price= converting_to_jpy(item.price)
+                  .like
+                    = link_to root_path do
+                      =icon('far','heart',class: 'heart-icon')
+                      %span 8
   .item-contents-bottom
 - breadcrumb :item, @item
 = render "layouts/breadcrumbs"

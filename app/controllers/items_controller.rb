@@ -1,7 +1,13 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy, :edit, :update]
-
+  before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy]
+  before_action :set_card
+  before_action :set_delivery,only: [:show,:show_mypage,:edit]
+  before_action :set_category,only: [:show,:show_mypage,:edit]
+  before_action :set_prefecture,only: [:show,:show_mypage,:edit]
+  before_action :set_size,only: [:show,:show_mypage,:edit]
+  before_action :set_condition,only: [:show,:show_mypage,:edit]
+  
   require 'payjp'
    
 
@@ -35,7 +41,7 @@ class ItemsController < ApplicationController
   def show_mypage
     show_item
   end
-
+  
   def exhibition_suspension
     show_item
   end
@@ -44,7 +50,8 @@ class ItemsController < ApplicationController
     @images = @item.images.order('id ASC')
     @seller = @item.seller
     @brand = @item.brand
-    @seller_items = Item.where(seller_id: @seller.id).order("id DESC").limit(6)
+    @seller_items = Item.where(seller_id: @seller.id).order('id DESC').limit(6)
+    @sub_sub_category_items = Item.where(category_id: @sub_sub_category.id).order("id DESC").limit(6)
   end
 
   def new
@@ -131,9 +138,32 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :price, :comment, :condition_id, :category_id, :size_id, :delivery_charge_id, :prefecture_id, :delivery_days_id, :delivery_method_id, :brand, :buyer_id, :likes_count, images_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
   end
-  
+
+  def set_card
+    @credit = Card.present?
+  end
+
   def set_item
     @item = Item.find(params[:id])
   end
 
-end
+  def set_delivery
+    @delivery_charge = DeliveryCharge.find(@item.delivery_charge_id)
+    @delivery_days = DeliveryDays.find(@item.delivery_days_id)
+    @delivery_method = DeliveryMethod.find(@item.delivery_method_id)
+   end
+  def set_category
+    @sub_sub_category = Category.find(@item.category_id)
+    @sub_category = Category.find(Category.find(@item.category_id).sub_sub) unless Category.find(@item.category_id).sub_sub == 0
+    @main_category = Category.find(Category.find(@item.category_id).sub)
+  end
+  def set_prefecture
+    @prefecture = Prefecture.find(@item.prefecture_id)
+  end
+  def set_size
+    @size = Size.find(@item.size_id)
+  end
+  def set_condition
+    @condition = Condition.find(@item.condition_id)
+  end
+ end

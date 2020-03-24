@@ -5,7 +5,10 @@
         .icon
           = image_tag "haru.jpg", class: "user-img", size: "60x60"
         %h2.nickname
-          = @user.nickname
+          -if user_signed_in?
+            = @user.nickname
+          - else
+            = User.find(params[:id]).nickname
         .mypage-status
           %div.status
             評価
