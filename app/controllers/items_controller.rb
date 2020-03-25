@@ -2,11 +2,11 @@ class ItemsController < ApplicationController
 
   before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy, :edit, :update]
   before_action :set_card
-  before_action :set_delivery,only: [:show,:show_mypage,:edit]
-  before_action :set_category,only: [:show,:show_mypage,:edit]
-  before_action :set_prefecture,only: [:show,:show_mypage,:edit]
-  before_action :set_size,only: [:show,:show_mypage,:edit]
-  before_action :set_condition,only: [:show,:show_mypage,:edit]
+  before_action :set_delivery,only: [:show,:show_mypage,:edit,:exhibition_suspension]
+  before_action :set_category,only: [:show,:show_mypage,:edit,:exhibition_suspension]
+  before_action :set_prefecture,only: [:show,:show_mypage,:edit,:exhibition_suspension]
+  before_action :set_size,only: [:show,:show_mypage,:edit,:exhibition_suspension]
+  before_action :set_condition,only: [:show,:show_mypage,:edit,:exhibition_suspension]
   
   require 'payjp'
    
