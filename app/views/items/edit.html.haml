@@ -9,45 +9,6 @@
         出品画像
         .span 必須
         %p 最大10枚までアップロードできます
-        -# .post__drop__box__container
-        -#   .prev-content
-        -#     - @item.images.each do |image|
-        -#       .preview-box
-        -#         .upper-box
-        -#           = image_tag image.url.url, width: "112", height: "112", alt: "preview"
-        -#         .lower-box
-        -#           .update-box
-        -#             %label.edit-btn 編集
-        -#           .delete-box
-        -#             .delete-btn
-        -#               %span 削除
-        -#   .label-content
-        -#     = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
-        -#       %pre.label-box__text-visible クリックしてファイルをアップロード
-        -#   .hidden-content
-        -#     = f.fields_for :images do |i|
-        -#       = i.file_field :image, class: "hidden-field"
-        -#       = i.check_box:_destroy, class: "hidden-checkbox"
-        -#     - @item.images.length.upto(4) do |i|
-        -#       %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
-        -# = f.fields_for :images do |image|
-        -#   .dropzone__container
-        -#     #preview
-        -#       - if @item.persisted?
-        -#         - @item.images.each_with_index do |image, i|
-        -#           %div.img_view
-        -#             = image_tag image.url.url, data: { image: i }, width: "118", height: '110'
-        -#             %div.btn_wrapper
-        -#               %div.btn.delete 削除
-        -#     .dropzone-area
-        -#       = image.label :image, class: "dropzone-box", for: "upload-image" do
-        -#         .input_area
-        -#           = image.file_field :url, id: "upload-image", class: "upload-image", 'data-image': 0
-        -#           %p ここをクリックしてください
-        -#     #preview2
-        -#     .dropzone-area2
-        -#       = image.label :image, class: "dropzone-box", for: "upload-image" do
-        -#         %p ここをクリックしてください
         .dropzone__container
           #preview
             - @item.images.each_with_index do |image, i|

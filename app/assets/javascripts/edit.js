@@ -22,7 +22,7 @@ $(function(){
     
     var minus_area = count_data += 1 //クリックエリアの伸縮用にimg_viewの個数を数える
     // previewへの条件分岐
-    if (minus_area > 5){
+    if (minus_area >= 5){
       preview2.append(img);
     }
     else {
@@ -112,9 +112,15 @@ $(function(){
     'display': 'none'
     })
   }
-  if (count_data >= 5) {
+  if (count_data <= 5) {
     dropzone.css({
     'width': `calc(100% - (20% * ${count_data}))`
     })
   }
+  if (count_data >= 5) {
+    dropzone2.css({
+    'width': `calc(100% - (20% * ${count_data}))`
+    })
+  }
+
 })
