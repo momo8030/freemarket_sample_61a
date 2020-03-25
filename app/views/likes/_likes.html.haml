@@ -1,0 +1,18 @@
+- if user_signed_in?
+  - if current_user.likes.find_by(item_id: item.id)
+    = link_to item_like_path(item.id,like), id:"like-btn", method: :delete, remote: true do
+      = icon('fas','heart',class: 'red-heart-icon')
+      %span.fade-in-down-red いいね！
+      %span.fade-in-down-red 
+        =item.likes.count
+  -else
+    = link_to item_likes_path(item.id,like),id:"like-btn", method: :post, remote: true do
+      = icon('far','heart',class: 'heart-icon')
+      %span.fade-in-down いいね！
+      %span.fade-in-down 
+        =item.likes.count
+-else
+  = icon('far','heart',class: 'heart-icon')
+  %span.fade-in-down いいね！
+  %span.fade-in-down 
+    =item.likes.count

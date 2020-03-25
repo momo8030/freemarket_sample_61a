@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
   resources :items do
+    resources :likes, only: [:create, :destroy]
     get :confirmation
     post 'pay', to: 'items#pay'
     get :done

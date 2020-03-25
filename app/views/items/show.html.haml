@@ -99,11 +99,7 @@
       .item-button-contener.clearfix
         .item-button-contener__left
           .item-like
-            %button{type: 'button', name: 'like',class:'like-btn'}
-              = link_to root_path do
-                = icon('far','heart',class: 'heart-icon')
-            %span.fade-in-down いいね！
-            %span.fade-in-down 26
+            = render partial:'likes/likes', locals: {item:@item, like:@like}
           .item-report
             = link_to root_path do
               = icon('far','flag',class: 'flag-icon')
@@ -194,7 +190,7 @@
                   .like
                     = link_to root_path do
                       =icon('far','heart',class: 'heart-icon')
-                      %span 8
+                      %span=item.likes.count
             -else
               .item-img  
                 = image_tag "#{item.images.first.url}",size: '230x230'
@@ -207,7 +203,7 @@
                   .like
                     = link_to root_path do
                       =icon('far','heart',class: 'heart-icon')
-                      %span 8
+                      %span=item.likes.count
   .items-in-user-profile 
     .items-box-heard
       = link_to "#{@sub_sub_category.name} (#{@main_category.name}) その他の商品",'',class:'link-brand'
@@ -225,7 +221,7 @@
                   .like
                     = link_to root_path do
                       =icon('far','heart',class: 'heart-icon')
-                      %span 8
+                      %span=item.likes.count
             -else
               .item-img  
                 = image_tag "#{item.images.first.url}",size: '230x230'
@@ -238,7 +234,7 @@
                   .like
                     = link_to root_path do
                       =icon('far','heart',class: 'heart-icon')
-                      %span 8
+                      %span=item.likes.count
   .item-contents-bottom
 - breadcrumb :item, @item
 = render "layouts/breadcrumbs"
