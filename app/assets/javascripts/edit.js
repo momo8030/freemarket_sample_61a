@@ -22,7 +22,7 @@ $(function(){
     
     var minus_area = count_data += 1 //クリックエリアの伸縮用にimg_viewの個数を数える
     // previewへの条件分岐
-    if (minus_area >= 5){
+    if (minus_area > 5){
       preview2.append(img);
     }
     else {
@@ -71,14 +71,13 @@ $(function(){
     input_area.append(new_image);
     var count_id = $(this).data('image');
     $('img:last').attr('data-image', `${count_id}`)
-    
   });
 
   $(document).on('click', '.delete', function() {
     $(this).parent().parent().remove();
     var del_id = $(this).parent().prev().data('image');
     var del_image = $(`<input name="item[images_attributes][${del_id}][_destroy]", class="delete-image", type="hidden", value=1>`);
-    $('#preview2').append(del_image);
+    preview2.append(del_image);
   
     var plus_area = count_data -= 1 //クリックエリアの伸縮用にimg_viewの個数を数える
     // if 灰色のやつ 増えるver
@@ -93,7 +92,7 @@ $(function(){
         'width': `calc(100% - (20% * ${plus_area - 5}))`
       })
     }
-    if (plus_area <= 4 ) {
+    if (plus_area <= 4) {
       dropzone.css({
         'display': 'block'
       })
@@ -104,11 +103,16 @@ $(function(){
         'display': 'none'
       })
     }
-    if (plus_area <= 1 ) {
+    if (plus_area <= 1) {
       dropzone.find('i').replaceWith('<p>ここをクリックしてくださいよ</p>')
     }
   });
-  if (count_data >= 1 ) {
+  if (count_data >= 5) {
+    dropzone.css({
+    'display': 'none'
+    })
+  }
+  if (count_data >= 5) {
     dropzone.css({
     'width': `calc(100% - (20% * ${count_data}))`
     })
