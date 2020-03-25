@@ -78,8 +78,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
-    redirect_to show_mypage_items_path
+    if @item.update(item_params)
+      redirect_to show_mypage_items_path
+    else
+      render :edit
+    end
   end
 
 
