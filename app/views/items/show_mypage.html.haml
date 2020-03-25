@@ -87,7 +87,7 @@
       = link_to edit_item_path(@item.id) do
         .item-edit-btn 商品の編集
         .p or
-      = link_to exhibition_suspension_items_path do
+      = link_to exhibition_suspension_items_path(@item.id) do
         .item-stop-btn 出品を一旦停止する
       = link_to item_path(@item), method: :delete do
         .item-deleat-btn この商品を削除する
