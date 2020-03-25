@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy]
+
+  before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy, :edit, :update]
   before_action :set_card
   before_action :set_delivery,only: [:show,:show_mypage,:edit]
   before_action :set_category,only: [:show,:show_mypage,:edit]
@@ -8,7 +9,7 @@ class ItemsController < ApplicationController
   before_action :set_condition,only: [:show,:show_mypage,:edit]
   
   require 'payjp'
-  
+   
 
   def index
 
@@ -73,6 +74,15 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @images = @item.images
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to show_mypage_items_path
+    else
+      render :edit
+    end
   end
 
 

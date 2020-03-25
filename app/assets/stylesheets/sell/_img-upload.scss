@@ -8,7 +8,7 @@
   }
   .img_view {
     float:left;
-    padding-right: 4px;
+    padding: 0 18px;
     }
   .img_view > img {
     width: 120px;
@@ -51,8 +51,6 @@
   }
   #preview {
     float:left;
-    .btn_wrapper {
-    }
   }
   .input_area {
     height: 100%;
