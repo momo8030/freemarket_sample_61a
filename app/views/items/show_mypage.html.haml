@@ -1,5 +1,8 @@
 .product-detail
-  = render "items/toppage/header"
+  = render "items/toppage/header2"
+  .exhibition__footer
+    - breadcrumb :item_ex
+    = render "layouts/breadcrumbs"
   %section.container
     %h1.item-name
       = @item.name

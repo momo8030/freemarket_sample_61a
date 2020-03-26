@@ -38,6 +38,11 @@ end
    parent :root
 end
 
+ crumb :item_ex do 
+   link "出品商品画面"
+   parent :mypage
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project
