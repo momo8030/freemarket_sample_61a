@@ -32,7 +32,11 @@
           .payment-info__inner
             .payment
               %h3 支払い方法
-            -if @credit.present?    
+            - if @default_card_information.blank?
+              %p 
+              %i.fas.fa-plus-circle
+              = link_to '登録して下さい', new_card_path, class: 'change'
+            - else  
               %br 
               = "**** **** **** " + @default_card_information.last4
               %br
@@ -43,11 +47,7 @@
                 %input{ type: "hidden", name: "card_id", value: "" }
                 %button.btn_delate  変更する
                 .credit-card-logo
-                  = image_tag('visa.png', alt: "visa")
-            - else
-              %p 
-              %i.fas.fa-plus-circle
-              = link_to '登録して下さい', new_card_path, class: 'change'
+                  = image_tag('visa.png', alt: "visa")            
         %section.delivery-info
           .delivery-info__inner
             .delivery
