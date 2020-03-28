@@ -1,6 +1,7 @@
 .dropzone__container {
-  width: 100%;
+  width: 640px;
   height: 100%;
+  margin: 0 auto;
   
   .dropzone-area {
     @include dropzone ;
@@ -8,7 +9,7 @@
   }
   .img_view {
     float:left;
-    padding: 0 2px;
+    padding: 0 4px;
     }
   .img_view > img {
     width: 120px;
@@ -60,9 +61,8 @@
       display: none;
     }
     p {
-      position: absolute;
-      top: 40%;
-      left: 35%;
+    text-align: center;
+    line-height: 134px;
     }
     .fa {
       font-size: 20px;
