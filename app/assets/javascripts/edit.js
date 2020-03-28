@@ -136,6 +136,11 @@ $(function(){
   if (count_data == 9) {
     dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
   }
+  if (count_data == 10) {
+    dropzone2.css({
+    'display': 'none'
+    })
+  }
 
   if (document.URL.match(/edit/)) {
     var preview_img = document.getElementById('preview').children;
