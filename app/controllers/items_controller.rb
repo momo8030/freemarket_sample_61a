@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :set_item,only: [:show, :show_mypage, :exhibition_suspension, :destroy, :edit, :update]
+  before_action :set_card
   before_action :set_delivery,only: [:show,:show_mypage,:edit,:exhibition_suspension]
   before_action :set_category,only: [:show,:show_mypage,:edit,:exhibition_suspension]
   before_action :set_prefecture,only: [:show,:show_mypage,:edit,:exhibition_suspension]
@@ -139,6 +140,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :comment, :condition_id, :category_id, :size_id, :delivery_charge_id, :prefecture_id, :delivery_days_id, :delivery_method_id, :brand, :buyer_id, :likes_count, images_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
+  end
+
+  def set_card
+    @credit = Card.present?
   end
 
   def set_item
