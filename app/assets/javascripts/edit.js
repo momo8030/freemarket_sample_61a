@@ -103,10 +103,20 @@ $(function(){
         'display': 'none'
       })
     }
-    if (plus_area <= 1) {
+    if (plus_area <= 8) {
+      dropzone2.find('i').replaceWith('<p>ここをクリックしてくださいよ</p>')
+    }
+    else {
+      dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
+    }
+    if (plus_area <= 2) {
       dropzone.find('i').replaceWith('<p>ここをクリックしてくださいよ</p>')
     }
+    else {
+      dropzone.find('p').replaceWith('<i class="fa fa-camera"></i>')
+    }
   });
+  
   if (count_data >= 5) {
     dropzone.css({
     'display': 'none'
@@ -119,8 +129,41 @@ $(function(){
   }
   if (count_data >= 5) {
     dropzone2.css({
-    'width': `calc(100% - (20% * ${count_data}))`
+    'width': `calc(100% - (20% * ${count_data - 5}))`,
+    'display': 'block'
     })
   }
+  if (count_data == 9) {
+    dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
+  }
 
+  if (document.URL.match(/edit/)) {
+    var preview_img = document.getElementById('preview').children;
+    var move_image = document.getElementById('preview2');
+    if (count_data == 10){
+      move_image.appendChild(preview_img[5]);
+      move_image.appendChild(preview_img[5]);
+      move_image.appendChild(preview_img[5]);
+      move_image.appendChild(preview_img[5]);
+      move_image.appendChild(preview_img[5]);
+    }
+    if (count_data == 9){
+      move_image.appendChild(preview_img[5]);
+      move_image.appendChild(preview_img[5]);
+      move_image.appendChild(preview_img[5]);
+      move_image.appendChild(preview_img[5]);
+    }
+    if (count_data == 8) {
+      move_image.appendChild(preview_img[5]);
+      move_image.appendChild(preview_img[5]);
+      move_image.appendChild(preview_img[5]);
+    }
+    if (count_data == 7) {
+      move_image.appendChild(preview_img[5]);
+      move_image.appendChild(preview_img[5]);
+    }
+    if (count_data == 6) {
+      move_image.appendChild(preview_img[5]);
+   }
+  }
 })

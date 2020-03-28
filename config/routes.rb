@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :new] do
-    get :profile_edit
+    get :compilation
     get :identification
     get :logout
   end
