@@ -13,6 +13,7 @@ class Item < ApplicationRecord
   has_many   :images,dependent: :destroy
   has_many :likes, dependent: :destroy
   validates :name, presence: true
+  validates :images, presence: true
   validates :price, presence: true
   validates :comment, presence: true
   validates :condition_id, presence: true
